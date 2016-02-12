@@ -1,23 +1,11 @@
 'use strict';
 
-const server = require('./server/server');
-const middle = require('./middleware/middleware');
+let Dufing = require('dufing');
 
-class M {
-    constructor(obj) {
-        const port = obj.port || 8124;
-        server.call(this, port);
-    }
+let site = new Dufing({
+    port: 8333
+});
 
-    use(middles) {
-        for (var i in middles) {
-            let obj = {
-                name: i,
-                config: middles[i]
-            }
-            middle.add.call(this, obj);
-        }
-    }
-}
-
-module.exports = M;
+site.use({
+    jade: {}
+})
