@@ -1,4 +1,4 @@
-var render = function(req, res) {
+var render = function() {
     this.jade({
         data: {
             title: 'abc'

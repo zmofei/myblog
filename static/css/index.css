@@ -1,1 +1,144 @@
-cc 
+html,
+body {
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    overflow: auto;
+    font-family: Tahoma, Arial, Roboto, ”Droid Sans”, ”Helvetica Neue”, ”Droid Sans Fallback”, ”Heiti SC”, ”Hiragino Sans GB”, Simsun, sans-self;
+}
+
+body {
+    background: url('/image/index/cover.jpg') center center;
+    background-size: cover;
+}
+
+.index {
+    height: 100%;
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+}
+
+.index-cover h2 {
+    font-size: 16px;
+    color: #eee;
+    animation: titleh2 3s ease-in;
+}
+
+.title {
+    text-align: center;
+    color: #fff;
+    height: 360px;
+    width: 100%;
+    margin-top: -280px;
+    position: absolute;
+    top: 50%;
+    font-family: sans-serif;
+    animation: titlepos 1s ease-in;
+}
+
+svg path {
+    fill: rgba(0, 0, 0, 0);
+    stroke: #fff;
+    stroke-dasharray: 0;
+    stroke-dashoffset: 0;
+    animation: title 4s ease-in forwards;
+}
+
+nav {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+nav a{
+    color: #ccc;
+    text-decoration: none;
+    font-size: 12px;
+    padding: 10px 6px;
+}
+
+.nav-main {
+    float: left;
+}
+.nav-sub {
+    float: right;
+}
+
+.cover-more {
+    transition: all 0.3s ease-in;
+    border: none;
+    background: rgba(255,255,255,0.7);
+    color: #333;
+    font-size: 18px;
+    position: absolute;
+    bottom: 100px;
+    left: 50%;
+    width: 160px;
+    margin-left: -80px;
+    padding: 10px 0;
+    outline: none;
+    cursor: pointer;
+}
+
+.cover-more:after {
+    transition: all 0.3s ease-in;
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    right: 8px;
+    bottom: 8px;
+    content: ' ';
+    opacity: 0;
+    border: 1px solid #fff;
+}
+
+.cover-more:hover {
+    background: rgba(255,255,255,0);
+    color: #fff;
+}
+.cover-more:hover:after {
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    opacity: 1;
+}
+
+@keyframes title {
+    0% {
+        stroke-dasharray: 1000;
+        stroke-dashoffset: 1000;
+    }
+    80% {
+        stroke-dashoffset: 0;
+        fill: rgba(0, 0, 0, 0);
+    }
+    100% {
+        stroke-dasharray: 1000;
+        stroke-dashoffset: 0;
+        fill: rgba(0, 0, 0, 0.2);
+    }
+}
+
+@keyframes titlepos {
+    0% {
+        margin-top: -250px;
+        opacity: 0;
+    }
+    100% {
+        margin-top: -280px;
+        opacity: 1;
+    }
+}
+
+@keyframes titleh2 {
+    0% {
+        opacity: 0;
+    }
+    80% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
