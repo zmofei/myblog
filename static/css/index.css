@@ -34,7 +34,7 @@ body {
 }
 
 .videobg {
-    position: fixed;
+    position: absolute;
     right: 0;
     bottom: 0;
     min-width: 100%;
@@ -103,24 +103,28 @@ body {
     float: right;
 }
 
-.index-cover .cover-more {
-    transition: all 0.15s ease-in;
-    border: none;
-    background: rgba(255, 255, 255, 0.7);
-    color: #333;
-    font-size: 18px;
+.index-cover .btn {
     position: absolute;
     bottom: 100px;
     left: 50%;
     width: 160px;
     margin-left: -80px;
     padding: 10px 0;
-    outline: none;
-    cursor: pointer;
     animation: titleh2 3s ease-in;
 }
 
-.index-cover .cover-more:after {
+.btn {
+    position: relative;
+    transition: all 0.15s ease-in;
+    border: none;
+    background: rgba(255, 255, 255, 0.7);
+    color: #333;
+    font-size: 18px;
+    outline: none;
+    cursor: pointer;
+}
+
+.btn:after {
     transition: all 0.15s ease-in;
     position: absolute;
     top: 10px;
@@ -132,12 +136,12 @@ body {
     border: 1px solid #fff;
 }
 
-.index-cover .cover-more:hover {
+.btn:hover {
     background: rgba(255, 255, 255, 0);
     color: #fff;
 }
 
-.index-cover .cover-more:hover:after {
+.btn:hover:after {
     top: 0px;
     left: 0px;
     right: 0px;
@@ -265,14 +269,18 @@ body {
     color: #fff;
 }
 
-.index-travel h2 {
+.index-travel h2,
+.index-coffee h2,
+.index-content h2 {
     font-size: 66px;
     font-weight: 300;
     margin: 40px 0 15px 0;
     text-align: center;
 }
 
-.index-travel h3 {
+.index-travel h3,
+.index-coffee h3,
+.index-content h3 {
     font-size: 26px;
     font-weight: 300;
     /*font-size: 14px;*/
@@ -281,4 +289,144 @@ body {
 
 .index-travel-world {
     margin: 40px 0;
+}
+
+.index-coffee {
+    padding: 40px 0 80px 0;
+    overflow: hidden;
+    color: #333;
+    background: rgba(255, 255, 255, 0.85)
+}
+
+.index-coffee p {
+    font-size: 16px;
+    line-height: 1.6em;
+    /*text-align: center;*/
+    margin: 10px auto;
+    padding: 0 20px;
+    max-width: 1200px;
+}
+
+.index-content {
+    background: #363941;
+    overflow: hidden;
+    color: #ccc;
+}
+
+.index-content .btn {
+    padding: 8px 0;
+    width: 140px;
+}
+
+.index-content input,
+.index-content textarea {
+    color: #ccc;
+    border: none;
+    background: #484b53;
+    padding: 10px;
+    font-size: 14px;
+    box-sizing: border-box;
+    width: 90%;
+}
+
+.index-content textarea {
+    width: 95%;
+    height: 8em;
+}
+
+.index-content-box {
+    margin: 40px auto;
+    padding: 40px 0 40px 3.5%;
+    max-width: 1200px;
+    overflow: hidden;
+    border-top: 1px solid #484b53;
+}
+
+.index-content-boxhalf {
+    float: left;
+    width: 50%;
+}
+
+.index-media {
+    border-top: 1px solid #484b53;
+    background: rgba(54, 57, 65, 1);
+    padding: 50px 0;
+    color: #fff;
+    text-align: center;
+}
+
+.index-media .btn {
+    height: 80px;
+    width: 80px;
+    border-radius: 60px;
+    display: inline-block;
+    line-height: 80px;
+    text-align: center;
+    padding: 10px;
+    margin: 0 10px;
+}
+
+.index-media .btn:after {
+    border-width: 2px;
+    border-radius: 60px;
+}
+
+
+.index-copyright-top {
+    opacity: 0.95;
+    height: 50px;
+    background: #fff;
+    width: 100%;
+}
+
+.index-copyright-mid {
+    opacity: 0.95;
+    overflow: hidden;
+    height: 127px;
+    position: relative;
+}
+
+.index-copyright-midleft {
+    width: 50%;
+    margin-left: -206px;
+    top: 0;
+    left: 0;
+    background: #fff;
+    height: 127px;
+}
+
+.index-copyright-midcenter {
+    width: 412px;
+    position: absolute;
+    left: 50%;
+    margin-left: -206px;
+    top: 0;
+}
+
+.index-copyright-midright {
+    position: absolute;
+    width: 50%;
+    margin-right: -206px;
+    top: 0;
+    right: 0;
+    background: #fff;
+    height: 127px;
+}
+
+.index-copyright-bottom {
+    /*opacity: 0.95;*/
+    background: rgba(255, 255, 255, 0.95);
+    padding-top: 50px;
+}
+
+.index-copyright-bottom-txt {
+    text-align: center;
+    background: #eee;
+    padding: 10px;
+    font-size: 12px;
+}
+
+.index-copyright-bottom-txt a {
+    color: #f15623;
+    text-decoration: none;
 }

@@ -23,7 +23,7 @@
             }
 
             ctxWave.globalCompositeOperation = 'destination-out';
-            ctxWave.fillStyle = 'rgba(0, 0, 0, .1)';
+            ctxWave.fillStyle = 'rgba(0, 0, 0, .08)';
             ctxWave.fillRect(0, 0, ctxWave.canvas.width, ctxWave.canvas.height);
             ctxWave.globalCompositeOperation = 'lighter';
 
