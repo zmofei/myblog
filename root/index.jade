@@ -22,17 +22,20 @@ html(lang="zh")
         source(src='/video/bgvid.mp4', type='video/mp4')
         source(src='/video/bgvid.ogv', type='video/ogv')
     div.videobg
+    section.global-nav#nav
+        a.global-nav-btn#navTar(href="#")
+            //- span MENU 
+        section.global-nav-bar#navBar
+            a.global-nav-close#navClose(href="#")
+            ul
+                li
+                    a.active(href="#") 首页
+                    a(href="#") 博客
+                    a(href="#") 实验室
+                    a(href="#") 小伙伴
+                    a(href="#") RSS
+        section.global-nav-bg#navBg
     section.index.index-cover
-        nav
-            .nav-main
-                a(href="#") 首页
-                a(href="#") 博客
-                a(href="#") 实验室
-                a(href="#") 小伙伴
-            .nav-sub
-                a(href="#") 微博
-                a(href="#") Github
-                a(href="#") RSS
         div.title
             svg#title(version='1.1', xmlns='http://www.w3.org/2000/svg', xmlns:xlink='http://www.w3.org/1999/xlink', x='0px', y='0px', viewbox='0 0 1000 200', enable-background='new 0 0 1000 200', xml:space='preserve')
               g
@@ -45,7 +48,7 @@ html(lang="zh")
                 path(d='M800.4,155.7V51.1h68.3V58h-61.2v40.2h55.9v6.5h-55.9V149h61.2v6.7H800.4z')
                 path(d='M881.9,155.7V51.1h7.1v104.6H881.9z')
             h2 Open a coffee shop, travel around the world, that should be my life.
-        button.btn.cover-more Learn More
+        button.btn.cover-more#More Learn More
     section.index-about
         h2 WHO AM I.
         div.index-about-who 
@@ -114,6 +117,7 @@ html(lang="zh")
         div.index-copyright-bottom
             div.index-copyright-bottom-txt (C) 2016 by 
                 a(href="http://www.zhuwenlong.com") Mofei
+    script(src="/js/index.js")
     script(src="/js/world.js")
 
 
