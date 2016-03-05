@@ -1,0 +1,148 @@
+extends ../layout.jade
+
+block title
+    title 博客 - I'm Mofei
+
+block css
+    link(rel="stylesheet" href="/css/blog.css")
+
+block javascript
+
+block content
+    section.global-nav-text
+        div.global-nav-text-logo I'm Mofei
+        div.global-nav-text-link
+            ul
+                li
+                    a.active(href="#") 首页
+                    a(href="#") 博客
+                    a(href="#") 实验室
+                    a(href="#") 小伙伴
+                    a(href="#") RSS
+    section.article-content
+        h1  用ToString生成验证码、字母序列
+        p
+          | 想要以更优的算法生成 "1d3ade","9ded19" 之类的验证码么？
+          | 想要快速生成"ABCDEFGHIJKL"之类的字母序列么？
+        p 通过 toString 的一些"trick",你可以以极简的算法复杂度实现上面的需求。
+        h2#-tostring- 什么是toString？
+        p 其实不想用过多的笔墨介绍toString , 但是如果你真的还不知道什么是toString，那么你可能需要梳理一下你的前端知识了。
+        p toSring 其实有2种形态
+        h3#1-obj-tostring- 1. obj.toString()
+        p
+          | 所有的obj都有toString方法，大多数的自定义对象会返回
+          code [object type]
+          | ,当然你也可以自定义修改toString方法达到各种目的。但这并不是今天的目的，想了解更多的话可以通过这个链接 
+          a(href='https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/toString') Object.prototype.toString()
+          |  查看详细的内容。
+        h3#2-numobj-tostring-radix- 2. numObj.toString([radix])
+        p
+          | 第二种是针对
+          code Number
+          | 对象的toString，主要的作用是将数字转换成字符串，细节可以参考 
+          a(href='https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toString') Number.prototype.toString()
+          |  ，但是很多时候，我们会忽略后面的参数
+          code radix
+          | 。
+        p
+          code radix
+          | 主要用来指定原始数据的位数，是
+          code 2-36
+          | 之间的整数，那么为什么最大是36呢？看看键盘或许就可以更好的理解了，阿拉伯数字
+          code 0-9
+          | 共10个字符，英文
+          code a-z
+          | 共26个字符，加在一起正好是36。这就是我们所说的base-36，当然有些情况下会把大写字母
+          code A-Z
+          | 也算进来，就是我们通常说的base-62，在有些情况下中，base-62用来描述时间戳，例如:
+        table
+          thead
+            tr
+              th Date (UTC)
+              th Base 62 epoch
+          tbody
+            tr
+              td 1970-06-21 00:32:16
+              td 10000
+            tr
+              td 1975-01-01 00:00:00
+              td AfyFM
+            tr
+              td 1980-01-01 00:00:00
+              td LLwUi
+            tr
+              td 2015-01-01 00:00:00
+              td 1Y6TBI
+            tr
+              td 2020-01-01 00:00:00
+              td 1imRQe
+        p ok, 啰嗦了一大堆，下面我们进入正题。
+        h2#-tostring- 用toString()生成随机验证码
+        p
+          | 如果有这样的一个需求，生成4位验证码，要求每一位是
+          code 0-9a-z
+          | 中的一个，那么你会怎么去实现？
+        p 比较笨一点的方法是我们先做一个map表
+        pre.
+        p 然后在生成4个随机的序列，然后拼成一个验证码
+        pre.
+        p
+          | 上面的方法我们用
+          code for(while)
+          | 产生了4个随机数，并且，用了array的
+          code join()
+          | 去拼凑这些结果（当然了string相加的方法也是可行的）。
+        p
+          | 其实如果我们很了解toString()的话，可以只用一个随机数，并且可以免去
+          code for
+          | 以及字符串的拼接，更方便的是你可以完完全全抛弃上面的
+          code map
+          | 。
+        p
+          | 首先我们知道
+          code 0-9a-z
+          | 其实就是36位数字的组成，那么问题就变得很简单了，我们生成长度为4位的36位数字，然后转换成string，问题就解决了。
+        p 举个栗子
+        pre.
+        p
+          | 下面就是简单的数学问题了，如果要产生4位的36进制的数字，那么他的范围是 
+          code 1000
+          |  to 
+          code zzzz
+          |  ，对应的10进制就是 
+          code Math.pow(36,3)
+          |  to 
+          code (Math.pow(36,4)-1)
+        p 那么完整的代码入下：
+        pre.
+        p 非常简单，2个数字外加一个随机数，就完成了所有的事情。
+        p 那么有人要问了，我如果需要改变验证码的长度怎么办？简单，我们来封装一下。
+        pre.
+        p ok, 看起来已经很爽了，但是当我们生成7位的数字的时候，你会发现变成一个负数，机智的你一定知道了答案。现在我们来处理这种情况。
+        pre.
+        p 我们尝试一下
+        pre.
+        h2#-tostring- 用toString()生成字母序列
+        p 其实如果上面的方法看明白之后，如何生成字母序列就不用我细说了。只要从10开始累加即可。
+        h2 这里是H2
+        h3 这里是H3
+        h4 这里是H4
+        h5 这里是H5
+        h6 这里是H6
+    section.article-tags
+        a(href="#") Javascript
+        a(href="#") 前端
+        a(href="#") 其他
+    section.article-info 
+        div.article-info-makegood &#xe903; 
+        span.article-info-icon &#xe900; 
+        span 200 
+        span.article-info-icon &#xe903; 
+        span 200 
+        span.article-info-icon &#xe902; 
+        span 300 
+    section.index-copyright
+        div.index-copyright-bottom
+            div.index-copyright-bottom-txt (C) 2016 by 
+                a(href="http://www.zhuwenlong.com") Mofei 
+
