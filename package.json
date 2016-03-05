@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/zmofei/myblog#readme",
   "dependencies": {
-    "dufing": "^1.0.1"
-  }
+    "dufing": "^1.0.1",
+    "mongodb": "^2.1.7"
+  },
+  "devDependencies": {}
 }
