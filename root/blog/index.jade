@@ -8,58 +8,51 @@ block css
 
 block javascript
 
-block content
-    section.global-nav#nav
-        a.global-nav-btn#navTar(href="#")
-        section.global-nav-bar#navBar
-            a.global-nav-close#navClose(href="#")
+block content    
+    section.global-nav-text
+        div.global-nav-text-logo I'm Mofei
+        div.global-nav-text-link
             ul
                 li
-                    a.active(href="#") 首页
-                    a(href="#") 博客
-                    a(href="#") 实验室
-                    a(href="#") 小伙伴
-                    a(href="#") RSS
-        section.global-nav-bg#navBg
-    section.blog-title
-        svg#title(version='1.1', xmlns='http://www.w3.org/2000/svg', xmlns:xlink='http://www.w3.org/1999/xlink', x='0px', y='0px', viewbox='0 0 1000 200', enable-background='new 0 0 1000 200', xml:space='preserve')
-            g
-                path(d='M139.8,155.7V51.1h7.1v104.6H139.8z')
-                path(d='M216.2,155.7l41.5-104.6h8.8l40.9,104.6h-8.1l-13.4-33.5h-48.3l-13.4,33.5H216.2zM283.2,115.5l-21.5-56.3l-22,56.3H283.2z')
-                path(d='M320.1,155.7V51.1h11.1l38.3,95.8l38.1-95.8h11.1v104.6h-7.1V59.2l-39,96.5h-6.5l-39-96.5                v96.5H320.1z')
-                path(d='M497.7,155.7V51.1h11.1l38.3,95.8l38.1-95.8h11.1v104.6h-7.1V59.2l-39,96.5h-6.5l-39-96.5                v96.5H497.7z')
-                path(d='M625.9,142.3c-8.5-9.8-12.7-22.7-12.7-38.8c0-16.7,4.2-30,12.7-40c8.5-10,19.8-15,33.9-15                c14.1,0,25.4,5,33.9,15c8.5,10,12.7,23.3,12.7,40c0,16.1-4.2,29-12.7,38.8c-8.5,9.8-19.8,14.6-33.9,14.6C645.7,156.9,634.4,152,625.9,142.3zM688.6,137.5c7.2-8.5,10.8-19.8,10.8-34c0-14.6-3.6-26.3-10.8-35.1c-7.2-8.8-16.8-13.2-28.8-13.2s-21.6,4.4-28.8,13.2c-7.2,8.8-10.8,20.5-10.8,35.1c0,14.2,3.6,25.6,10.8,34c7.2,8.6,16.8,12.9,28.8,12.9S681.4,146.1,688.6,137.5z')
-                path(d='M723.3,155.7V51.1H788V58h-57.7v40.2h51v6.5h-51v51H723.3z')
-                path(d='M800.4,155.7V51.1h68.3V58h-61.2v40.2h55.9v6.5h-55.9V149h61.2v6.7H800.4z')
-                path(d='M881.9,155.7V51.1h7.1v104.6H881.9z')
-        div.blog-search
-            div.blog-search-box life should be colorfull
+                    a.active(href="/") 首页
+                    a(href="/blog") 博客
+                    a(href="/lab") 实验室
+                    a(href="/links") 小伙伴
+                    a(href="/rss") RSS
     section.blog-content
         div.blog-content-area
-            div.blog-content-block
-                img.blog-content-img(src="http://img.itc.cn/bbd0/ab95b6276cfdf7807f7acf00a492b811")
-                div.blog-content-text
-                    h2 用ToString生成验证码、字母序列
-                    div.blog-review 想要以更优的算法生成 "1d3ade","9ded19" 之类的验证码么？想要快速生成"ABCDEFGHIJKL"之类的字母序列么？通过 toString 的一些"trick",你可以以极简的算法复杂度实现上面的需求。 什么是toString？其实不想用过多的笔墨介绍toString , 但是如果你真的还不知道什么是toString，那么你可能需要梳理一下你的前端知 ...
-                    div.blog-info
-                        div.blog-time 2015-01-10
-                        div.blog-read 200次阅读 200次点赞 300条评论
-            div.blog-content-block
-                h2 用ToString生成验证码、字母序列
-                div.blog-review 想要以更优的算法生成 "1d3ade","9ded19" 之类的验证码么？想要快速生成"ABCDEFGHIJKL"之类的字母序列么？通过 toString 的一些"trick",你可以以极简的算法复杂度实现上面的需求。 什么是toString？其实不想用过多的笔墨介绍toString , 但是如果你真的还不知道什么是toString，那么你可能需要梳理一下你的前端知 ...
-                div.blog-info
-                    div.blog-time 2015-01-10
-                    div.blog-read 200次阅读 200次点赞 300条评论
-            div.blog-content-block
-                h2 用ToString生成验证码、字母序列
-                div.blog-review 想要以更优的算法生成 "1d3ade","9ded19" 之类的验证码么？想要快速生成"ABCDEFGHIJKL"之类的字母序列么？通过 toString 的一些"trick",你可以以极简的算法复杂度实现上面的需求。 什么是toString？其实不想用过多的笔墨介绍toString , 但是如果你真的还不知道什么是toString，那么你可能需要梳理一下你的前端知 ...
-                div.blog-info
-                    div.blog-time 2015-01-10
-                    div.blog-read 200次阅读 200次点赞 300条评论
-            div.blog-content-block
-                h2 用ToString生成验证码、字母序列
-                div.blog-review 想要以更优的算法生成 "1d3ade","9ded19" 之类的验证码么？想要快速生成"ABCDEFGHIJKL"之类的字母序列么？通过 toString 的一些"trick",你可以以极简的算法复杂度实现上面的需求。 什么是toString？其实不想用过多的笔墨介绍toString , 但是如果你真的还不知道什么是toString，那么你可能需要梳理一下你的前端知 ...
-                div.blog-info
-                    div.blog-time 2015-01-10
-                    div.blog-read 200次阅读 200次点赞 300条评论
+            each blog in blogs
+                div.blog-content-block
+                    if (blog.cover)
+                        div.blog-content-img
+                            a(href="/blog/" + blog._id)
+                                div.blog-content-img-body(style="background-image:url('" + blog.cover +"')")
+                    div.blog-content-text
+                        a(href="/blog/" + blog._id)
+                            h2= blog.title
+                        div.blog-tag &#xe901; 
+                            - var tags = blog.classid.split(',');
+                                each tag in tags
+                                    a(href="#")= tag
+                        a(href="/blog/" + blog._id)
+                            div.blog-review= blog.content.replace(/(\!{0,1}\[.+?\]\(.+?\))|#|(`+?)|\*|=|-/g,' ').slice(0,150)+ ' ...'
+                        div.blog-info
+                            div.blog-time 
+                                span &#xe904; 
+                                - var time = new Date(blog.pubtime);
+                                - var year = time.getFullYear();
+                                - var month = (time.getMonth()+1);
+                                - var date = time.getDate();
+                                    span= year + '-' + (month < 10 ? '0' + month : month) + '-' + (date < 10 ? '0' + date : date)
+                            div.blog-read
+                                span &#xe900; 
+                                span= blog.visited + ' '
+                                span &#xe903; 
+                                span= (blog.like||0) + ' '
+                                span &#xe902;  
+                                span= blog.comment 
+    section.index-copyright
+        div.index-copyright-bottom
+            div.index-copyright-bottom-txt (C) 2016 by 
+                a(href="http://www.zhuwenlong.com") Mofei 
 
