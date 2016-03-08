@@ -9,36 +9,27 @@ block css
 block javascript
 
 block content    
-    section.global-nav-text
-        div.global-nav-text-logo I'm Mofei
-        div.global-nav-text-link
-            ul
-                li
-                    a.active(href="/") 首页
-                    a(href="/blog") 博客
-                    a(href="/lab") 实验室
-                    a(href="/links") 小伙伴
-                    a(href="/rss") RSS
+    include ../../system/jade/nav.jade
     section.blog-content
         div.blog-content-area
             each blog in blogs
                 div.blog-content-block
                     if (blog.cover)
                         div.blog-content-img
-                            a(href="/blog/" + blog._id)
+                            a(href="/blog/article/" + blog._id)
                                 div.blog-content-img-body(style="background-image:url('" + blog.cover +"')")
                     div.blog-content-text
-                        a(href="/blog/" + blog._id)
+                        a(href="/blog/article/" + blog._id)
                             h2= blog.title
                         div.blog-tag &#xe901; 
-                            - var tags = blog.classid.split(',');
+                            - var tags = blog.tags;
                                 each tag in tags
-                                    a(href="#")= tag
-                        a(href="/blog/" + blog._id)
+                                    a(href="/blog/1?tags=" + tag.id)= tag.name
+                        a(href="/blog/article/" + blog._id)
                             div.blog-review= blog.content.replace(/(\!{0,1}\[.+?\]\(.+?\))|#|(`+?)|\*|=|-/g,' ').slice(0,150)+ ' ...'
                         div.blog-info
                             div.blog-time 
-                                span &#xe904; 
+                                span &#xe904;
                                 - var time = new Date(blog.pubtime);
                                 - var year = time.getFullYear();
                                 - var month = (time.getMonth()+1);
@@ -51,6 +42,22 @@ block content
                                 span= (blog.like||0) + ' '
                                 span &#xe902;  
                                 span= blog.comment 
+    section.blog-pages
+        if currentPage > 1
+            a(href="/blog/" + (currentPage-1) + search) Previous
+        - var showPre = showNext = true;
+        - for (var i = 1; i <= totalPage; i++) 
+            if (i == 1 || Math.abs(currentPage - i) <= 2 || i == totalPage)
+                a(href="/blog/" + i + search class= (i == currentPage? 'active' : '') )= i
+            else if ((currentPage - i) >=  2 && showPre)
+                span ...
+                - showPre = false;
+            else if (i>currentPage && (totalPage - currentPage) >=  2 && showNext)
+                span ...
+                - showNext = false;
+        if currentPage < totalPage
+            a(href="/blog/" + (currentPage+1) + search) Next
+
     section.index-copyright
         div.index-copyright-bottom
             div.index-copyright-bottom-txt (C) 2016 by 

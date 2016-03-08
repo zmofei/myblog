@@ -450,6 +450,10 @@ body {
     text-align: center;
 }
 
+.index-media a {
+    text-decoration: none;
+}
+
 .index-media .btn {
     height: 80px;
     width: 80px;

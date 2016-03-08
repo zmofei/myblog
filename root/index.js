@@ -6,4 +6,4 @@ var render = function() {
     })
 }
 
-module.exports = render;
+exports.get = render;
