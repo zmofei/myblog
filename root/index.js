@@ -1,9 +1,5 @@
 var render = function() {
-    this.jade({
-        data: {
-            title: 'abc'
-        }
-    })
+    this.jade({})
 }
 
 exports.get = render;
