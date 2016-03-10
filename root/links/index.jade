@@ -1,0 +1,46 @@
+extends ../layout.jade
+
+block title
+    title 博客 - I'm Mofei
+
+block css
+    link(rel="stylesheet" href="/css/links.css")
+
+block javascript
+    script(src="/js/links.js")
+
+block content    
+    include ../../system/jade/nav.jade
+    section.links#links
+        div.links-contenter
+            div.links-box
+                div.links-block 
+                    div.links-block-img(style="background-image:url('/image/links/link1.png')")
+                        a(href="http://bh-lay.com/" target="_blank")
+                            img(src="/image/blog/cover.jpg")
+                    a.links-block-title(href="http://bh-lay.com/" target="_blank") bh-lay.com
+                    div 90后天蝎男，前端工程师、全栈开发尝试者以及Github脑残用户，目前厮混在百度上海团队参与桌面百度的相关开发。
+                div.links-block 
+                    div.links-block-img(style="background-image:url('/image/links/link2.png')")
+                        a(href="http://nikai.us/" target="_blank")
+                            img(src="/image/blog/cover.jpg")
+                    a.links-block-title(href="http://nikai.us/" target="_blank") nikai.us
+                    div He studied a horticulture degree but he realized he was gonna be a software developer when he wrote his first line of code，currently working for Baidu Map Open Platform creating some lovely data visualizations and maps.
+                div.links-block 
+                    div.links-block-img(style="background-image:url('/image/links/link4.png')")
+                        a(href="http://xydiva.github.io/" target="_blank")
+                            img(src="/image/blog/cover.jpg")
+                    a.links-block-title(href="http://xydiva.github.io/" target="_blank") xydiva.github.io
+                    div FE developer, English learner, WOWer, Jogger
+            div.links-box
+                div.links-block 
+                    div.links-block-img(style="background-image:url('/image/links/link3.jpg')")
+                        a(href="http://www.lifucheng.com/" target="_blank")
+                            img(src="/image/blog/cover.jpg")
+                    a.links-block-title(href="http://www.lifucheng.com/" target="_blank") xydiva.github.io
+                    div 李福成，一个“简单”的设计师。李福成博客专为热爱网页设计，界面设计的你倾力打造。这里你可以学习和分享最无敌的创意、最精美的视觉、最具国际化意识的作品！也许，在不知不觉的学习中，你会变得不再“简单”！
+    section.index-copyright
+        div.index-copyright-bottom
+            div.index-copyright-bottom-txt (C) 2016 by 
+                a(href="http://www.zhuwenlong.com") Mofei 
+
