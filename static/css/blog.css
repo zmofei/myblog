@@ -657,14 +657,15 @@ svg path {
 
 .commend-pub {
     border: 1px solid #e9e9e9;
-    background: #f9f9f9;
+    /*background: #f9f9f9;*/
     padding: 10px 20px;
     margin-bottom: 20px;
     border-radius: 4px;
 }
 
 .commend-pub.active {
-    box-shadow: 0px 0px 3px rgba(173, 172, 172, 0.59);
+    /*box-shadow: 0px 0px 3px rgba(173, 172, 172, 0.59);*/
+    box-shadow: 0px 0px 10px rgba(0, 114, 255, 0.2);
 }
 
 .commend-pub .commend-avatar img {
@@ -676,11 +677,29 @@ svg path {
     overflow: hidden;
 }
 
+.commend-pub.active .commend-pub-text {
+    display: none;
+}
+
+.commend-pub.active .commend-pub-box {
+    padding: 10px 0;
+    height: auto;
+}
+
+.commend-pub.active .commend-pub-uname {
+    display: block;
+}
+
+.commend-pub.active .commend-pub-btn {
+    display: inline-block;
+}
+
 .commend-pub-text {
     height: 40px;
     line-height: 40px;
     font-size: 20px;
     color: #ccc;
+    display: block;
 }
 
 .commend-pub-uname {
@@ -692,18 +711,23 @@ svg path {
     cursor: pointer;
     float: left;
     padding: 0 5px;
+    display: none;
 }
 
 .commend-pub-box {
-    padding: 10px 0;
+    padding: 0;
     outline: none;
     line-height: 1.6em;
-    /*border:1px solid #ccc;*/
+    height: 0;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
 }
 
 .commend-pub-btn {
+    display: none;
     cursor: pointer;
-    display: inline-block;
+    /*display: inline-block;*/
     background: #f4f4f4;
     border: 1px solid #f15623;
     padding: 10px 40px;

@@ -26,6 +26,8 @@ var render = function() {
             search: search,
         };
 
+        // console.log(self.reqParam, page + 1)
+
         var getBlogClass = new Promise(function(resolve, reject) {
             classCollection.find({}).toArray(function(err, docs) {
                 var blogClass = {};

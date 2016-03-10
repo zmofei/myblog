@@ -6,6 +6,14 @@ body {
     margin: 0;
 }
 
+@font-face {
+    font-family: 'Open Sans';
+    src: url('/font/OpenSans-Light.eot?eyv41e');
+    src: url('/font/OpenSans-Light.eot?eyv41e#iefix') format('embedded-opentype'), url('/font/OpenSans-Light.ttf?eyv41e') format('truetype'), url('/font/OpenSans-Light.woff?eyv41e') format('woff'), url('/font/OpenSans-Light.svg?eyv41e#OpenSans-Light') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
 body,
 h1,
 h2 {
@@ -406,6 +414,14 @@ body {
     background: #363941;
     overflow: hidden;
     color: #ccc;
+    position: relative;
+}
+
+.index-content-tips {
+    margin-left: 10px;
+    color: #A5A5A5;
+    opacity: 0;
+    transition: all 0.8s ease-out;
 }
 
 .index-content .btn {
@@ -422,6 +438,11 @@ body {
     font-size: 14px;
     box-sizing: border-box;
     width: 90%;
+}
+
+.index-content input:disabled,
+.index-content textarea:disabled {
+    color: #999;
 }
 
 .index-content textarea {
@@ -527,4 +548,36 @@ body {
 .index-copyright-bottom-txt a {
     color: #f15623;
     text-decoration: none;
+}
+
+.popbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0);
+    z-index: 10000;
+    transition: all 0.5s ease-in;
+}
+
+.popbox-in {
+    position: absolute;
+    width: 400px;
+    top: 50%;
+    left: 50%;
+    margin: -200px;
+    background: white;
+}
+
+.popbox-close {
+    width: 40px;
+    height: 40px;
+    border-radius: 100px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: -20px;
+    background: url('/image/index/close.svg') no-repeat center #999;
+    cursor: pointer;
 }

@@ -15,7 +15,6 @@ html(lang="zh")
     link(rel="apple-touch-icon" sizes="144x144" href="apple-touch-icon-precomposed_144.png")
     link(rel="icon" href="favicon.ico")
     link(rel="stylesheet" href="/css/index.css")
-    link(href='https://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css')
   body
     video#bgvid(autoplay, loop, poster='/image/index/cover.jpg')
         source(src='/video/bgvid.webm', type='video/webm')
@@ -89,23 +88,24 @@ html(lang="zh")
                 label
                     p 昵称/姓名：
                     p
-                        input
+                        input#username
             div.index-content-boxhalf
                 label
                     p 联系方式：
                     p
-                        input 
+                        input#email
             div
                 label
                     p 内容：
                     p
-                        textarea
-            button.btn Send
+                        textarea#message
+            button.btn#send Send
+            span.index-content-tips#tips Message Sended
     section.index-media
         a(href="http://weibo.com/zwl1027" target="_blank").btn 微博
         a(href="https://github.com/zmofei" target="_blank").btn Github
-        a(href="#" target="_blank").btn Wechat
-        a(href="#" target="_blank").btn QQ
+        span.btn#wechat Wechat
+        span.btn#qq QQ
         a(href="https://www.facebook.com/zhuwenlong" target="_blank").btn Facebook
         a(href="https://www.linkedin.com/in/mofei-zhu-0a391476" target="_blank").btn LinkedIn
     section.index-copyright
@@ -118,6 +118,8 @@ html(lang="zh")
         div.index-copyright-bottom
             div.index-copyright-bottom-txt (C) 2016 by 
                 a(href="http://www.zhuwenlong.com") Mofei
+    
+
     script(src="/js/index.js")
     script(src="/js/world.js")
 

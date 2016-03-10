@@ -9,6 +9,7 @@ block css
 
 block javascript
     script(src="/js/tools/highlight.pack.js")
+    script(src="/js/blog/article.js")
     script.
         var co = document.querySelectorAll('pre code'); 
         for (var i = 0; i<co.length; i ++) {
@@ -33,14 +34,14 @@ block content
         span= blog.comment 
 
     section.commend
-        div.commend-pub
+        div.commend-pub#commend
             div.commend-pub-info
                 div.commend-avatar
                     img(src="//dn-lay.qbox.me/build/single-page/images/my-avatar_0b91c8c.jpg")
-                div.commend-pub-text Write a response...
+                div.commend-pub-text#commendTips Write a response...
                 div.commend-pub-uname Mofei Zhu
-            div.commend-pub-box(contenteditable=true)
-            a.commend-pub-btn publish
+            div.commend-pub-box#commendBox(contenteditable=true)
+            a.commend-pub-btn#publish publish
 
         each comment in comments
             div.commend-block
