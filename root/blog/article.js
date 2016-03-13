@@ -8,13 +8,19 @@ var render = function() {
 
     var data = {}
 
-
     Mongo.open(function(db) {
         var getBlog = new Promise(function(reslove, reject) {
-            db.collection('blog').find({ _id: ObjectID(id) }).toArray(function(err, docs) {
-                data.blog = docs[0];
-                reslove();
-            });
+            db.collection('blog').findAndModify({
+                    _id: ObjectID(id)
+                }, [
+                    ['_id', 'asc']
+                ], {
+                    $inc: { visited: 1 }
+                }, { new: true },
+                function(err, docs) {
+                    data.blog = docs.value;
+                    reslove();
+                });
         });
 
         var getBlogClass = new Promise(function(resolve, reject) {
@@ -30,9 +36,9 @@ var render = function() {
 
         function getComment() {
             return new Promise(function(reslove, reject) {
-                db.collection('blog_comment').find({ blogid: ObjectID(data.blog._id) }).toArray(function(err, docs) {
+                console.log('@@@@@', data.blog)
+                db.collection('blog_comment').find({ blogid: ObjectID(data.blog._id) }, { sort: { _id: -1 } }).toArray(function(err, docs) {
                     data.comments = docs;
-                    console.log(docs)
                     reslove();
                 });
             });

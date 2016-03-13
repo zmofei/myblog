@@ -21,12 +21,16 @@ var render = function() {
         var url_parts = url.parse(self.req.url, true);
         var search = url_parts.search;
 
+        var findquery = {};
+        if (url_parts.query.tags) {
+            var tags = url_parts.query.tags.split(',');
+            findquery.classid = { $in: tags }
+        }
+
         var data = {
             currentPage: page + 1,
             search: search,
         };
-
-        // console.log(self.reqParam, page + 1)
 
         var getBlogClass = new Promise(function(resolve, reject) {
             classCollection.find({}).toArray(function(err, docs) {
@@ -40,14 +44,15 @@ var render = function() {
         });
 
         var getCount = new Promise(function(resolve, reject) {
-            collection.count(function(err, count) {
+            collection.find(findquery).count(function(err, count) {
                 data.totalPage = Math.ceil(count / perPage);
                 resolve();
             });
         });
 
         var getBlog = new Promise(function(resolve, reject) {
-            collection.find({}, { limit: perPage, skip: skip, sort: { _id: -1 } }).toArray(function(err, docs) {
+
+            collection.find(findquery, { limit: perPage, skip: skip, sort: { _id: -1 } }).toArray(function(err, docs) {
                 data.blogs = docs;
                 resolve();
             });
