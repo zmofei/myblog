@@ -11,7 +11,34 @@ block javascript
 
 block content    
     include ../../system/jade/nav.jade
-    section.lab lab
+    section.lab
+        div.lab-box
+            div.lab-block
+                a(href="https://github.com/huiyan-fe/mapv" target="_blank")
+                    img(src="/image/lab/mapv.jpg")
+                div.lab-block-title 
+                    a(href="https://github.com/huiyan-fe/mapv" target="_blank") Mapv    
+                div.lab-block-intro 领先的地理大数据可视化开源库。
+                div.lab-block-author Author By 
+                    a(href="http://nikai.us/" target="_blank") 倪楷
+                    a(href="http://www.zhuwenlong.com" target="_blank") Mofei
+            div.lab-block
+                a(href="http://zmofei.github.io/dufing/" target="_blank")
+                    img(src="/image/lab/dufing.jpg")
+                div.lab-block-title 
+                    a(href="http://zmofei.github.io/dufing/" target="_blank") Dufing
+                div.lab-block-intro 一个轻量级，基于文件系统的node.js web server框架。
+                div.lab-block-author Author By 
+                    a(href="http://www.zhuwenlong.com" target="_blank") Mofei
+            div.lab-block
+                a(href="/lab/mstaticize" target="_blank")
+                    img(src="/image/lab/mstaticize.jpg")
+                div.lab-block-title 
+                    a(href="/lab/mstaticize" target="_blank") mStaticize
+                div.lab-block-intro ☺ 使用 mStaticize 通过简单的配置，就可以实现前端资源的静态化（hash），自动替换资源引用等实用的前端文件打包功能。
+                div.lab-block-author Author By 
+                    a(href="http://www.zhuwenlong.com" target="_blank") Mofei
+            
     section.index-copyright
         div.index-copyright-bottom
             div.index-copyright-bottom-txt (C) 2016 by 
