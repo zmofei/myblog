@@ -1,0 +1,25 @@
+doctype xml
+rss(version="2.0")
+	channel
+		title <![CDATA[I'm Mofei - 朱文龙的自留地]]>
+		link http://www.zhuwenlong.cim
+		description <![CDATA[朱文龙,Mofei Zhu,易班网端工程师、ADOBE中国认证网络设计师，2010年开始研究web前端技术，熟练掌握html5，css3，javascript，node.js 等互联网技能，并不断学习成长的追梦者。]]>
+		language zh-CN
+		pubdate Thu, 17 Mar 2016 16:58:49 +0800
+		lastbuilddate Thu, 17 Mar 2016 16:58:49 +0800
+		generator <![CDATA[Mofei Zhu]]>
+		managingeditor <![CDATA[Mofei Zhu]]>
+		webmaster <![CDATA[Mofei Zhu]]>
+		ttl 120
+		image
+			title <![CDATA[I'm Mofei - 朱文龙的自留地]]>
+			url http://www.zhuwenlong.com/image/avatar.jpg
+			link  http://www.zhuwenlong.com
+		for blog in blogs
+			item
+				title!= '<![CDATA['+blog.title+']]>'
+				link= 'http://www.zhuwenlong.com/blog/' + blog._id
+				description!= '<![CDATA['+blog.html+']]>'
+				author <![CDATA[hello@zhuwenlong.com(Mofei Zhu)]]>
+				guid(isPermaLink="true")= 'http://www.zhuwenlong.com/blog/' + blog._id
+				pubDate= blog.pubtime

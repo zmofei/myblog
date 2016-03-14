@@ -51,7 +51,6 @@ var render = function() {
         });
 
         var getBlog = new Promise(function(resolve, reject) {
-
             collection.find(findquery, { limit: perPage, skip: skip, sort: { _id: -1 } }).toArray(function(err, docs) {
                 data.blogs = docs;
                 resolve();
