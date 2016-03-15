@@ -18,7 +18,7 @@ block content
                 each blogclass in blogClass
                     div.blog-search-tag(id= 'tag_' + blogclass.classid)=  blogclass.classname
             div.blog-search-btn 
-                btn 选好了点这里
+                btn GO
         div.blog-search-toggle &#xe5c5; 
         div.blog-content-area
             each blog in blogs
@@ -26,8 +26,9 @@ block content
                     if (blog.cover)
                         div.blog-content-img
                             a(href="/blog/article/" + blog._id)
+                                img(src="/image/blog/cover.jpg")
                                 div.blog-content-img-body(style="background-image:url('" + blog.cover +"')")
-                    div.blog-content-text
+                    div.blog-content-text(class= blog.cover?'':'noimg')
                         a(href="/blog/article/" + blog._id)
                             h2= blog.title
                         div.blog-tag &#xe901; 
@@ -35,7 +36,7 @@ block content
                                 each tag in tags
                                     a(href="/blog/1?tags=" + tag.id)= tag.name
                         a(href="/blog/article/" + blog._id)
-                            div.blog-review= blog.content.replace(/(\!{0,1}\[.+?\]\(.+?\))|#|(`+?)|\*|=|-/g,' ').slice(0,150)+ ' ...'
+                            div.blog-review= blog.content.replace(/(\!{0,1}\[.+?\]\(.+?\))|#|(`+?)|\*|=|-/g,' ').slice(0,180)+ ' ...'
                         div.blog-info
                             div.blog-time 
                                 span &#xe904;
