@@ -10,16 +10,24 @@ var render = function() {
 
     Mongo.open(function(db) {
         var getBlog = new Promise(function(reslove, reject) {
-            db.collection('blog').findAndModify({
-                    _id: ObjectID(id)
-                }, [
+            var findQuery = { _id: ObjectID(id) };
+            db.collection('blog').findAndModify(findQuery, [
                     ['_id', 'asc']
                 ], {
                     $inc: { visited: 1 }
                 }, { new: true },
                 function(err, docs) {
                     data.blog = docs.value;
-                    reslove();
+                    if (docs.value.html) {
+                        reslove();
+                    } else {
+                        docs.value.html = marked(docs.value.content);
+                        db.collection('blog').updateOne(findQuery, {
+                            $set: { html: docs.value.html }
+                        }, function(err, results) {
+                            reslove();
+                        })
+                    }
                 });
         });
 
@@ -36,7 +44,6 @@ var render = function() {
 
         function getComment() {
             return new Promise(function(reslove, reject) {
-                console.log('@@@@@', data.blog)
                 db.collection('blog_comment').find({ blogid: ObjectID(data.blog._id) }, { sort: { _id: -1 } }).toArray(function(err, docs) {
                     data.comments = docs;
                     reslove();
@@ -45,7 +52,6 @@ var render = function() {
         }
 
         Promise.all([getBlog, getBlogClass]).then(getComment).then(function() {
-            data.blog.html = marked(data.blog.content);
             var classId = data.blog.classid.split(',');
             var tags = []
             for (var i in classId) {
