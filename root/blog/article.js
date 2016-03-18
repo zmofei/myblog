@@ -52,13 +52,21 @@ var render = function() {
         }
 
         Promise.all([getBlog, getBlogClass]).then(getComment).then(function() {
-            var classId = data.blog.classid.split(',');
+            var classid = data.blog.classid;
             var tags = []
+            if (typeof(classid) == 'string') {
+                var classId = data.blog.classid.split(',');
+
+            } else {
+                classId = classid;
+            }
+
             for (var i in classId) {
                 tags.push(data.blogClass[classId[i]]);
             }
+
             data.tags = tags;
-            self.jade({
+            self.jade.render({
                 data: data
             });
         });

@@ -23,8 +23,13 @@ var render = function() {
 
         var findquery = {};
         if (url_parts.query.tags) {
+            var newTags = [];
             var tags = url_parts.query.tags.split(',');
-            findquery.classid = { $in: tags }
+            for (var i in tags) {
+                newTags.push(tags[i]);
+                newTags.push(parseInt(tags[i]));
+            }
+            findquery.classid = { $in: newTags }
         }
 
         var data = {
@@ -60,7 +65,13 @@ var render = function() {
         Promise.all([getBlogClass, getCount, getBlog]).then(function(val) {
             for (var i in data.blogs) {
                 data.blogs[i].tags = [];
-                var tagIds = data.blogs[i].classid.split(',');
+                var _class = data.blogs[i].classid;
+                var tagIds = '';
+                if (typeof(_class) == 'string') {
+                    tagIds = [_class]
+                } else {
+                    tagIds = _class
+                }
                 for (var j in tagIds) {
                     data.blogs[i].tags.push({
                         id: tagIds[j],
@@ -68,7 +79,7 @@ var render = function() {
                     });
                 }
             }
-            self.jade({
+            self.jade.render({
                 data: data
             })
         });
