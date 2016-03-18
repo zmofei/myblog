@@ -29,14 +29,14 @@ var post = function() {
                     $inc: { like: 1 }
                 }, function(err, doc) {
                     if (err) {
-                        self.json({ code: 403, text: err })
+                        self.response.json({ code: 403, text: err })
                     } else {
-                        self.json({ code: 200, text: doc })
+                        self.response.json({ code: 200, text: doc })
                     }
                 });
             })
         } else {
-            self.json({ code: 403, text: 'illegal request' })
+            self.response.json({ code: 403, text: 'illegal request' })
         }
     });
 

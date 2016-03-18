@@ -1,5 +1,5 @@
 var render = function() {
-    this.jade({})
+	this.jade.render();
 }
 
 exports.get = render;

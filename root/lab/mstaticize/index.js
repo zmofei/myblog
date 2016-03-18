@@ -1,6 +1,6 @@
 var render = function() {
     var self = this;
-    self.jade({
+    self.jade.render({
     })
 }
 

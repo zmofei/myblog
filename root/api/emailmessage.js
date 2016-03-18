@@ -34,9 +34,9 @@ var post = function() {
 
         transporter.sendMail(mailOptions, function(err, info) {
             if (err) {
-                self.json({ code: 500, text: err })
+                self.response.json({ code: 500, text: err })
             } else {
-                self.json({ code: 200, text: info })
+                self.response.json({ code: 200, text: info })
             }
         })
 

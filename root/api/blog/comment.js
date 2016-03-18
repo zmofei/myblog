@@ -35,9 +35,9 @@ var post = function() {
                 "time": new Date(),
             }, function(err, res) {
                 if (err) {
-                    self.json({ code: 400, text: err });
+                    self.response.json({ code: 400, text: err });
                 } else {
-                    self.json({ code: 200, t: 1, text: res });
+                    self.response.json({ code: 200, t: 1, text: res });
                     db.collection('blog_comment').find({ "blogid": ObjectID(post.blogid) }).count(function(err, count) {
                         db.collection('blog').update({ _id: ObjectID(post.blogid) }, { $set: { comment: count } });
                     });

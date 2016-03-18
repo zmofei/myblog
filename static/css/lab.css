@@ -173,47 +173,40 @@ body a {
 }
 
 .lab {
+    max-width: 1200px;
     min-width: 800px;
-    max-width: 1000px;
-    padding: 0 40px;
+    padding: 40px;
+    box-sizing: border-box;
     margin: 0 auto;
 }
 
 .lab-box {
-    margin: 0 20px;
-    font-size: 14px;
-    padding-top: 50px;
     overflow: hidden;
+    color: #333;
 }
 
 .lab-block {
     float: left;
-    padding: 0 10px 23px 10px;
+    width: 33%;
+    padding: 20px;
     box-sizing: border-box;
-    transition: all 0.3s ease-out;
-    width: 50%;
     margin-bottom: 20px;
 }
 
 .lab-block img {
-    margin-top: 2px;
-    box-sizing: border-box;
-    max-width: 100%;
-    height: auto;
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    margin-bottom: 10px;
+    background-position: center;
+    transition: all 0.4s ease-in;
 }
 
 .lab-block-title {
-    line-height: 1.6em;
-    color: #333;
     font-weight: bold;
-    /*margin-bottom: 10px;*/
-    padding-right: 30px;
-    font-size: 26px;
-    color: #555;
-}
-
-.lab-block-title a {
-    color: #333;
+    padding-bottom: 5px;
+    display: inline-block;
 }
 
 .lab-block-intro {
