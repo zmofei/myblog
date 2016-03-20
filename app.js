@@ -6,10 +6,10 @@ let site = new Dufing({
     port: 8333
 });
 
-site.get(/\/blog\/(\d{0,5})$/, '/blog')
-site.get(/\/blog\/article\/(.{24})$/, '/blog/article')
+// only for old version
+site.get(/\/blog\/(.{24})$/, '/blog/old');
+//
 
-// site.use({
-//     response: {},
-//     jade: {},
-// })
+site.get(/\/blog\/(\d{0,5})$/, '/blog');
+site.get(/\/blog\/article\/(.{24})$/, '/blog/article');
+site.get(/\/message\/(\d{0,5})$/, '/message');

@@ -12,11 +12,19 @@ var useravatar = document.getElementById('useravatar');
 publish.addEventListener('click', function(e) {
     e.preventDefault();
     e.stopPropagation();
-
-    sendComment({
-        message: commendBox.innerHTML,
-        success: insertMsg
-    });
+    if (!commendBox.innerHTML) {
+        commendBox.focus();
+    } else {
+        sendComment({
+            message: commendBox.innerHTML,
+            success: function(data) {
+                var newClass = commend.getAttribute('class').replace(/(^active\s)|(\sactive\s)|(\sactive$)|$/, ' ')
+                commend.setAttribute('class', newClass);
+                commendBox.innerHTML = '';
+                insertMsg(data);
+            }
+        });
+    }
 });
 
 commend.addEventListener('click', function() {
@@ -64,60 +72,6 @@ on('.commend-replay-box-btn', 'click', function(e) {
 // init userinfo
 initUserinfo();
 
-// high light 
-var co = document.querySelectorAll('pre code');
-for (var i = 0; i < co.length; i++) {
-    hljs.highlightBlock(co[i]);
-}
-
-// like blog
-makegood.addEventListener('click', function() {
-    var classes = makegood.getAttribute('class');
-    if (classes.indexOf('active') != -1) {
-        return false;
-    }
-
-    var blogid = location.href.match(/article\/(.{24})/)[1];
-
-    var oldLike = localStorage.getItem('likeblog')
-    if (oldLike) {
-        oldLike = oldLike.split(',');
-    } else {
-        oldLike = [];
-    }
-
-    http({
-        url: '/api/blog/like',
-        method: 'post',
-        data: { blogid: blogid },
-        success: function(_data) {
-            var count = goodCount.innerHTML;
-            count = parseInt(count) + 1;
-            goodCount.innerHTML = count;
-
-            if (oldLike.indexOf(blogid) == -1) {
-                oldLike.push(blogid);
-            }
-
-            localStorage.setItem('likeblog', oldLike.join(','));
-
-            var newClass = classes.replace(/(^active\s)|(\sactive\s)|(\sactive$)|$/, ' active ')
-            makegood.setAttribute('class', newClass);
-        }
-    });
-});
-
-//init likeblog
-var blogid = location.href.match(/article\/(.{24})/)[1];
-var likeblog = localStorage.getItem('likeblog') || '';
-likeblog = likeblog.split(',');
-if (likeblog.indexOf(blogid) != -1) {
-    var newClass = makegood.getAttribute('class').replace(/(^active\s)|(\sactive\s)|(\sactive$)|$/, ' active ')
-    makegood.setAttribute('class', newClass);
-}
-
-
-
 // like blog
 on('.commend-like', 'click', function(e, dom) {
     var classes = dom.getAttribute('class');
@@ -134,7 +88,7 @@ on('.commend-like', 'click', function(e, dom) {
     }
 
     http({
-        url: '/api/blog/like',
+        url: '/api/comment/like',
         method: 'post',
         data: { commentid: id },
         success: function(_data) {
@@ -186,13 +140,11 @@ function sendComment(obj) {
     var blog = localStorage.getItem('website') || null;
     var email = localStorage.getItem('email') || null;
     var name = localStorage.getItem('username');
-    var blogid = location.href.match(/article\/(.{24})/)[1];
     var avatar = getAvatar(localStorage.getItem('email'));
 
     var data = {
         "name": name,
         "content": message,
-        "blogid": blogid,
         "avatar": avatar
     };
 
@@ -207,7 +159,7 @@ function sendComment(obj) {
     }
 
     http({
-        url: '/api/blog/comment',
+        url: '/api/comment/comment',
         method: 'post',
         data: data,
         success: function(_data) {

@@ -189,7 +189,7 @@ body a {
     width: 33%;
     padding: 20px;
     box-sizing: border-box;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .links-block-title {
@@ -202,6 +202,7 @@ body a {
     margin: 0;
     line-height: 1.6em;
 }
+
 
 .links-block-img {
     width: 100%;
