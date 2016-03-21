@@ -1,9 +1,9 @@
+build/
 node_modules/
-*.*~
-*.swp
 system/config/account.js
 .DS_Store
-*~
-build/
+*.*~
+*.swp
 .sass-cache/**/*.*
 .vscode/*
+
