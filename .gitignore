@@ -1,3 +1,5 @@
 node_modules/
 *.*~
 *.swp
+system/config/account.js
+
