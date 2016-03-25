@@ -1,12 +1,12 @@
+var account = require('../../system/config/account.js');
 var qs = require('querystring');
-
 var nodemailer = require('nodemailer');
 
 var transporter = nodemailer.createTransport({
     service: 'QQex', // no need to set host or port etc.
     auth: {
-        user: 'hello@zhuwenlong.com',
-        pass: 'zwl891027'
+        user: account.email.user,
+        pass: account.email.pass,
     }
 });
 
