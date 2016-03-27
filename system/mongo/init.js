@@ -17,18 +17,22 @@ var open = (function() {
                 // connect to the db
                 var url = 'mongodb://localhost:27017/zhuwenlong_com';
                 MongoClient.connect(url, function(err, _db) {
-                    console.log("Connected correctly to server [system/mongo/init.js]");
-                    var _cb = callbacks.shift();
-                    while (_cb) {
-                        if (typeof(_cb) == 'function') {
-                            _cb(_db);
-                        } else {
-                            console.log(_cb + ' not a function pass [system/mongo/init.js]');
+                    _db.authenticate('mofei', 'mofei@*(!)@&', function(err, result) {
+                        console.log('err', err)
+                        console.log("Connected correctly to server [system/mongo/init.js]");
+                        var _cb = callbacks.shift();
+                        while (_cb) {
+                            if (typeof(_cb) == 'function') {
+                                _cb(_db);
+                            } else {
+                                console.log(_cb + ' not a function pass [system/mongo/init.js]');
+                            }
+                            _cb = callbacks.shift();
                         }
-                        _cb = callbacks.shift();
-                    }
-                    db = _db;
-                    connectionStatus = 2;
+                        db = _db;
+                        connectionStatus = 2;
+                    })
+
                 });
                 connectionStatus = 1;
             }
@@ -36,5 +40,9 @@ var open = (function() {
     }
 })();
 
+
+// db.createUser({user: "admin",pwd: "admin",roles: ["readWrite"]});
+
+// db.createUser({"user":"mofei","pwd":"mofei@*(!)@&",roles: [ "readWrite", "dbAdmin" ]})
 
 exports.open = open;

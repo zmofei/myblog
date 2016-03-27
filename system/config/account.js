@@ -1,4 +1,9 @@
 exports.email = {
-    user: '******',
-    pass: '******'
+    user: 'hello@zhuwenlong.com',
+    pass: 'zwl891027'
 };
+
+exports.db = {
+    user: 'mofei',
+    pwd: 'mofei@*(!)@&'
+}
