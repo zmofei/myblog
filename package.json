@@ -22,5 +22,10 @@
     "mongodb": "^2.1.7",
     "nodemailer": "^2.3.0"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "del": "^2.2.0",
+    "gulp": "^3.9.1",
+    "gulp-ruby-sass": "^2.0.6",
+    "gulp-sass": "^2.2.0"
+  }
 }
