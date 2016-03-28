@@ -30,23 +30,25 @@ header {
   margin-left: 30px;
   display: inline-block;
   text-align: left; }
-  .intro h1 {
-    color: #947197;
-    font-weight: bold;
-    display: block;
-    width: 100%;
-    font-size: 80px;
-    text-align: center;
-    margin: 0;
-    padding: 0;
-    border-bottom: 4px solid #947197;
-    padding: 10px 0; }
-  .intro h2 {
-    color: #999;
-    margin: 0;
-    padding: 10px;
-    font-weight: normal;
-    font-size: 16px; }
+
+.intro h1 {
+  color: #947197;
+  font-weight: bold;
+  display: block;
+  width: 100%;
+  font-size: 80px;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  border-bottom: 4px solid #947197;
+  padding: 10px 0; }
+
+.intro h2 {
+  color: #999;
+  margin: 0;
+  padding: 10px;
+  font-weight: normal;
+  font-size: 16px; }
 
 .infoBar {
   margin-top: 8px;
@@ -78,36 +80,41 @@ header {
 
 .api_tables {
   border-bottom: 1px solid #ccc; }
-  .api_tables span {
-    display: inline-block;
-    padding: 10px;
-    font-size: 20px;
-    font-weight: bold; }
+
+.api_tables span {
+  display: inline-block;
+  padding: 10px;
+  font-size: 20px;
+  font-weight: bold; }
 
 .api_contant {
   padding: 10px 20px;
   font-size: 14px; }
-  .api_contant h3 {
-    font-size: 32px;
-    border-bottom: 1px solid #ddd;
-    box-shadow: 0 1px 1px #fff;
-    padding-bottom: 10px; }
-  .api_contant h4 {
-    font-size: 28px;
-    border-bottom: 1px solid #eee;
-    box-shadow: 0 1px 1px #fff;
-    padding-bottom: 5px; }
-  .api_contant h5 {
-    font-size: 24px;
-    border-bottom: 1px solid #eee;
-    box-shadow: 0 1px 1px #fff;
-    padding-bottom: 5px; }
-  .api_contant h6 {
-    font-size: 18px;
-    margin: 0;
-    border-bottom: 1px solid #eee;
-    box-shadow: 0 1px 1px #fff;
-    padding-bottom: 5px; }
+
+.api_contant h3 {
+  font-size: 32px;
+  border-bottom: 1px solid #ddd;
+  box-shadow: 0 1px 1px #fff;
+  padding-bottom: 10px; }
+
+.api_contant h4 {
+  font-size: 28px;
+  border-bottom: 1px solid #eee;
+  box-shadow: 0 1px 1px #fff;
+  padding-bottom: 5px; }
+
+.api_contant h5 {
+  font-size: 24px;
+  border-bottom: 1px solid #eee;
+  box-shadow: 0 1px 1px #fff;
+  padding-bottom: 5px; }
+
+.api_contant h6 {
+  font-size: 18px;
+  margin: 0;
+  border-bottom: 1px solid #eee;
+  box-shadow: 0 1px 1px #fff;
+  padding-bottom: 5px; }
 
 footer {
   font-size: 15px;
@@ -115,8 +122,9 @@ footer {
   padding: 10px;
   background: rgba(0, 0, 0, 0.5);
   color: #fff; }
-  footer a {
-    color: #fff; }
+
+footer a {
+  color: #fff; }
 
 .script {
   display: none; }
