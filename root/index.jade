@@ -1,29 +1,25 @@
-doctype html
-html(lang="zh")
-  head
-    meta(charset="UTF-8")
-    meta(name="description" content="朱文龙,Mofei,百度高级研发工程师,2010年开始研究web前端技术,一个极具潜力的全栈工程师。")
-    meta(name="keywords" content="Mofei,朱文龙,Front-end,JavaScript")
-    meta(name="author" content="朱文龙")
-    meta(name="viewport" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, width=device-width")
-    meta(content="yes" name="apple-mobile-web-app-capable")
+extends ./layout.jade
+
+block title
     title I'm Mofei - 朱文龙的自留地
-    link(rel="alternate" type="application/rss+xml" title="I'm Mofei - 朱文龙的自留地" href="/rss")
-    link(rel="apple-touch-icon" sizes="57x57" href="apple-touch-icon-precomposed_64.png")
-    link(rel="apple-touch-icon" sizes="72x72" href="apple-touch-icon-precomposed_72.png")
-    link(rel="apple-touch-icon" sizes="114x114" href="apple-touch-icon-precomposed_144.png")
-    link(rel="apple-touch-icon" sizes="144x144" href="apple-touch-icon-precomposed_144.png")
-    link(rel="icon" href="favicon.ico")
-    link(rel="stylesheet" href="/css/index.css")
-  body
-    video#bgvid(autoplay, loop, poster='/image/index/cover.jpg')
-        source(src='/video/bgvid.webm', type='video/webm')
-        source(src='/video/bgvid.mp4', type='video/mp4')
-        source(src='/video/bgvid.ogv', type='video/ogv')
+    title= host
+
+block css
+    link(rel="stylesheet" href= host + "/css/index.css")
+
+block javascript
+    script(src= host + "/js/index.js")
+    script(src= host + "/js/world.js")
+
+block content
+    video#bgvid(autoplay, loop, poster= host + '/image/index/cover.jpg')
+        source(src= host + '/video/bgvid.webm', type='video/webm')
+        source(src= host + '/video/bgvid.mp4', type='video/mp4')
+        source(src= host + '/video/bgvid.ogv', type='video/ogv')
     div.videobg
     section.global-nav#nav
         a.global-nav-btn#navTar(href="#")
-            //- span MENU 
+            //- span MENU
         section.global-nav-bar#navBar
             a.global-nav-close#navClose(href="#")
             ul
@@ -50,22 +46,22 @@ html(lang="zh")
         button.btn.cover-more#More Learn More
     section.index-about
         h2 WHO AM I.
-        div.index-about-who 
-            div.index-about-block.index-about-identity 
+        div.index-about-who
+            div.index-about-block.index-about-identity
                 div.img
-                    img(src="/image/index/idnetity.gif")
+                    img(src= host + "/image/index/idnetity.gif")
                 p Mofei，常用名朱文龙。
                 p 高级动物，人科，人属，智人种，公元1989年诞生于银河系-地球（北纬32.6167°，东经116.9833°）。
                 p 性情温和，贱萌，脑袋中无时不刻充斥着奇怪的idea，爱憎分明，典型天蝎气质。
-            div.index-about-block.index-about-work 
+            div.index-about-block.index-about-work
                 div.img
-                    img(src="/image/index/work.gif")
+                    img(src= host + "/image/index/work.gif")
                 p 与时俱进的电脑迷、程序控。
                 p 2011年接触前端，11-14年在上海易班刷了4年副本，14年10月前往北京百度打怪升级，目标成为合格的全栈工程师。
                 p 已习得技能 HTML(5), CSS(3), JAVASCRIPT, NODE.JS, PHP, MONGODB, REDIS, LINUX。
-            div.index-about-block.index-about-dream 
+            div.index-about-block.index-about-dream
                 div.img
-                    img(src="/image/index/dream.gif")
+                    img(src= host + "/image/index/dream.gif")
                 p 文艺的追梦者。
                 p 梦想开间咖啡店，讲述着自己环游世界的见闻。
     section.index-travel
@@ -113,15 +109,8 @@ html(lang="zh")
         div.index-copyright-mid
             div.index-copyright-midleft
             div.index-copyright-midcenter
-                img(src="/image/index/logo.png" width="412")
+                img(src= host + "/image/index/logo.png" width="412")
             div.index-copyright-midright
         div.index-copyright-bottom
-            div.index-copyright-bottom-txt (C) 2016 by 
+            div.index-copyright-bottom-txt (C) 2016 by
                 a(href="http://www.zhuwenlong.com") Mofei
-    
-
-    script(src="/js/index.js")
-    script(src="/js/world.js")
-
-
-

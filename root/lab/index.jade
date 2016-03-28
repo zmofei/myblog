@@ -1,13 +1,13 @@
 extends ../layout.jade
 
 block title
-    title 博客 - I'm Mofei
+    title 实验室 - I'm Mofei
 
 block css
-    link(rel="stylesheet" href="/css/lab.css")
+    link(rel="stylesheet" href= host + "/css/lab.css")
 
 block javascript
-    script(src="/js/tools/utility.js")
+    script(src= host + "/js/tools/utility.js")
 
 block content    
     include ../../system/jade/nav.jade
@@ -16,7 +16,7 @@ block content
             div.lab-block-addone
                 div.lab-block
                     a(href="https://github.com/huiyan-fe/mapv" target="_blank")
-                        img(src="/image/lab/mapv.jpg")
+                        img(src= host + "/image/lab/mapv.jpg")
                     div.lab-block-title 
                         a(href="https://github.com/huiyan-fe/mapv" target="_blank") Mapv    
                     div.lab-block-intro 领先的地理大数据可视化开源库。
@@ -27,7 +27,7 @@ block content
                         span as co-first author
                 div.lab-block
                     a(href="http://zmofei.github.io/dufing/" target="_blank")
-                        img(src="/image/lab/dufing.jpg")
+                        img(src= host + "/image/lab/dufing.jpg")
                     div.lab-block-title 
                         a(href="http://zmofei.github.io/dufing/" target="_blank") Dufing
                     div.lab-block-intro 一个轻量级，基于文件系统的node.js web server框架。
@@ -36,7 +36,7 @@ block content
                         span as first author
                 div.lab-block
                     a(href="/lab/mstaticize" target="_blank")
-                        img(src="/image/lab/mstaticize.jpg")
+                        img(src= host + "/image/lab/mstaticize.jpg")
                     div.lab-block-title 
                         a(href="/lab/mstaticize" target="_blank") mStaticize
                     div.lab-block-intro ☺ 使用 mStaticize 通过简单的配置，就可以实现前端资源的静态化（hash），自动替换资源引用等实用的前端文件打包功能。

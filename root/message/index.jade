@@ -1,11 +1,11 @@
 extends ../layout.jade
 
 block title
-    title 博客 - I'm Mofei
+    title 留言 - I'm Mofei
 
 block css
-    link(rel="stylesheet" href="/css/blog.css")
-    link(rel="stylesheet" href="/css/tools/default.css")
+    link(rel="stylesheet" href= host + "/css/blog.css")
+    link(rel="stylesheet" href= host + "/css/tools/default.css")
 
 block javascriptBeforeLoad
     script.
@@ -13,24 +13,20 @@ block javascriptBeforeLoad
             if(e.src.indexOf("www.gravatar.com") > -1 ){
                 e.src = e.src.replace("www.gravatar.com", "gravatar.duoshuo.com")
             } else if(e.src.indexOf("gravatar.duoshuo.com") > -1){
-                e.src = "/image/nobody.jpg";
+                e.src = host + "/image/nobody.jpg";
             } else if(e.src != "/image/nobody.jpg") {
-                e.src = "/image/nobody.jpg";
+                e.src = host + "/image/nobody.jpg";
             }
-
         }
 block javascript
-    script(src="/js/tools/utility.js")
-    script(src="/js/tools/md5.min.js")
-    script(src="/js/message/message.js")
+    script(src= host + "/js/tools/utility.js")
+    script(src= host + "/js/tools/md5.min.js")
+    script(src= host + "/js/message/message.js")
         
 
 block content
     include ../../system/jade/nav.jade
-
     include ../../system/jade/comment.jade
-
-    
 
     section.index-copyright
         div.index-copyright-bottom

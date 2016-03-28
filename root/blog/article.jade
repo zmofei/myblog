@@ -4,8 +4,8 @@ block title
     title 博客 - I'm Mofei
 
 block css
-    link(rel="stylesheet" href="/css/blog.css")
-    link(rel="stylesheet" href="/css/tools/default.css")
+    link(rel="stylesheet" href= host + "/css/blog.css")
+    link(rel="stylesheet" href= host + "/css/tools/default.css")
 
 block javascriptBeforeLoad
     script.
@@ -20,10 +20,10 @@ block javascriptBeforeLoad
 
         }
 block javascript
-    script(src="/js/tools/utility.js")
-    script(src="/js/tools/md5.min.js")
-    script(src="/js/tools/highlight.pack.js")
-    script(src="/js/blog/article.js")
+    script(src= host + "/js/tools/utility.js")
+    script(src= host + "/js/tools/md5.min.js")
+    script(src= host + "/js/tools/highlight.pack.js")
+    script(src= host + "/js/blog/article.js")
         
 
 block content
@@ -47,7 +47,7 @@ block content
         div.commend-pub#commend
             div.commend-pub-info
                 div.commend-avatar
-                    img#useravatar(src="/image/nobody.jpg")
+                    img#useravatar(src= host + "/image/nobody.jpg")
                 div.commend-pub-text#commendTips Write a response...
                 div.commend-pub-uname#commendUsername Mofei Zhu
             div.commend-pub-box#commendBox(contenteditable=true)
@@ -60,7 +60,7 @@ block content
                         if (comment.avatar)
                             img(src= comment.avatar onerror="avatarError(this)")
                         else
-                            img(src="/image/nobody.jpg")
+                            img(src= host + "/image/nobody.jpg")
                     div.commend-info
                         div.commend-name
                             if (comment.blog)
