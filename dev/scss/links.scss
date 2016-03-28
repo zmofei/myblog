@@ -1,0 +1,223 @@
+@import '../../system/config/config.scss';
+
+body,
+html {
+    padding: 0;
+    margin: 0;
+    font-family: Open Sans, "Helvetica neue", Helvetica, Tahoma, "lantinghei sc", "Microsoft Yahei", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    background: #efefef;
+}
+
+body a {
+    color: #f15623;
+    text-decoration: none;
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    src: url($host + '/font/OpenSans-Light.eot?eyv41e');
+    src: url($host + '/font/OpenSans-Light.eot?eyv41e#iefix') format('embedded-opentype'), url($host + '/font/OpenSans-Light.ttf?eyv41e') format('truetype'), url($host + '/font/OpenSans-Light.woff?eyv41e') format('woff'), url($host + '/font/OpenSans-Light.svg?eyv41e#OpenSans-Light') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'icomoon';
+    src: url($host + '/font/icomoon.eot?eyv41e');
+    src: url($host + '/font/icomoon.eot?eyv41e#iefix') format('embedded-opentype'), url($host + '/font/icomoon.ttf?eyv41e') format('truetype'), url($host + '/font/icomoon.woff?eyv41e') format('woff'), url($host + '/font/icomoon.svg?eyv41e#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.global-nav-text {
+    height: 50px;
+    line-height: 50px;
+    background: rgba(0, 0, 0, .8);
+    color: #FFF;
+    overflow: hidden;
+}
+
+.global-nav-text-logo {
+    float: left;
+    font-size: 20px;
+    margin-left: 40px;
+}
+
+.global-nav-text-link {
+    float: right;
+    margin-right: 40px;
+}
+
+.global-nav-text-link ul,
+.global-nav-text-link li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.global-nav-text-link li a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 8px;
+}
+
+.global-nav {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    /*background: #2e3842;*/
+    width: 100%;
+    color: #fff;
+    z-index: 10000;
+    vertical-align: middle;
+}
+
+.global-nav-btn {
+    position: fixed;
+    right: 0px;
+    top: 0px;
+    line-height: 30px;
+    vertical-align: middle;
+    font-size: 14px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 5px;
+    border-radius: 4px;
+    background: rgba(0, 0, 0, .4);
+}
+
+.global-nav-bar {
+    position: fixed;
+    top: 0;
+    right: -388px;
+    width: 388px;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 10001;
+    transition: all 0.3s ease-in;
+}
+
+.global-nav-bar ul,
+.global-nav-bar li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.global-nav-bar ul a {
+    display: block;
+    height: 50px;
+    line-height: 50px;
+    color: #ccc;
+    text-decoration: none;
+    padding: 0 20px;
+    transition: all 0.3s ease-in;
+}
+
+.global-nav-bar ul a:hover,
+.global-nav-bar ul a.active {
+    color: #3c3c3c;
+    background: #c3c4c6;
+}
+
+.global-nav-btn:after {
+    content: ' ';
+    width: 35px;
+    height: 35px;
+    float: right;
+    background: url($host + '/image/index/bars.svg') no-repeat center;
+}
+
+.global-nav-close {
+    height: 50px;
+    display: block;
+    background: url($host + '/image/index/close.svg') no-repeat 96% center;
+}
+
+.global-nav-bg {
+    position: fixed;
+    background: rgba(0, 0, 0, 0.5);
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 9999;
+    opacity: 0;
+    transition: all 0.3s ease-in;
+    display: none;
+}
+
+.global-nav.active .global-nav-bar {
+    right: 0;
+}
+
+.global-nav.active .global-nav-bg {
+    opacity: 1;
+}
+
+.index-copyright-bottom {
+    background: rgba(255, 255, 255, 0.95);
+}
+
+.index-copyright-bottom-txt {
+    text-align: center;
+    background: #fff;
+    padding: 10px;
+    font-size: 12px;
+}
+
+.index-copyright-bottom-txt a {
+    color: #f15623;
+    text-decoration: none;
+}
+
+.links-contenter {
+    max-width: 1200px;
+    min-width: 800px;
+    padding: 40px;
+    box-sizing: border-box;
+    margin: 0 auto;
+}
+
+.links-box {
+    overflow: hidden;
+    color: #333;
+}
+
+.links-block {
+    float: left;
+    width: 33%;
+    padding: 20px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+
+.links-block-title {
+    font-weight: bold;
+    padding-bottom: 5px;
+    display: inline-block;
+}
+
+.links-block p {
+    margin: 0;
+    line-height: 1.6em;
+}
+
+
+.links-block-img {
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    margin-bottom: 10px;
+    background-position: center;
+    transition: all 0.4s ease-in;
+}
+
+.links-block-img img {
+    opacity: 0;
+    width: 100%;
+    float: left;
+}
