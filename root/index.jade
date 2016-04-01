@@ -12,105 +12,99 @@ block javascript
     script(src= host + "/js/world.js")
 
 block content
-    video#bgvid(autoplay, loop, poster= host + '/image/index/cover.jpg')
-        source(src= host + '/video/bgvid.webm', type='video/webm')
-        source(src= host + '/video/bgvid.mp4', type='video/mp4')
-        source(src= host + '/video/bgvid.ogv', type='video/ogv')
-    div.videobg
-    section.global-nav#nav
-        a.global-nav-btn#navTar(href="#")
-            //- span MENU
-        section.global-nav-bar#navBar
-            a.global-nav-close#navClose(href="#")
-            ul
-                li
-                    a.active(href="/") 首页
-                    a(href="/blog") 博客
-                    a(href="/lab") 实验室
-                    a(href="/links") 小伙伴
-                    a(href="/rss") RSS
-        section.global-nav-bg#navBg
-    section.index.index-cover
-        div.title
-            svg#title(version='1.1', xmlns='http://www.w3.org/2000/svg', xmlns:xlink='http://www.w3.org/1999/xlink', x='0px', y='0px', viewbox='0 0 1000 200', enable-background='new 0 0 1000 200', xml:space='preserve')
-              g
-                path(d='M139.8,155.7V51.1h7.1v104.6H139.8z')
-                path(d='M216.2,155.7l41.5-104.6h8.8l40.9,104.6h-8.1l-13.4-33.5h-48.3l-13.4,33.5H216.2zM283.2,115.5l-21.5-56.3l-22,56.3H283.2z')
-                path(d='M320.1,155.7V51.1h11.1l38.3,95.8l38.1-95.8h11.1v104.6h-7.1V59.2l-39,96.5h-6.5l-39-96.5                v96.5H320.1z')
-                path(d='M497.7,155.7V51.1h11.1l38.3,95.8l38.1-95.8h11.1v104.6h-7.1V59.2l-39,96.5h-6.5l-39-96.5                v96.5H497.7z')
-                path(d='M625.9,142.3c-8.5-9.8-12.7-22.7-12.7-38.8c0-16.7,4.2-30,12.7-40c8.5-10,19.8-15,33.9-15                c14.1,0,25.4,5,33.9,15c8.5,10,12.7,23.3,12.7,40c0,16.1-4.2,29-12.7,38.8c-8.5,9.8-19.8,14.6-33.9,14.6C645.7,156.9,634.4,152,625.9,142.3zM688.6,137.5c7.2-8.5,10.8-19.8,10.8-34c0-14.6-3.6-26.3-10.8-35.1c-7.2-8.8-16.8-13.2-28.8-13.2s-21.6,4.4-28.8,13.2c-7.2,8.8-10.8,20.5-10.8,35.1c0,14.2,3.6,25.6,10.8,34c7.2,8.6,16.8,12.9,28.8,12.9S681.4,146.1,688.6,137.5z')
-                path(d='M723.3,155.7V51.1H788V58h-57.7v40.2h51v6.5h-51v51H723.3z')
-                path(d='M800.4,155.7V51.1h68.3V58h-61.2v40.2h55.9v6.5h-55.9V149h61.2v6.7H800.4z')
-                path(d='M881.9,155.7V51.1h7.1v104.6H881.9z')
-            h2 Open a coffee shop, travel around the world, that should be my life.
-        button.btn.cover-more#More Learn More
-    section.index-about
-        h2 WHO AM I.
-        div.index-about-who
-            div.index-about-block.index-about-identity
-                div.img
-                    img(src= host + "/image/index/idnetity.gif")
-                p Mofei，常用名朱文龙。
-                p 高级动物，人科，人属，智人种，公元1989年诞生于银河系-地球（北纬32.6167°，东经116.9833°）。
-                p 性情温和，贱萌，脑袋中无时不刻充斥着奇怪的idea，爱憎分明，典型天蝎气质。
-            div.index-about-block.index-about-work
-                div.img
-                    img(src= host + "/image/index/work.gif")
-                p 与时俱进的电脑迷、程序控。
-                p 2011年接触前端，11-14年在上海易班刷了4年副本，14年10月前往北京百度打怪升级，目标成为合格的全栈工程师。
-                p 已习得技能 HTML(5), CSS(3), JAVASCRIPT, NODE.JS, PHP, MONGODB, REDIS, LINUX。
-            div.index-about-block.index-about-dream
-                div.img
-                    img(src= host + "/image/index/dream.gif")
-                p 文艺的追梦者。
-                p 梦想开间咖啡店，讲述着自己环游世界的见闻。
-    section.index-travel
-        h2 Travel around the world.
-        h3 That's one of my LIFE GOAL
-        div.index-travel-world#map
-    section.index-coffee
-        h2 A Dream follower.
-        h3 This world , should a coffee shop called mofei
-        p 我想有家咖啡馆。
-        p 不用很大，慵懒的午后，刚好能容下一群怀揣着梦想的追梦者。
-        p 要有相片，散步在屋里的各个角落，总能吸引眼球，细细品味，这才是人生。
-        p 一定要有故事角，每个阳光满满的下午，总会有位睿智的分享者，述说着他生命中的一个可以是平凡，但总是留给人遐想和回味的故事。偶尔还会有rose级别的人物出现，讲述着TA的“泰坦尼克号”。
-        p 要温馨，难过或者不开心的时候，总能想到这家咖啡店，找个舒服的沙发，品味现磨的手工咖啡，听着娓娓道来的故事，突然忍俊不禁的笑出声来，然后不好意思的捂上嘴，换来身边所有人的会心一笑。
-    section.index-content
-        h2 Contact me
-        h3 If you have any qusetion, please feel free contact me.
-        div.index-content-box
-            div.index-content-boxhalf
-                label
-                    p 昵称/姓名：
-                    p
-                        input#username
-            div.index-content-boxhalf
-                label
-                    p 联系方式：
-                    p
-                        input#email
-            div
-                label
-                    p 内容：
-                    p
-                        textarea#message
-            button.btn#send Send
-            span.index-content-tips#tips Message Sended
-    section.index-media
-        a(href="http://weibo.com/zwl1027" target="_blank").btn 微博
-        a(href="https://github.com/zmofei" target="_blank").btn Github
-        span.btn#wechat Wechat
-        span.btn#qq QQ
-        a(href="https://www.facebook.com/zhuwenlong" target="_blank").btn Facebook
-        a(href="https://www.linkedin.com/in/mofei-zhu-0a391476" target="_blank").btn LinkedIn
-    section.index-copyright
-        div.index-copyright-top
-        div.index-copyright-mid
-            div.index-copyright-midleft
-            div.index-copyright-midcenter
-                img(src= host + "/image/index/logo.png" width="412")
-            div.index-copyright-midright
-        div.index-copyright-bottom
-            div.index-copyright-bottom-txt (C) 2016 by
-                a(href="http://www.zhuwenlong.com") Mofei
+    div.body-content
+        include ../system/jade/nav.jade
+        video#bgvid(autoplay, loop, poster= host + '/image/index/cover.jpg')
+            source(src= host + '/video/bgvid.webm', type='video/webm')
+            source(src= host + '/video/bgvid.mp4', type='video/mp4')
+            source(src= host + '/video/bgvid.ogv', type='video/ogv')
+        div.videobg
+        section.index.index-cover
+            div.title
+                svg#title(version='1.1', xmlns='http://www.w3.org/2000/svg', xmlns:xlink='http://www.w3.org/1999/xlink', x='0px', y='0px', viewbox='0 0 1000 200', enable-background='new 0 0 1000 200', xml:space='preserve')
+                  g
+                    path(d='M139.8,155.7V51.1h7.1v104.6H139.8z')
+                    path(d='M216.2,155.7l41.5-104.6h8.8l40.9,104.6h-8.1l-13.4-33.5h-48.3l-13.4,33.5H216.2zM283.2,115.5l-21.5-56.3l-22,56.3H283.2z')
+                    path(d='M320.1,155.7V51.1h11.1l38.3,95.8l38.1-95.8h11.1v104.6h-7.1V59.2l-39,96.5h-6.5l-39-96.5                v96.5H320.1z')
+                    path(d='M497.7,155.7V51.1h11.1l38.3,95.8l38.1-95.8h11.1v104.6h-7.1V59.2l-39,96.5h-6.5l-39-96.5                v96.5H497.7z')
+                    path(d='M625.9,142.3c-8.5-9.8-12.7-22.7-12.7-38.8c0-16.7,4.2-30,12.7-40c8.5-10,19.8-15,33.9-15                c14.1,0,25.4,5,33.9,15c8.5,10,12.7,23.3,12.7,40c0,16.1-4.2,29-12.7,38.8c-8.5,9.8-19.8,14.6-33.9,14.6C645.7,156.9,634.4,152,625.9,142.3zM688.6,137.5c7.2-8.5,10.8-19.8,10.8-34c0-14.6-3.6-26.3-10.8-35.1c-7.2-8.8-16.8-13.2-28.8-13.2s-21.6,4.4-28.8,13.2c-7.2,8.8-10.8,20.5-10.8,35.1c0,14.2,3.6,25.6,10.8,34c7.2,8.6,16.8,12.9,28.8,12.9S681.4,146.1,688.6,137.5z')
+                    path(d='M723.3,155.7V51.1H788V58h-57.7v40.2h51v6.5h-51v51H723.3z')
+                    path(d='M800.4,155.7V51.1h68.3V58h-61.2v40.2h55.9v6.5h-55.9V149h61.2v6.7H800.4z')
+                    path(d='M881.9,155.7V51.1h7.1v104.6H881.9z')
+                h2 Open a coffee shop, travel around the world, that should be my life.
+            div.title-mini
+                h1 I AM MOFEI
+                h2 Open a coffee shop, travel around the world, that should be my life.
+                
+                
+            button.btn.cover-more#More Learn More
+        section.index-about
+            h2 WHO AM I.
+            div.index-about-who
+                div.index-about-block.index-about-identity
+                    div.img
+                        img(src= host + "/image/index/idnetity.gif")
+                    p Mofei，常用名朱文龙。
+                    p 高级动物，人科，人属，智人种，公元1989年诞生于银河系-地球（北纬32.6167°，东经116.9833°）。
+                    p 性情温和，贱萌，脑袋中无时不刻充斥着奇怪的idea，爱憎分明，典型天蝎气质。
+                div.index-about-block.index-about-work
+                    div.img
+                        img(src= host + "/image/index/work.gif")
+                    p 与时俱进的电脑迷、程序控。
+                    p 2011年接触前端，11-14年在上海易班刷了4年副本，14年10月前往北京百度打怪升级，目标成为合格的全栈工程师。
+                    p 已习得技能 HTML(5), CSS(3), JAVASCRIPT, NODE.JS, PHP, MONGODB, REDIS, LINUX。
+                div.index-about-block.index-about-dream
+                    div.img
+                        img(src= host + "/image/index/dream.gif")
+                    p 文艺的追梦者。
+                    p 梦想开间咖啡店，讲述着自己环游世界的见闻。
+        section.index-travel
+            h2 Travel around the world.
+            h3 That's one of my LIFE GOAL
+            div.index-travel-world#map
+        section.index-coffee
+            h2 A Dream follower.
+            h3 This world , should a coffee shop called mofei
+            p 我想有家咖啡馆。
+            p 不用很大，慵懒的午后，刚好能容下一群怀揣着梦想的追梦者。
+            p 要有相片，散步在屋里的各个角落，总能吸引眼球，细细品味，这才是人生。
+            p 一定要有故事角，每个阳光满满的下午，总会有位睿智的分享者，述说着他生命中的一个可以是平凡，但总是留给人遐想和回味的故事。偶尔还会有rose级别的人物出现，讲述着TA的“泰坦尼克号”。
+            p 要温馨，难过或者不开心的时候，总能想到这家咖啡店，找个舒服的沙发，品味现磨的手工咖啡，听着娓娓道来的故事，突然忍俊不禁的笑出声来，然后不好意思的捂上嘴，换来身边所有人的会心一笑。
+        section.index-content
+            h2 Contact me
+            h3 If you have any question, please feel free contact me.
+            div.index-content-box
+                div.index-content-boxhalf
+                    label
+                        p 昵称/姓名：
+                        p
+                            input#username
+                div.index-content-boxhalf
+                    label
+                        p 联系方式：
+                        p
+                            input#email
+                div
+                    label
+                        p 内容：
+                        p
+                            textarea#message
+                button.btn#send Send
+                span.index-content-tips#tips Message Sended
+        section.index-media
+            a(href="http://weibo.com/zwl1027" target="_blank").btn 微博
+            a(href="https://github.com/zmofei" target="_blank").btn Github
+            span.btn#wechat Wechat
+            span.btn#qq QQ
+            a(href="https://www.facebook.com/zhuwenlong" target="_blank").btn Facebook
+            a(href="https://www.linkedin.com/in/mofei-zhu-0a391476" target="_blank").btn LinkedIn
+        section.index-copyright
+            div.index-copyright-top
+            div.index-copyright-mid
+                div.index-copyright-midleft
+                div.index-copyright-midcenter
+                    img(src= host + "/image/index/logo.png" width="412")
+                div.index-copyright-midright
+            div.index-copyright-bottom
+                div.index-copyright-bottom-txt (C) 2016 by
+                    a(href="http://www.zhuwenlong.com") Mofei

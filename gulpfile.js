@@ -1,6 +1,4 @@
 const gulp = require('gulp');
-const imagemin = require('gulp-imagemin');
-const pngquant = require('imagemin-pngquant');
 const rev = require('gulp-rev');
 const revReplace = require('gulp-rev-replace');
 const sass = require('gulp-sass');
@@ -59,7 +57,7 @@ gulp.task('prepare', ['prepareStatic'], () => {
 
 gulp.task('sass', () => {
   return gulp.src('dev/scss/**/*.scss')
-    .pipe(watch('dev/scss/**/*.scss'))
+    .pipe(watch('dev/scss/**/*.*'))
     .pipe(sass().on('error', sass.logError))
     .pipe(gulp.dest('static/css/'));
 });
@@ -72,4 +70,4 @@ gulp.task('sass_noWatch', () => {
 
 gulp.task('default', ['sass']);
 
-gulp.task('online', ['prepare','imagemin','revreplaceJade', 'revreplaceStatic']);
+gulp.task('online', ['prepare',/*'imagemin',*/'revreplaceJade', 'revreplaceStatic']);

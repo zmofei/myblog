@@ -1,0 +1,133 @@
+.global-nav-text {
+  height: 50px;
+  line-height: 50px;
+  background: rgba(0, 0, 0, 0.8);
+  color: #FFF;
+  overflow: hidden; }
+
+.global-nav-text-logo {
+  float: left;
+  font-size: 20px;
+  margin-left: 40px; }
+
+.global-nav-text-link {
+  float: right;
+  margin-right: 40px; }
+
+.global-nav-text-link li,
+.global-nav-text-link ul {
+  list-style: none;
+  margin: 0;
+  padding: 0; }
+
+.global-nav-text-link li a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 8px; }
+
+.global-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  /*background: #2e3842;*/
+  width: 100%;
+  color: #fff;
+  z-index: 10000;
+  vertical-align: middle; }
+
+.global-nav-btn {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 0;
+  line-height: 35px;
+  vertical-align: middle;
+  font-size: 14px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 5px; }
+
+.global-nav-bar {
+  position: fixed;
+  top: 0;
+  right: -388px;
+  width: 388px;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 10001;
+  transition: all 0.3s ease-in; }
+
+.global-nav-bar li,
+.global-nav-bar ul {
+  margin: 0;
+  padding: 0;
+  list-style: none; }
+
+.global-nav-bar ul a {
+  display: block;
+  height: 50px;
+  line-height: 50px;
+  color: #ccc;
+  text-decoration: none;
+  padding: 0 20px;
+  transition: all 0.3s ease-in; }
+
+.global-nav-bar ul a.active,
+.global-nav-bar ul a:hover {
+  color: #3c3c3c;
+  background: #c3c4c6; }
+
+.global-nav-btn:after {
+  content: ' ';
+  width: 40px;
+  height: 40px;
+  float: right;
+  background: url("/image/index/bars.svg") no-repeat center; }
+
+.global-nav-close {
+  height: 50px;
+  display: block;
+  background: url("/image/index/close.svg") no-repeat 96% center; }
+
+.global-nav-bg {
+  position: fixed;
+  background: rgba(0, 0, 0, 0.5);
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 9999;
+  opacity: 0;
+  transition: all 0.3s ease-in;
+  display: none; }
+
+.global-nav.active .global-nav-bar {
+  right: 0; }
+
+.global-nav.active .global-nav-bg {
+  opacity: 1; }
+
+@media (max-width: 800px) {
+  .global-nav-btn {
+    display: block; }
+  .global-nav-text {
+    overflow: visible; }
+  .global-nav-text-logo {
+    margin-left: 10px; }
+  .global-nav-text-link {
+    display: none;
+    margin-right: 0;
+    width: 100%;
+    position: absolute;
+    top: 50px;
+    z-index: 1000; }
+  .global-nav-text-link li a {
+    display: block;
+    background: rgba(249, 251, 248, 0.8);
+    margin: 0;
+    padding: 0 10px;
+    color: #333;
+    text-align: center;
+    border-bottom: 1px solid #F1F1F1;
+    font-size: 18px; } }

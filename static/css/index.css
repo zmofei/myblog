@@ -1,6 +1,6 @@
 @charset "UTF-8";
-html,
-body {
+body,
+html {
   height: 100%;
   width: 100%;
   padding: 0;
@@ -22,10 +22,49 @@ body {
   background: url("/image/index/cover.jpg") center center;
   background-size: cover; }
 
+.global-nav-text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: none; }
+
+.body-content {
+  min-width: 800px;
+  height: 100%;
+  width: 100%; }
+
+.global-nav-text {
+  height: 50px;
+  line-height: 50px;
+  background: rgba(0, 0, 0, 0.8);
+  color: #FFF;
+  overflow: hidden; }
+
+.global-nav-text-logo {
+  float: left;
+  font-size: 20px;
+  margin-left: 40px; }
+
+.global-nav-text-link {
+  float: right;
+  margin-right: 40px; }
+
+.global-nav-text-link li,
+.global-nav-text-link ul {
+  list-style: none;
+  margin: 0;
+  padding: 0; }
+
+.global-nav-text-link li a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 8px; }
+
 .global-nav {
   position: fixed;
-  top: 0px;
-  left: 0px;
+  top: 0;
+  left: 0;
   /*background: #2e3842;*/
   width: 100%;
   color: #fff;
@@ -33,18 +72,17 @@ body {
   vertical-align: middle; }
 
 .global-nav-btn {
-  position: fixed;
-  right: 10px;
-  top: 10px;
-  line-height: 30px;
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 0;
+  line-height: 35px;
   vertical-align: middle;
   font-size: 14px;
   color: #fff;
   text-decoration: none;
   font-weight: bold;
-  padding: 5px;
-  border-radius: 4px;
-  background: rgba(0, 0, 0, 0.4); }
+  padding: 5px; }
 
 .global-nav-bar {
   position: fixed;
@@ -56,8 +94,8 @@ body {
   z-index: 10001;
   transition: all 0.3s ease-in; }
 
-.global-nav-bar ul,
-.global-nav-bar li {
+.global-nav-bar li,
+.global-nav-bar ul {
   margin: 0;
   padding: 0;
   list-style: none; }
@@ -71,15 +109,15 @@ body {
   padding: 0 20px;
   transition: all 0.3s ease-in; }
 
-.global-nav-bar ul a:hover,
-.global-nav-bar ul a.active {
+.global-nav-bar ul a.active,
+.global-nav-bar ul a:hover {
   color: #3c3c3c;
   background: #c3c4c6; }
 
 .global-nav-btn:after {
   content: ' ';
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
   float: right;
   background: url("/image/index/bars.svg") no-repeat center; }
 
@@ -105,6 +143,37 @@ body {
 
 .global-nav.active .global-nav-bg {
   opacity: 1; }
+
+@media (max-width: 800px) {
+  .global-nav-btn {
+    display: block; }
+  .global-nav-text {
+    overflow: visible; }
+  .global-nav-text-logo {
+    margin-left: 10px; }
+  .global-nav-text-link {
+    display: none;
+    margin-right: 0;
+    width: 100%;
+    position: absolute;
+    top: 50px;
+    z-index: 1000; }
+  .global-nav-text-link li a {
+    display: block;
+    background: rgba(249, 251, 248, 0.8);
+    margin: 0;
+    padding: 0 10px;
+    color: #333;
+    text-align: center;
+    border-bottom: 1px solid #F1F1F1;
+    font-size: 18px; } }
+
+.global-nav-text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.3); }
 
 #bgvid {
   position: fixed;
@@ -150,9 +219,16 @@ body {
   width: 100%;
   margin-top: -280px;
   position: absolute;
-  top: 50%;
+  top: 55%;
   font-family: sans-serif;
   animation: titlepos 1s ease-in; }
+
+.index-cover .title h1 {
+  display: none;
+  text-align: center;
+  font-size: 66px;
+  font-weight: 300;
+  margin-bottom: 10px; }
 
 .index-cover svg {
   max-width: 1200px;
@@ -216,10 +292,10 @@ body {
   color: #fff; }
 
 .btn:hover:after {
-  top: 0px;
-  left: 0px;
-  right: 0px;
-  bottom: 0px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   opacity: 1; }
 
 @keyframes title {
@@ -253,13 +329,13 @@ body {
 .index-about {
   background: rgba(255, 255, 255, 0.9);
   overflow: hidden;
-  padding: 60px 0 80px 0; }
+  padding: 60px 0 80px; }
 
 .index-about p {
   margin: 8px; }
 
 .index-about .img {
-  margin: 0 auto 30px auto;
+  margin: 0 auto 30px;
   text-align: center;
   border-radius: 100px;
   width: 120px;
@@ -272,27 +348,27 @@ body {
   width: 0; }
 
 .index-about-identity .img {
-  background: url(/image/index/idnetity.jpg);
+  background: url("/image/index/idnetity.jpg");
   background-size: cover; }
 
 .index-about-work .img {
-  background: url(/image/index/work.jpg);
+  background: url("/image/index/work.jpg");
   background-size: cover; }
 
 .index-about-dream .img {
-  background: url(/image/index/dream.jpg);
+  background: url("/image/index/dream.jpg");
   background-size: cover; }
 
 .index-about-identity:hover .img {
-  background: url(/image/index/idnetity.gif);
+  background: url("/image/index/idnetity.gif");
   background-size: cover; }
 
 .index-about-work:hover .img {
-  background: url(/image/index/work.gif);
+  background: url("/image/index/work.gif");
   background-size: cover; }
 
 .index-about-dream:hover .img {
-  background: url(/image/index/dream.gif);
+  background: url("/image/index/dream.gif");
   background-size: cover; }
 
 .index-about h2 {
@@ -317,17 +393,17 @@ body {
   overflow: hidden;
   color: #fff; }
 
-.index-travel h2,
 .index-coffee h2,
-.index-content h2 {
+.index-content h2,
+.index-travel h2 {
   font-size: 66px;
   font-weight: 300;
-  margin: 40px 0 15px 0;
+  margin: 40px 0 15px;
   text-align: center; }
 
-.index-travel h3,
 .index-coffee h3,
-.index-content h3 {
+.index-content h3,
+.index-travel h3 {
   font-size: 26px;
   font-weight: 300;
   /*font-size: 14px;*/
@@ -337,7 +413,7 @@ body {
   margin: 40px 0; }
 
 .index-coffee {
-  padding: 40px 0 80px 0;
+  padding: 40px 0 80px;
   overflow: hidden;
   color: #333;
   background: rgba(255, 255, 255, 0.85); }
@@ -498,3 +574,17 @@ body {
   margin: -20px;
   background: url("/image/index/close.svg") no-repeat center #999;
   cursor: pointer; }
+
+@media (max-width: 800px) {
+  .body-content {
+    min-width: 0; }
+  .title {
+    display: none; }
+  .title-mini {
+    position: absolute;
+    top: 50%; }
+    .title-mini h1 {
+      font-size: 50px;
+      color: #fff;
+      text-align: center;
+      font-weight: 300; } }

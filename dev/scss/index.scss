@@ -1,13 +1,11 @@
 @import '../../system/config/config.scss';
-
-html,
-body {
+body,
+html {
     height: 100%;
     width: 100%;
     padding: 0;
     margin: 0;
 }
-
 @font-face {
     font-family: 'Open Sans';
     src: url($host + '/font/OpenSans-Light.eot?eyv41e');
@@ -15,113 +13,35 @@ body {
     font-weight: normal;
     font-style: normal;
 }
-
 body,
 h1,
 h2 {
     font-family: Open Sans, Tahoma, Arial, Roboto, ”Droid Sans”, ”Helvetica Neue”, ”Droid Sans Fallback”, ”Heiti SC”, ”Hiragino Sans GB”, Simsun, sans-self;
 }
-
 body {
     background: url($host + '/image/index/cover.jpg') center center;
     background-size: cover;
 }
-
-.global-nav {
-    position: fixed;
-    top: 0px;
-    left: 0px;
-    /*background: #2e3842;*/
-    width: 100%;
-    color: #fff;
-    z-index: 10000;
-    vertical-align: middle;
-}
-
-.global-nav-btn {
-    position: fixed;
-    right: 10px;
-    top: 10px;
-    line-height: 30px;
-    vertical-align: middle;
-    font-size: 14px;
-    color: #fff;
-    text-decoration: none;
-    font-weight: bold;
-    padding: 5px;
-    border-radius: 4px;
-    background: rgba(0, 0, 0, .4);
-}
-
-.global-nav-bar {
-    position: fixed;
-    top: 0;
-    right: -388px;
-    width: 388px;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.8);
-    z-index: 10001;
-    transition: all 0.3s ease-in;
-}
-
-.global-nav-bar ul,
-.global-nav-bar li {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-
-.global-nav-bar ul a {
-    display: block;
-    height: 50px;
-    line-height: 50px;
-    color: #ccc;
-    text-decoration: none;
-    padding: 0 20px;
-    transition: all 0.3s ease-in;
-}
-
-.global-nav-bar ul a:hover,
-.global-nav-bar ul a.active {
-    color: #3c3c3c;
-    background: #c3c4c6;
-}
-
-.global-nav-btn:after {
-    content: ' ';
-    width: 30px;
-    height: 30px;
-    float: right;
-    background: url($host + '/image/index/bars.svg') no-repeat center;
-}
-
-.global-nav-close {
-    height: 50px;
-    display: block;
-    background: url($host + '/image/index/close.svg') no-repeat 96% center;
-}
-
-.global-nav-bg {
-    position: fixed;
-    background: rgba(0, 0, 0, 0.5);
+.global-nav-text {
+    position: absolute;
     top: 0;
     left: 0;
-    bottom: 0;
-    right: 0;
-    z-index: 9999;
-    opacity: 0;
-    transition: all 0.3s ease-in;
-    display: none;
+    width: 100%;
+    background: none;
 }
-
-.global-nav.active .global-nav-bar {
-    right: 0;
+.body-content {
+    min-width: 800px;
+    height: 100%;
+    width: 100%;
 }
-
-.global-nav.active .global-nav-bg {
-    opacity: 1;
+@import './component/nav.scss';
+.global-nav-text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    background: rgba(0,0,0,0.3);
 }
-
 #bgvid {
     position: fixed;
     right: 0;
@@ -135,9 +55,8 @@ body {
     -moz-animation: fadein 3s;
     -ms-animation: fadein 3s;
     -o-animation: fadein 3s;
-    animation: fadein 3s
+    animation: fadein 3s;
 }
-
 .videobg {
     position: absolute;
     right: 0;
@@ -149,20 +68,17 @@ body {
     z-index: -50;
     background: rgba(0, 0, 0, 0.70);
 }
-
 .index {
     height: 100%;
     width: 100%;
     overflow: hidden;
     position: relative;
 }
-
 .index-cover h2 {
     font-size: 16px;
     color: #999;
     animation: titleh2 3s ease-in;
 }
-
 .index-cover .title {
     text-align: center;
     color: #fff;
@@ -170,16 +86,21 @@ body {
     width: 100%;
     margin-top: -280px;
     position: absolute;
-    top: 50%;
+    top: 55%;
     font-family: sans-serif;
     animation: titlepos 1s ease-in;
 }
-
+.index-cover .title h1 {
+    display: none;
+    text-align: center;
+    font-size: 66px;
+    font-weight: 300;
+    margin-bottom: 10px;
+}
 .index-cover svg {
     max-width: 1200px;
     margin: 0 auto;
 }
-
 .index-cover svg path {
     fill: rgba(0, 0, 0, 0);
     stroke: #fff;
@@ -187,27 +108,22 @@ body {
     stroke-dashoffset: 0;
     animation: title 4s ease-in forwards;
 }
-
 .index-cover nav {
     max-width: 1200px;
     margin: 0 auto;
 }
-
 .index-cover nav a {
     color: #ccc;
     text-decoration: none;
     font-size: 12px;
     padding: 10px 6px;
 }
-
 .index-cover .nav-main {
     float: left;
 }
-
 .index-cover .nav-sub {
     float: right;
 }
-
 .index-cover .btn {
     position: absolute;
     bottom: 100px;
@@ -217,7 +133,6 @@ body {
     padding: 10px 0;
     animation: titleh2 3s ease-in;
 }
-
 .btn {
     position: relative;
     transition: all 0.15s ease-in;
@@ -228,7 +143,6 @@ body {
     outline: none;
     cursor: pointer;
 }
-
 .btn:after {
     transition: all 0.15s ease-in;
     position: absolute;
@@ -240,20 +154,17 @@ body {
     opacity: 0;
     border: 1px solid #fff;
 }
-
 .btn:hover {
     background: rgba(255, 255, 255, 0);
     color: #fff;
 }
-
 .btn:hover:after {
-    top: 0px;
-    left: 0px;
-    right: 0px;
-    bottom: 0px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     opacity: 1;
 }
-
 @keyframes title {
     0% {
         stroke-dasharray: 1000;
@@ -269,7 +180,6 @@ body {
         fill: rgba(0, 0, 0, 0.2);
     }
 }
-
 @keyframes titlepos {
     0% {
         margin-top: -250px;
@@ -280,7 +190,6 @@ body {
         opacity: 1;
     }
 }
-
 @keyframes titleh2 {
     0% {
         opacity: 0;
@@ -292,19 +201,16 @@ body {
         opacity: 1;
     }
 }
-
 .index-about {
     background: rgba(255, 255, 255, 0.9);
     overflow: hidden;
-    padding: 60px 0 80px 0;
+    padding: 60px 0 80px;
 }
-
 .index-about p {
     margin: 8px;
 }
-
 .index-about .img {
-    margin: 0 auto 30px auto;
+    margin: 0 auto 30px;
     text-align: center;
     border-radius: 100px;
     width: 120px;
@@ -312,97 +218,81 @@ body {
     border: 20px solid #fff;
     box-shadow: 0 0 1px #333;
 }
-
 .index-about .img img {
     height: 0;
     width: 0;
 }
-
 .index-about-identity .img {
-    background: url(/image/index/idnetity.jpg);
+    background: url("/image/index/idnetity.jpg");
     background-size: cover;
 }
-
 .index-about-work .img {
-    background: url(/image/index/work.jpg);
+    background: url("/image/index/work.jpg");
     background-size: cover;
 }
-
 .index-about-dream .img {
-    background: url(/image/index/dream.jpg);
+    background: url("/image/index/dream.jpg");
     background-size: cover;
 }
-
 .index-about-identity:hover .img {
-    background: url(/image/index/idnetity.gif);
+    background: url("/image/index/idnetity.gif");
     background-size: cover;
 }
-
 .index-about-work:hover .img {
-    background: url(/image/index/work.gif);
+    background: url("/image/index/work.gif");
     background-size: cover;
 }
-
 .index-about-dream:hover .img {
-    background: url(/image/index/dream.gif);
+    background: url("/image/index/dream.gif");
     background-size: cover;
 }
-
 .index-about h2 {
     text-align: center;
     margin: 20px;
     font-size: 66px;
     font-weight: 300;
 }
-
 .index-about-who {
     max-width: 1200px;
     margin: 0 auto;
     overflow: hidden;
 }
-
 .index-about-block {
     float: left;
     width: 28%;
     padding: 2%;
     line-height: 1.6em;
 }
-
 .index-travel {
     background: #4a6ebc;
     overflow: hidden;
     color: #fff;
 }
-
-.index-travel h2,
 .index-coffee h2,
-.index-content h2 {
+.index-content h2,
+.index-travel h2 {
     font-size: 66px;
     font-weight: 300;
-    margin: 40px 0 15px 0;
+    margin: 40px 0 15px;
     text-align: center;
 }
-
-.index-travel h3,
 .index-coffee h3,
-.index-content h3 {
+.index-content h3,
+.index-travel h3 {
     font-size: 26px;
     font-weight: 300;
     /*font-size: 14px;*/
     text-align: center;
 }
-
 .index-travel-world {
     margin: 40px 0;
 }
-
 .index-coffee {
-    padding: 40px 0 80px 0;
+    padding: 40px 0 80px;
     overflow: hidden;
     color: #333;
-    background: rgba(255, 255, 255, 0.85)
+    background: rgba(255, 255, 255, 0.85);
 }
-
 .index-coffee p {
     font-size: 16px;
     line-height: 1.6em;
@@ -411,26 +301,22 @@ body {
     padding: 0 20px;
     max-width: 1200px;
 }
-
 .index-content {
     background: #363941;
     overflow: hidden;
     color: #ccc;
     position: relative;
 }
-
 .index-content-tips {
     margin-left: 10px;
     color: #A5A5A5;
     opacity: 0;
     transition: all 0.8s ease-out;
 }
-
 .index-content .btn {
     padding: 8px 0;
     width: 140px;
 }
-
 .index-content input,
 .index-content textarea {
     color: #ccc;
@@ -441,17 +327,14 @@ body {
     box-sizing: border-box;
     width: 90%;
 }
-
 .index-content input:disabled,
 .index-content textarea:disabled {
     color: #999;
 }
-
 .index-content textarea {
     width: 95%;
     height: 8em;
 }
-
 .index-content-box {
     margin: 40px auto;
     padding: 40px 0 40px 3.5%;
@@ -459,12 +342,10 @@ body {
     overflow: hidden;
     border-top: 1px solid #484b53;
 }
-
 .index-content-boxhalf {
     float: left;
     width: 50%;
 }
-
 .index-media {
     border-top: 1px solid #484b53;
     background: rgba(54, 57, 65, 1);
@@ -472,11 +353,9 @@ body {
     color: #fff;
     text-align: center;
 }
-
 .index-media a {
     text-decoration: none;
 }
-
 .index-media .btn {
     height: 80px;
     width: 80px;
@@ -487,26 +366,22 @@ body {
     padding: 10px;
     margin: 0 10px;
 }
-
 .index-media .btn:after {
     border-width: 2px;
     border-radius: 60px;
 }
-
 .index-copyright-top {
     opacity: 0.95;
     height: 50px;
     background: #fff;
     width: 100%;
 }
-
 .index-copyright-mid {
     opacity: 0.95;
     overflow: hidden;
     height: 127px;
     position: relative;
 }
-
 .index-copyright-midleft {
     width: 50%;
     margin-left: -206px;
@@ -515,7 +390,6 @@ body {
     background: #fff;
     height: 127px;
 }
-
 .index-copyright-midcenter {
     width: 412px;
     position: absolute;
@@ -523,7 +397,6 @@ body {
     margin-left: -206px;
     top: 0;
 }
-
 .index-copyright-midright {
     position: absolute;
     width: 50%;
@@ -533,25 +406,21 @@ body {
     background: #fff;
     height: 127px;
 }
-
 .index-copyright-bottom {
     /*opacity: 0.95;*/
     background: rgba(255, 255, 255, 0.95);
     padding-top: 50px;
 }
-
 .index-copyright-bottom-txt {
     text-align: center;
     background: #eee;
     padding: 10px;
     font-size: 12px;
 }
-
 .index-copyright-bottom-txt a {
     color: #f15623;
     text-decoration: none;
 }
-
 .popbox {
     position: fixed;
     top: 0;
@@ -562,7 +431,6 @@ body {
     z-index: 10000;
     transition: all 0.5s ease-in;
 }
-
 .popbox-in {
     position: absolute;
     width: 400px;
@@ -571,7 +439,6 @@ body {
     margin: -200px;
     background: white;
 }
-
 .popbox-close {
     width: 40px;
     height: 40px;
@@ -582,4 +449,25 @@ body {
     margin: -20px;
     background: url($host + '/image/index/close.svg') no-repeat center #999;
     cursor: pointer;
+}
+@media (max-width: 800px) {
+    // index
+    .body-content {
+        min-width: 0;
+    }
+    .title {
+        display: none;
+    }
+
+    .title-mini {
+        h1 {
+            font-size: 50px;
+            color: #fff;
+            text-align: center;
+            font-weight: 300;
+        }
+        position: absolute;
+        top: 50%;
+
+    }
 }
