@@ -19,6 +19,14 @@ block content
             source(src= host + '/video/bgvid.mp4', type='video/mp4')
             source(src= host + '/video/bgvid.ogv', type='video/ogv')
         div.videobg
+        section.index.index-cover-mini
+            div.mini-title
+                h1 I AM MOFEI
+                h2 
+                    p Open a coffee shop
+                    p Travel around the world
+                    p That should be my life
+            button.btn.cover-more#More Learn More
         section.index.index-cover
             div.title
                 svg#title(version='1.1', xmlns='http://www.w3.org/2000/svg', xmlns:xlink='http://www.w3.org/1999/xlink', x='0px', y='0px', viewbox='0 0 1000 200', enable-background='new 0 0 1000 200', xml:space='preserve')
@@ -31,12 +39,7 @@ block content
                     path(d='M723.3,155.7V51.1H788V58h-57.7v40.2h51v6.5h-51v51H723.3z')
                     path(d='M800.4,155.7V51.1h68.3V58h-61.2v40.2h55.9v6.5h-55.9V149h61.2v6.7H800.4z')
                     path(d='M881.9,155.7V51.1h7.1v104.6H881.9z')
-                h2 Open a coffee shop, travel around the world, that should be my life.
-            div.title-mini
-                h1 I AM MOFEI
-                h2 Open a coffee shop, travel around the world, that should be my life.
-                
-                
+                h2 Open a coffee shop, travel around the world, that should be my life.    
             button.btn.cover-more#More Learn More
         section.index-about
             h2 WHO AM I.
@@ -74,22 +77,24 @@ block content
             h2 Contact me
             h3 If you have any question, please feel free contact me.
             div.index-content-box
-                div.index-content-boxhalf
-                    label
-                        p 昵称/姓名：
-                        p
-                            input#username
-                div.index-content-boxhalf
-                    label
-                        p 联系方式：
-                        p
-                            input#email
-                div
+                div.index-content-boxblock
+                    div.index-content-boxhalf
+                        label
+                            p 昵称/姓名：
+                            p
+                                input#username
+                    div.index-content-boxhalf
+                        label
+                            p 联系方式：
+                            p
+                                input#email
+                div.index-content-message 
                     label
                         p 内容：
                         p
                             textarea#message
-                button.btn#send Send
+                div.index-content-btn
+                    button.btn#send Send
                 span.index-content-tips#tips Message Sended
         section.index-media
             a(href="http://weibo.com/zwl1027" target="_blank").btn 微博

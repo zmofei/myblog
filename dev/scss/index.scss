@@ -342,6 +342,13 @@ body {
     overflow: hidden;
     border-top: 1px solid #484b53;
 }
+.index-content-boxblock {
+    overflow: hidden;
+}
+.index-content-message {
+    box-sizing: border-box;
+    padding: 5px;
+}
 .index-content-boxhalf {
     float: left;
     width: 50%;
@@ -455,19 +462,178 @@ body {
     .body-content {
         min-width: 0;
     }
-    .title {
+    .index-cover {
         display: none;
     }
-
-    .title-mini {
-        h1 {
-            font-size: 50px;
-            color: #fff;
+    .btn {
+        background: none;
+        border: 1px solid #fff;
+        color: #fff;
+        padding: 10px;
+    }
+    .index-cover-mini {
+        background: url($host + '/image/index/cover.jpg') center center;
+        background-size: cover;
+        .mini-title {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            padding: 0 20px;
+            left: 0;
+            height: 320px;
+            margin-top: -160px;
+            margin-top: -35vh;
             text-align: center;
-            font-weight: 300;
+            color: #fff;
+            h1,
+            h2 {
+                font-weight: 300;
+            }
+            h1 {
+                font-size: 50px;
+                font-size: 16vw;
+            }
+            h2 {
+                font-size: 16px;
+                font-size: 5vw;
+                line-height: 2em;
+                color: #fff;
+                text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+                p {
+                    margin: 0;
+                }
+            }
         }
-        position: absolute;
-        top: 50%;
-
+        .cover-more {
+            position: absolute;
+            width: 50%;
+            bottom: 15%;
+            left: 50%;
+            margin-left: -25%;
+            text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+        }
+    }
+    .index-about,
+    .index-coffee {
+        padding: 0 0 40px;
+        font-size: 14px;
+        p {
+            font-size: 14px;
+            margin: 0;
+            line-height: 1.6em;
+        }
+    }
+    .index-about h2,
+    .index-coffee h2,
+    .index-content h2,
+    .index-travel h2 {
+        margin-top: 40px;
+        font-size: 28px;
+    }
+    .index-coffee h3,
+    .index-content h3,
+    .index-travel h3 {
+        font-size: 14px;
+    }
+    .index-about-block {
+        width: auto;
+        padding: 10px 20px;
+        margin: 10px;
+        background: white;
+        border-radius: 6px;
+        box-shadow: 1px 1px 1px rgba(0,0,0,0.1);
+        display: block;
+        float: none;
+    }
+    .index-about .img {
+        // text-align: left;
+        width: 100%;
+        height: 60px;
+        border-radius: 0;
+        border: none;
+        box-shadow: none;
+        margin-bottom: 10px;
+    }
+    .index-about-identity .img,
+    .index-about-identity:hover .img {
+        background: url("/image/index/idnetity.gif") no-repeat center;
+        background-size: contain;
+    }
+    .index-about-work .img,
+    .index-about-work:hover .img {
+        background: url("/image/index/work.gif") no-repeat center;
+        background-size: contain;
+    }
+    .index-about-dream .img,
+    .index-about-dream:hover .img {
+        background: url("/image/index/dream.gif") no-repeat center;
+        background-size: contain;
+    }
+    .index-travel-world {
+        margin: 20px 10px;
+    }
+    .index-content-box {
+        margin: 0 10px;
+        padding: 0;
+        font-size: 12px;
+        p {
+            margin: 10px 0;
+        }
+    }
+    .index-content-boxhalf {
+        box-sizing: border-box;
+        padding: 0 5px;
+    }
+    .index-content input,
+    .index-content textarea {
+        width: 100%;
+    }
+    .index-content-btn {
+        padding: 10px 5px;
+        box-sizing: border-box;
+    }
+    .index-content .btn {
+        width: 100%;
+        font-size: 14px;
+    }
+    .index-content-tips {
+        display: block;
+        text-align: center;
+        margin-left: 0;
+        margin-bottom: 5px;
+    }
+    .index-media .btn {
+        width: 60px;
+        height: 60px;
+        line-height: 60px;
+        font-size: 12px;
+        margin-bottom: 10px;
+    }
+    .index-copyright-midcenter {
+        width: 208px;
+        margin-left: -104px;
+        height: 64px;
+    }
+    .index-copyright-midcenter img {
+        width: 208px;
+        height: 64px;
+    }
+    .index-copyright-midleft {
+        margin-left: -104px;
+        height: 64px;
+    }
+    .index-copyright-midright {
+        margin-right: -104px;
+        height: 64px;
+    }
+    .index-copyright-mid {
+        height: 64px;
+    }
+    .index-copyright-top {
+        height: 25px;
+    }
+    .index-copyright-bottom {
+        padding-top: 25px;
     }
 }
