@@ -1,28 +1,16 @@
 // nav
 var body = document.body;
 var nav = document.getElementById('nav');
-// var navTar = document.getElementById('navTar');
-// var navBg = document.getElementById('navBg');
-// var navClose = document.getElementById('navClose');
-//
-// // nav bar open and close
-// navTar.addEventListener('click', function(e) {
-//     navBg.style.display = 'block';
-//     setTimeout(function() {
-//         var newClass = nav.getAttribute('class').replace(/(^active\s)|(\sactive\s)|(\sactive$)|$/, ' active ')
-//         nav.setAttribute('class', newClass);
-//     });
-//     e.preventDefault();
-// })
-//
-// navClose.addEventListener('click', function(e) {
-//     var newClass = nav.getAttribute('class').replace(/(^active\s)|(\sactive\s)|(\sactive$)/, ' ')
-//     nav.setAttribute('class', newClass);
-//     setTimeout(function() {
-//         navBg.style.display = 'none';
-//     }, 300);
-//     e.preventDefault();
-// });
+var navTar = document.getElementById('navTar');
+var navLink = document.querySelector('.global-nav-text-link');
+
+navTar.addEventListener('click', function(e) {
+    if (navLink.style.display == 'block') {
+        navLink.style.display = 'none';
+    } else {
+        navLink.style.display = 'block';
+    }
+});
 
 // more
 var more = document.getElementById('More');
@@ -65,7 +53,11 @@ sendBtn.addEventListener('click', function() {
     http({
         url: '/api/emailmessage',
         method: 'post',
-        data: { username: username.value, email: email.value, message: messgae.value },
+        data: {
+            username: username.value,
+            email: email.value,
+            message: messgae.value
+        },
         success: function(data) {
             for (var i in inputs) {
                 inputs[i].value = '';
