@@ -167,7 +167,7 @@ body a {
 .blog-search {
   border-top: 1px solid #525252;
   display: none;
-  padding: 20px 40px 10px 40px;
+  padding: 20px 40px 10px;
   margin: 0 auto;
   background: #000;
   font-size: 12px;
@@ -209,7 +209,7 @@ body a {
   text-align: center; }
 
 .blog-search-btn btn {
-  margin: 0 0px 8px 0;
+  margin: 0 0 8px;
   border: 1px solid #ccc;
   border-radius: 100px;
   /*background: #f15623;*/
@@ -275,10 +275,10 @@ svg path {
   /*border-bottom: 1p*/
   min-width: 770px;
   position: relative;
-  margin: 0px 40px 0px 40px;
+  margin: 0 40px;
   /*border-bottom: 1px solid #F7F7F7;*/
   /*border-top: 1px solid #fff;*/
-  padding: 30px 0 25px 0px;
+  padding: 30px 0 25px;
   color: #333;
   overflow: hidden; }
 
@@ -287,7 +287,7 @@ svg path {
 
 .blog-content-block h2 {
   color: #333;
-  margin: 0px 0;
+  margin: 0;
   padding: 0;
   font-weight: 300; }
 
@@ -317,7 +317,7 @@ svg path {
   background-color: #7bbcff;
   font-size: 14px;
   line-height: 1.8em;
-  padding: 0px 15px; }
+  padding: 0 15px; }
 
 .blog-tag a:hover {
   background: #3d9cfd; }
@@ -375,7 +375,7 @@ svg path {
   width: 100%;
   overflow: hidden;
   color: #c0c0c0;
-  padding: 10px 0 0px 0;
+  padding: 10px 0 0;
   position: absolute;
   right: 0;
   left: 0;
@@ -401,7 +401,7 @@ svg path {
 
 /*******/
 .blogn-content-block {
-  margin: 0px 40px 4px 40px;
+  margin: 0 40px 4px;
   /*background: rgba(255, 255, 255, 0.9);*/
   padding: 20px 60px;
   color: #333;
@@ -439,8 +439,8 @@ svg path {
 
 /** article **/
 .article-content,
-.article-tags,
-.article-info {
+.article-info,
+.article-tags {
   max-width: 1000px;
   margin: 0 auto;
   padding: 0 40px;
@@ -456,7 +456,7 @@ svg path {
 .article-content h5,
 .article-content h6 {
   /*color:#8F8F8F;*/
-  margin: 29px 0 0 0;
+  margin: 29px 0 0;
   font-weight: 300;
   line-height: 1.8em; }
 
@@ -569,7 +569,7 @@ svg path {
   color: #f15623;
   border-color: #f15623;
   border-width: 4px;
-  margin-top: 0px;
+  margin-top: 0;
   margin-bottom: -3px; }
 
 .blog-pages {
@@ -690,7 +690,7 @@ svg path {
 
 .commend-pub.active {
   /*box-shadow: 0px 0px 3px rgba(173, 172, 172, 0.59);*/
-  box-shadow: 0px 0px 10px rgba(0, 114, 255, 0.2); }
+  box-shadow: 0 0 10px rgba(0, 114, 255, 0.2); }
 
 .commend-pub .commend-avatar img {
   width: 40px;
@@ -853,3 +853,84 @@ p {
 .message-login-btn:hover {
   background: #f15623;
   color: #fff; }
+
+@media (max-width: 800px) {
+  .global-nav-text-link li a {
+    color: #fff;
+    background: rgba(51, 51, 51, 0.95);
+    border-bottom: 1px solid #484848; }
+  .blog-content-area {
+    padding-top: 0;
+    min-width: 0; }
+  .blog-content-block {
+    margin: 0 20px;
+    box-sizing: border-box;
+    min-width: 0; }
+  .blog-content-text {
+    min-width: 0; }
+    .blog-content-text h2 {
+      font-size: 18px; }
+    .blog-content-text .blog-info {
+      font-size: 14px; }
+  .blog-tag {
+    font-size: 12px; }
+    .blog-tag a {
+      font-size: 12px;
+      padding: 2px 5px; }
+  .blog-review {
+    font-size: 14px;
+    line-height: 2em; }
+  .blog-search {
+    padding: 20px 20px 10px; }
+  .blog-search-box .blog-search-tag {
+    font-size: 14px;
+    margin: 0 10px 4px 0;
+    padding: 4px 10px; }
+  .blog-search-btn {
+    padding-top: 5px; }
+    .blog-search-btn btn {
+      margin: 0;
+      padding: 4px 20px; }
+  .article-content {
+    padding: 0 20px;
+    font-size: 14px; }
+    .article-content img {
+      max-width: 100%; }
+  .article-content h1 {
+    /*color:#333;*/
+    font-size: 19px;
+    margin: 20px 0 10px 0; }
+  .article-content h2 {
+    font-size: 18px; }
+  .article-content h3 {
+    font-size: 17px; }
+  .article-content h4 {
+    font-size: 16px; }
+  .article-content h5 {
+    font-size: 15px; }
+  .article-content h6 {
+    font-size: 14px; }
+  .article-content code {
+    margin: 3px; }
+  .article-tags {
+    margin-top: 10px;
+    padding: 0 20px; }
+  .article-tags a {
+    font-size: 14px;
+    padding: 0px 5px;
+    border-radius: 0; }
+  .article-info {
+    margin-top: 10px;
+    padding: 0 20px;
+    color: #ccc; }
+    .article-info span {
+      margin-right: 10px; }
+    .article-info span.article-info-icon {
+      font-size: 14px;
+      margin-right: 5px; }
+  .article-info-makegood {
+    font-size: 25px;
+    height: 30px;
+    line-height: 30px;
+    width: 30px;
+    border-width: 2px; } }
