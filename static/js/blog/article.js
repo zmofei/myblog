@@ -38,6 +38,10 @@ commendUsername.addEventListener('click', function() {
 
 // replay
 on('.commend-replay-btn', 'click', function(e) {
+    if (!localStorage.getItem('username')) {
+        login(true);
+        return false
+    }
     var replay = e.target.parentElement.nextSibling;
     var allBox = document.querySelectorAll('.commend-replay-box');
     for (var i = 0, len = allBox.length; i < len; i++) {
@@ -64,7 +68,7 @@ on('.commend-replay-box-btn', 'click', function(e) {
 // init userinfo
 initUserinfo();
 
-// high light 
+// high light
 var co = document.querySelectorAll('pre code');
 for (var i = 0; i < co.length; i++) {
     hljs.highlightBlock(co[i]);
@@ -89,7 +93,9 @@ makegood.addEventListener('click', function() {
     http({
         url: '/api/blog/like',
         method: 'post',
-        data: { blogid: blogid },
+        data: {
+            blogid: blogid
+        },
         success: function(_data) {
             var count = goodCount.innerHTML;
             count = parseInt(count) + 1;
@@ -136,7 +142,9 @@ on('.commend-like', 'click', function(e, dom) {
     http({
         url: '/api/blog/like',
         method: 'post',
-        data: { commentid: id },
+        data: {
+            commentid: id
+        },
         success: function(_data) {
             var countDom = dom.children[2];
             var count = countDom.innerHTML;
@@ -251,7 +259,7 @@ function getAvatar(email) {
 }
 
 
-function login() {
+function login(slient) {
     var loginTemplete = [
         '<div class="message-login">',
         '<div class="message-login-title">Hi，很高兴见到你：</div>',
@@ -290,7 +298,9 @@ function login() {
             localStorage.setItem('website', website.value);
             box.remove();
             initUserinfo();
-            commendBox.focus();
+            if (!slient) {
+                commendBox.focus();
+            }
         }
 
     });
