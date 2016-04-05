@@ -13,7 +13,7 @@ section.commend
             div.commend-user
                 div.commend-avatar 
                     if (comment.avatar)
-                        img(src= comment.avatar onerror="avatarError(this)")
+                        img(src= comment.avatar.replace('www.gravatar.com','gravatar.duoshuo.com') onerror="avatarError(this)")
                     else
                         img(src="/image/nobody.jpg")
                 div.commend-info
