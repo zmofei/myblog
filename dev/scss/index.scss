@@ -74,6 +74,9 @@ body {
     overflow: hidden;
     position: relative;
 }
+.index-cover-mini {
+    display: none;
+}
 .index-cover h2 {
     font-size: 16px;
     color: #999;
@@ -472,6 +475,7 @@ body {
         padding: 10px;
     }
     .index-cover-mini {
+        display: block;
         background: url($host + '/image/index/cover.jpg') center center;
         background-size: cover;
         .mini-title {
