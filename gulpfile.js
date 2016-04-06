@@ -2,22 +2,9 @@ const gulp = require('gulp');
 const rev = require('gulp-rev');
 const revReplace = require('gulp-rev-replace');
 const sass = require('gulp-sass');
-const watch = require('gulp-watch');
 const rollup = require('gulp-rollup');
 
-gulp.task('imagemin', () => {
-    return gulp.src('build/static/image/**/*')
-        .pipe(imagemin({
-            progressive: true,
-            svgoPlugins: [{
-                removeViewBox: false
-            }],
-            use: [pngquant()]
-        }))
-        .pipe(gulp.dest('build/static/image/'));
-});
-
-gulp.task('rev', () => {
+gulp.task('rev', ['prepareStatic', 'prepareRoot'], () => {
     return gulp.src('build/static/**/*')
         .pipe(gulp.dest('build/static/'))
         .pipe(rev())
@@ -26,7 +13,7 @@ gulp.task('rev', () => {
         .pipe(gulp.dest('build/static/'));
 });
 
-gulp.task("revreplaceJade", ['rev'], () => {
+gulp.task("revreplaceJade", ['revreplaceStatic'], () => {
     var manifest = gulp.src("build/static/rev-manifest.json");
     return gulp.src('build/root/**/*.jade')
         .pipe(gulp.dest('build/root/'))
@@ -46,13 +33,13 @@ gulp.task("revreplaceStatic", ['rev'], () => {
         .pipe(gulp.dest('build/static/'));
 });
 
-gulp.task('prepareStatic', ['sass_noWatch'], () => {
+gulp.task('prepareStatic', ['bundle', 'sass'], () => {
     return gulp.src('static/**/*')
         .pipe(gulp.dest('build/static/'))
 });
 
-gulp.task('prepare', ['prepareStatic'], () => {
-    return gulp.src('root/**/*')
+gulp.task('prepareRoot', () => {
+    return gulp.src('root/**/*.jade')
         .pipe(gulp.dest('build/root/'))
 });
 
@@ -75,4 +62,4 @@ gulp.task('watch', function() {
 
 gulp.task('default', ['sass', 'bundle', 'watch']);
 
-gulp.task('online', ['prepare', /*'imagemin',*/ 'revreplaceJade', 'revreplaceStatic']);
+gulp.task('online', ['revreplaceJade']);
