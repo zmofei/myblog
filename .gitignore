@@ -6,3 +6,4 @@ system/config/account.js
 *~
 build/
 .sass-cache/**/*.*
+.vscode/*
