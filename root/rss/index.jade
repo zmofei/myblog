@@ -18,8 +18,8 @@ rss(version="2.0")
 		for blog in blogs
 			item
 				title!= '<![CDATA['+blog.title+']]>'
-				link= 'http://www.zhuwenlong.com/blog/' + blog._id
+				link= 'http://www.zhuwenlong.com/blog/article/' + blog._id
 				description!= '<![CDATA['+blog.html+']]>'
 				author <![CDATA[hello@zhuwenlong.com(Mofei Zhu)]]>
-				guid(isPermaLink="true")= 'http://www.zhuwenlong.com/blog/' + blog._id
+				guid(isPermaLink="true")= 'http://www.zhuwenlong.com/blog/article/' + blog._id
 				pubDate= blog.pubtime
