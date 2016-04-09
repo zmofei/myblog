@@ -12,9 +12,8 @@ navTar.addEventListener('click', function(e) {
     }
 });
 
-// more
-var more = document.getElementById('More');
-more.addEventListener('click', function() {
+
+on('#More', 'click', function(e, dom) {
     var toTop = document.body.clientHeight || document.documentElement.clientHeight;
     var fromTop = window.scrollY;
     var loop = setInterval(function() {
@@ -23,8 +22,20 @@ more.addEventListener('click', function() {
         }
         window.scrollTo(0, fromTop);
     }, 16);
-
-})
+});
+// more
+// var more = document.getElementById('More');
+// more.addEventListener('click', function() {
+//     var toTop = document.body.clientHeight || document.documentElement.clientHeight;
+//     var fromTop = window.scrollY;
+//     var loop = setInterval(function() {
+//         if ((fromTop += 40) >= toTop) {
+//             clearInterval(loop)
+//         }
+//         window.scrollTo(0, fromTop);
+//     }, 16);
+//
+// })
 
 // message
 var username = document.getElementById('username');

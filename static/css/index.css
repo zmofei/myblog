@@ -207,6 +207,9 @@ body {
   overflow: hidden;
   position: relative; }
 
+.index-cover-mini {
+  display: none; }
+
 .index-cover h2 {
   font-size: 16px;
   color: #999;
@@ -593,6 +596,7 @@ body {
     color: #fff;
     padding: 10px; }
   .index-cover-mini {
+    display: block;
     background: url("/image/index/cover.jpg") center center;
     background-size: cover; }
     .index-cover-mini .mini-title {

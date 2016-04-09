@@ -46,6 +46,10 @@ commendUsername.addEventListener('click', function() {
 
 // replay
 on('.commend-replay-btn', 'click', function(e) {
+    if (!localStorage.getItem('username')) {
+        login(true);
+        return false
+    }
     var replay = e.target.parentElement.nextSibling;
     var allBox = document.querySelectorAll('.commend-replay-box');
     for (var i = 0, len = allBox.length; i < len; i++) {
@@ -203,7 +207,7 @@ function getAvatar(email) {
 }
 
 
-function login() {
+function login(slient) {
     var loginTemplete = [
         '<div class="message-login">',
         '<div class="message-login-title">Hi，很高兴见到你：</div>',
@@ -242,7 +246,9 @@ function login() {
             localStorage.setItem('website', website.value);
             box.remove();
             initUserinfo();
-            commendBox.focus();
+            if (!slient) {
+                commendBox.focus();
+            }
         }
 
     });
