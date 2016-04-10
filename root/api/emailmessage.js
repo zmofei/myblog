@@ -14,7 +14,7 @@ var mailOptions = {
     from: '"Mofei Zhu"<hello@zhuwenlong.com>',
     to: '13761509829@163.com',
     subject: '新留言@zhuwenlong.com',
-    html: 'dfafdasfsaf'
+    html: ''
 }
 
 var post = function() {

@@ -1,7 +1,7 @@
 const Mongo = require('../../../system/mongo/init.js');
 const https = require('https');
 const appid = 'wx65d07a7fbed35d0d';
-const appsecret = '514d44e33f552edf94c352e2b8b78098';
+const appsecret = '*****';
 const crypto = require('crypto');
 const hash = crypto.createHash('sha1');
 
@@ -14,12 +14,15 @@ const get = function() {
             var getToken = true;
             var now = new Date();
             var timestamp = parseInt(now / 1000);
+            var noncestr = Math.random().toString(36);
             var referer = self.req.headers.referer;
             if (data.length > 0 && data[0].expire > now && data[0].jsapiTicket) {
                 self.response.json({
                     code: 200,
                     msg: {
-                        'signature': getSignature(data[0].jsapiTicket, timestamp, referer),
+                        'jsapiTicket': data[0].jsapiTicket,
+                        'noncestr': noncestr,
+                        'signature': getSignature(data[0].jsapiTicket, timestamp, noncestr, referer),
                         'url': referer,
                         'timestamp': timestamp,
                         'expire': data[0].expire,
@@ -34,7 +37,9 @@ const get = function() {
                                 self.response.json({
                                     code: 200,
                                     msg: {
-                                        'signature': getSignature(jsapi_ticket.jsapiTicket, timestamp, referer),
+                                        'noncestr': noncestr,
+                                        'jsapiTicket': jsapi_ticket.jsapiTicket,
+                                        'signature': getSignature(jsapi_ticket.jsapiTicket, timestamp, noncestr, referer),
                                         'url': referer,
                                         'timestamp': timestamp,
                                         'expire': token.expire,
@@ -60,8 +65,8 @@ const get = function() {
     });
 }
 
-function getSignature(jsapiTicket, timestamp, url) {
-    var str = 'jsapi_ticket=' + jsapiTicket + '&noncestr=Wm3WZYTPz0wzccnW&timestamp=' + timestamp + '&url=' + url;
+function getSignature(jsapiTicket, timestamp, noncestr, url) {
+    var str = 'jsapi_ticket=' + jsapiTicket + '&noncestr=' + noncestr + '&timestamp=' + timestamp + '&url=' + url;
     str = crypto.createHash('sha1').update(str).digest('hex');
     return str;
 }

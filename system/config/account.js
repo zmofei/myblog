@@ -5,5 +5,6 @@ exports.email = {
 
 exports.db = {
     user: 'mofei',
-    pwd: 'mofei@*(!)@&'
+    pwd: 'mofei@*(!)@&',
+    dbName: 'zhuwenlong_com'
 }

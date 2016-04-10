@@ -1,4 +1,5 @@
 var MongoClient = require('mongodb').MongoClient;
+var config = require('../config/account.js');
 
 var open = (function() {
     var db = null;
@@ -15,9 +16,9 @@ var open = (function() {
             cb && callbacks.push(cb);
             if (!connectionStatus) {
                 // connect to the db
-                var url = 'mongodb://localhost:27017/zhuwenlong_com';
+                var url = 'mongodb://localhost:27017/' + config.db.dbName;
                 MongoClient.connect(url, function(err, _db) {
-                    _db.authenticate('mofei', 'mofei@*(!)@&', function(err, result) {
+                    _db.authenticate(config.db.user, config.db.pwd, function(err, result) {
                         console.log('err', err)
                         console.log("Connected correctly to server [system/mongo/init.js]");
                         var _cb = callbacks.shift();
@@ -39,10 +40,5 @@ var open = (function() {
         }
     }
 })();
-
-
-// db.createUser({user: "admin",pwd: "admin",roles: ["readWrite"]});
-
-// db.createUser({"user":"mofei","pwd":"mofei@*(!)@&",roles: [ "readWrite", "dbAdmin" ]})
 
 exports.open = open;
