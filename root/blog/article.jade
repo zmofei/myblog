@@ -1,7 +1,7 @@
 extends ../layout.jade
 
 block title
-    title 博客 - I'm Mofei
+    title= blog.title + " - 博客 - I'm Mofei"
 
 block css
     link(rel="stylesheet" href= host + "/css/blog.css")
@@ -25,7 +25,7 @@ block javascript
     script(src= host + "/js/tools/highlight.pack.js")
     script(src= host + "/js/blog/article.js")
     script(src= host + "/js/blog/article.main.js")
-        
+
 
 block content
     include ../../system/jade/nav.jade
