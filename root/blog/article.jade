@@ -34,7 +34,7 @@ block content
         div!= blog.html
     section.article-tags
         each tag in tags
-            a(href="/blog/1?tag=" + tag.classid)= tag.classname
+            a(href="/blog/1?tags=" + tag.classid)= tag.classname
     section.article-info 
         div.article-info-makegood#makegood &#xe903;
         span.article-info-icon &#xe900;
