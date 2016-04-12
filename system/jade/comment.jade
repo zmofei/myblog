@@ -19,7 +19,7 @@ section.commend
                 div.commend-info
                     div.commend-name
                         if (comment.blog)
-                            a(href= comment.blog target="_blank")= comment.name || '匿名'
+                            a(href= (comment.blog.indexOf('http')==-1 ? 'http://' + comment.blog : comment.blog) target="_blank")= comment.name || '匿名'
                         else 
                             span= comment.name || '匿名'
                         - var time = new Date(comment.time);
