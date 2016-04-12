@@ -31,6 +31,26 @@ block content
     include ../../system/jade/nav.jade
     section.article-content
         h1= blog.title
+        - var time = new Date(blog.pubtime)
+        - var year = time.getFullYear();
+        - var month = time.getMonth() + 1;
+        - month = month < 10 ? '0' + month : month;
+        - var date = time.getDate();
+        - date = date < 10 ? '0' + date : date;
+        - var hour = time.getHours();
+        - var timeMark = hour >= 12 ? 'pm' : 'am'
+        - hour = hour >= 12 ? hour - 12 : hour;
+        - var minute = time.getMinutes();
+        - minute = minute < 10 ? '0' + minute : minute;
+        - var timeStr =  year + '-' + month + '-' + date + ' at ' + hour + ':' + minute + timeMark;
+        div.commend-user.article-pubinfo
+            div.commend-avatar
+                img(src= host + "/image/avatar.jpg")
+            div.commend-info
+                div.commend-name
+                    a(href="http://www.zhuwenlong.com" rel="author") Mofei Zhu
+                div.commend-time
+                    time= timeStr
         div!= blog.html
     section.article-tags
         each tag in tags

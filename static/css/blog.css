@@ -438,6 +438,9 @@ svg path {
   text-decoration: none; }
 
 /** article **/
+.article-pubinfo {
+  margin-bottom: 20px; }
+
 .article-content,
 .article-info,
 .article-tags {
@@ -463,7 +466,7 @@ svg path {
 .article-content h1 {
   /*color:#333;*/
   font-size: 34px;
-  margin-bottom: 30px; }
+  margin-bottom: 20px; }
 
 .article-content h2 {
   font-size: 27px; }
@@ -958,6 +961,8 @@ p {
     line-height: 30px;
     width: 30px;
     border-width: 2px; }
+  .article-pubinfo {
+    margin-bottom: 0px; }
   .popbox-in {
     position: absolute;
     left: 20px;
