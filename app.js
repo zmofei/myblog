@@ -6,7 +6,7 @@ let site = new Dufing({
     port: 8333
 });
 
-// only for old version
+// only for old version 302
 site.get(/\/blog\/(.{24})$/, '/blog/old');
 //
 
