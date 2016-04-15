@@ -2,8 +2,8 @@ type=$1;
 if [[ $type == 'online' ]]
 then
     echo '**** online';
-    echo "- var host = '//o4qdeqynn.qnssl.com';" > system/config/config.jade;
-	echo '$host: "//o4qdeqynn.qnssl.com";' > system/config/config.scss;
+    echo "- var host = '//dn-mofei.qbox.me';" > system/config/config.jade;
+	echo '$host: "//dn-mofei.qbox.me";' > system/config/config.scss;
     echo '**** clean';
     rm -rf ./build/
     echo '**** run config';
