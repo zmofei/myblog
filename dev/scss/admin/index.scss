@@ -1,0 +1,54 @@
+body,
+html {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+}
+.index-copyright {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+.index-copyright-bottom {
+    /*opacity: 0.95;*/
+    background: rgba(255, 255, 255, 0.95);
+    padding-top: 10px;
+}
+.index-copyright-bottom-txt {
+    text-align: center;
+    background: #eee;
+    padding: 10px;
+    font-size: 12px;
+}
+.index-copyright-bottom-txt a {
+    color: #f15623;
+    text-decoration: none;
+}
+.admin {
+    position: absolute;
+    top: 50px;
+    left: 0;
+    bottom: 50px;
+    right: 0;
+    background: #363941;
+    color: #fff;
+}
+@import '../../../system/config/config.scss';
+@import '../../scss/component/nav.scss';
+.admin-login {
+    padding: 10px;
+    text-align: center;
+    input {
+        padding: 5px 10px;
+        width: 200px;
+        box-sizing: border-box;
+    }
+    div {
+        margin: 10px;
+    }
+    button {
+        width: 200px;
+        padding: 10px;
+    }
+}
