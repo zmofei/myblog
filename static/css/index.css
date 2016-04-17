@@ -8,8 +8,8 @@ html {
 
 @font-face {
   font-family: 'Open Sans';
-  src: url("//o4qdeqynn.qnssl.com/font/OpenSans-Light.eot?eyv41e");
-  src: url("//o4qdeqynn.qnssl.com/font/OpenSans-Light.eot?eyv41e#iefix") format("embedded-opentype"), url("//o4qdeqynn.qnssl.com/font/OpenSans-Light.ttf?eyv41e") format("truetype"), url("//o4qdeqynn.qnssl.com/font/OpenSans-Light.woff?eyv41e") format("woff"), url("//o4qdeqynn.qnssl.com/font/OpenSans-Light.svg?eyv41e#OpenSans-Light") format("svg");
+  src: url("/font/OpenSans-Light.eot?eyv41e");
+  src: url("/font/OpenSans-Light.eot?eyv41e#iefix") format("embedded-opentype"), url("/font/OpenSans-Light.ttf?eyv41e") format("truetype"), url("/font/OpenSans-Light.woff?eyv41e") format("woff"), url("/font/OpenSans-Light.svg?eyv41e#OpenSans-Light") format("svg");
   font-weight: normal;
   font-style: normal; }
 
@@ -19,7 +19,7 @@ h2 {
   font-family: Open Sans, Tahoma, Arial, Roboto, ”Droid Sans”, ”Helvetica Neue”, ”Droid Sans Fallback”, ”Heiti SC”, ”Hiragino Sans GB”, Simsun, sans-self; }
 
 body {
-  background: url("//o4qdeqynn.qnssl.com/image/index/cover.jpg") center center;
+  background: url("/image/index/cover.jpg") center center;
   background-size: cover; }
 
 .global-nav-text {
@@ -119,12 +119,12 @@ body {
   width: 40px;
   height: 40px;
   float: right;
-  background: url("//o4qdeqynn.qnssl.com/image/index/bars.svg") no-repeat center; }
+  background: url("/image/index/bars.svg") no-repeat center; }
 
 .global-nav-close {
   height: 50px;
   display: block;
-  background: url("//o4qdeqynn.qnssl.com/image/index/close.svg") no-repeat 96% center; }
+  background: url("/image/index/close.svg") no-repeat 96% center; }
 
 .global-nav-bg {
   position: fixed;
@@ -582,7 +582,7 @@ body {
   top: 0;
   right: 0;
   margin: -20px;
-  background: url("//o4qdeqynn.qnssl.com/image/index/close.svg") no-repeat center #999;
+  background: url("/image/index/close.svg") no-repeat center #999;
   cursor: pointer; }
 
 @media (max-width: 800px) {
@@ -597,7 +597,7 @@ body {
     padding: 10px; }
   .index-cover-mini {
     display: block;
-    background: url("//o4qdeqynn.qnssl.com/image/index/cover.jpg") center center;
+    background: url("/image/index/cover.jpg") center center;
     background-size: cover; }
     .index-cover-mini .mini-title {
       position: absolute;
