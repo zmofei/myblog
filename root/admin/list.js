@@ -1,5 +1,5 @@
 var render = function() {
-    this.res.end('i got u');
+    this.jade.render();
 }
 
 exports.get = render;

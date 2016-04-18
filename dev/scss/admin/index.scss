@@ -33,6 +33,9 @@ html {
     right: 0;
     background: #363941;
     color: #fff;
+    a {
+        color: #FFF;
+    }
 }
 @import '../../../system/config/config.scss';
 @import '../../scss/component/nav.scss';

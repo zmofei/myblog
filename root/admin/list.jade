@@ -1,0 +1,28 @@
+extends ../layout.jade
+
+block title
+    title 管理系统 - I'm Mofei
+
+block css
+    link(rel="stylesheet" href= host + "/css/admin/index.css")
+    link(rel="stylesheet" href= host + "/css/tools/default.css")
+
+block javascriptBeforeLoad
+    
+block javascript
+
+block content
+    include ../../system/jade/nav.jade
+    div.admin
+        ul
+            li
+                a(href="/admin/blog/article") 文章管理
+            li
+                a(href="/admin/blog/message") 留言管理
+            li
+                a(href="/admin/blog/class") 分类管理
+            
+    section.index-copyright
+        div.index-copyright-bottom
+            div.index-copyright-bottom-txt (C) 2016 by 
+                a(href="http://www.zhuwenlong.com") Mofei 
