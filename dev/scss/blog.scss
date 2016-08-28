@@ -135,6 +135,7 @@ svg path {
     }
 }
 .blog-content-area {
+    background: #fafafa;
     padding-top: 30px;
     min-width: 850px;
     max-width: 1000px;
@@ -146,10 +147,13 @@ svg path {
     /*border-bottom: 1p*/
     min-width: 770px;
     position: relative;
-    margin: 0 40px;
+    margin: 0 40px 10px 40px;
+    border-radius: 3px;
+    background: white;
     /*border-bottom: 1px solid #F7F7F7;*/
-    /*border-top: 1px solid #fff;*/
-    padding: 30px 0 25px;
+    box-shadow: 0 1px 4px rgba(0,0,0,.04);
+    border: 1px solid rgba(0,0,0,.09);
+    padding: 30px 30px 25px;
     color: #333;
     overflow: hidden;
 }
