@@ -1,6 +1,7 @@
 @import '../../system/config/config.scss';
 body,
 html {
+    background: #fafafa;
     padding: 0;
     margin: 0;
     font-family: Open Sans, "Helvetica neue", Helvetica, Tahoma, "lantinghei sc", "Microsoft Yahei", sans-serif;
@@ -147,7 +148,7 @@ svg path {
     /*border-bottom: 1p*/
     min-width: 770px;
     position: relative;
-    margin: 0 40px 10px 40px;
+    margin: 0 40px 20px 40px;
     border-radius: 3px;
     background: white;
     /*border-bottom: 1px solid #F7F7F7;*/
@@ -207,7 +208,7 @@ svg path {
     float: right;
 }
 .blog-content {
-    background: #fefefe;
+    background: #fafafa;
 }
 .blog-content-img {
     float: left;
@@ -299,7 +300,7 @@ svg path {
 }
 .index-copyright-bottom {
     /*opacity: 0.95;*/
-    background: rgba(255, 255, 255, 0.95);
+    // background: rgba(255, 255, 255, 0.95);
     padding-top: 10px;
 }
 .index-copyright-bottom-txt {
@@ -543,7 +544,7 @@ svg path {
     background: #f15623;
     color: #fff;
 }
-@media (max-width: 800px) {
+@media (max-width: 900px) {
     .global-nav-text-link li a {
         color: #fff;
         background: rgba(51,51,51,0.95);
@@ -554,7 +555,7 @@ svg path {
         min-width: 0;
     }
     .blog-content-block {
-        margin: 0 20px;
+        margin: 20px;
         box-sizing: border-box;
         min-width: 0;
     }

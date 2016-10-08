@@ -11,7 +11,7 @@ then
     echo '**** pack';
     FileName=`date +%y_%m_%d_%H_%M_%S`;
     tar -cvzf build_$FileName.tar.gz ./build;
-    scp -r ./build_$FileName.tar.gz root@zhuwenlong.com:/usr/local/www/zhuwenlong.com/myblog/receive/build_$FileName.tar.gz;
+    scp -r ./build_$FileName.tar.gz root@zhuwenlong.com:/usr/local/zhuwenlong/www/zhuwenlong.com/receive/build_$FileName.tar.gz;
 else
     echo '**** dev';
     echo '**** setting config';
