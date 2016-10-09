@@ -121,12 +121,12 @@ html {
   width: 40px;
   height: 40px;
   float: right;
-  background: url("//dn-mofei.qbox.me/image/index/bars.svg") no-repeat center; }
+  background: url("/image/index/bars.svg") no-repeat center; }
 
 .global-nav-close {
   height: 50px;
   display: block;
-  background: url("//dn-mofei.qbox.me/image/index/close.svg") no-repeat 96% center; }
+  background: url("/image/index/close.svg") no-repeat 96% center; }
 
 .global-nav-bg {
   position: fixed;
