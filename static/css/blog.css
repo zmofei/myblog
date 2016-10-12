@@ -436,7 +436,8 @@ svg path {
   text-align: center;
   background: #eee;
   padding: 10px;
-  font-size: 12px; }
+  font-size: 12px;
+  line-height: 1.6em; }
 
 .index-copyright-bottom-txt a {
   color: #f15623;

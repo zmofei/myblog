@@ -303,16 +303,7 @@ svg path {
     // background: rgba(255, 255, 255, 0.95);
     padding-top: 10px;
 }
-.index-copyright-bottom-txt {
-    text-align: center;
-    background: #eee;
-    padding: 10px;
-    font-size: 12px;
-}
-.index-copyright-bottom-txt a {
-    color: #f15623;
-    text-decoration: none;
-}
+@import 'copyright.scss';
 /** article **/
 .article-pubinfo {
     margin-bottom: 20px;

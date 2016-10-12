@@ -5,25 +5,68 @@ block title
 
 block css
     link(rel="stylesheet" href= host + "/css/admin/index.css")
-    link(rel="stylesheet" href= host + "/css/tools/default.css")
 
 block javascriptBeforeLoad
+    script(src= host + "/js/tools/showdown.js")
     
 block javascript
 
 block content
-    include ../../../system/jade/nav.jade
     div.admin
-        div.admin-login
-            div 博客管理系统
-            form(action="/admin/login" method="POST")
+        div.admin-slidebar
+        div.admin-editor
+            input.admin-editor-title#title(placeholder="标题")
+            textarea.admin-editor-markdown#text-input(placeholder="正文内容")
+            div.admin-editor-markdown-preview.article-content#preview
+            div.publish
+                div.open Post
                 div
-                    input(type="text" name="username" placeholder="username")
+                    each blogclass in blogClass
+                        label
+                            input(type="checkbox" value=blogclass.classid) 
+                            span= blogclass.classname
                 div
-                    input(type="password" name="password" placeholder="password")
-                div
-                    button 登陆
-    section.index-copyright
-        div.index-copyright-bottom
-            div.index-copyright-bottom-txt (C) 2016 by 
-                a(href="http://www.zhuwenlong.com") Mofei 
+                    button#pub 发布   
+                
+    script.
+        var converter = new showdown.Converter({
+            tables: true,
+            tasklists: true
+        });
+        var $ = function (id) {
+            return document.getElementById(id);
+        };
+        //
+        if($("text-input").value == ''){
+            var value = localStorage.getItem('article');
+            $("text-input").value = value;
+            $("preview").innerHTML = converter.makeHtml(value);
+        }
+        if($("title").value == ''){
+            var value = localStorage.getItem('title');
+            $("title").value = value;
+        }
+
+        //
+        $("text-input").addEventListener('input', function () {
+            $("preview").innerHTML = converter.makeHtml(this.value);
+            localStorage.setItem('article',this.value);
+        });
+        $("text-input").addEventListener('scroll',function(){
+            $("preview").scrollTop=this.scrollTop;
+        });
+
+        $("title").addEventListener('input', function () {
+            localStorage.setItem('title',this.value);
+        });
+
+        $('pub').addEventListener('click', function () {
+            console.log($("title").value);
+            console.log($("text-input").value);
+            var tags = document.querySelectorAll('input:checked');
+            var choosedTag = [];
+            for(var i =0; i<tags.length; i++){
+                choosedTag.push(tags[i].value);
+            }
+            console.log(choosedTag);
+        });

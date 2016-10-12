@@ -29,16 +29,7 @@ body a {
 .index-copyright-bottom {
     background: rgba(255, 255, 255, 0.95);
 }
-.index-copyright-bottom-txt {
-    text-align: center;
-    background: #fff;
-    padding: 10px;
-    font-size: 12px;
-}
-.index-copyright-bottom-txt a {
-    color: #f15623;
-    text-decoration: none;
-}
+@import 'copyright.scss';
 .lab {
     max-width: 1200px;
     min-width: 800px;

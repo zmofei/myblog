@@ -422,16 +422,9 @@ body {
     background: rgba(255, 255, 255, 0.95);
     padding-top: 50px;
 }
-.index-copyright-bottom-txt {
-    text-align: center;
-    background: #eee;
-    padding: 10px;
-    font-size: 12px;
-}
-.index-copyright-bottom-txt a {
-    color: #f15623;
-    text-decoration: none;
-}
+
+@import 'copyright.scss';
+
 .popbox {
     position: fixed;
     top: 0;

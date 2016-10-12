@@ -164,9 +164,10 @@ body a {
 
 .index-copyright-bottom-txt {
   text-align: center;
-  background: #fff;
+  background: #eee;
   padding: 10px;
-  font-size: 12px; }
+  font-size: 12px;
+  line-height: 1.6em; }
 
 .index-copyright-bottom-txt a {
   color: #f15623;
