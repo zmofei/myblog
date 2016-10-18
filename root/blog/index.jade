@@ -48,11 +48,11 @@ block content
                                     span= year + '-' + (month < 10 ? '0' + month : month) + '-' + (date < 10 ? '0' + date : date)
                             div.blog-read
                                 span &#xe900; 
-                                span= blog.visited + ' '
+                                span= (blog.visited||0) + ' '
                                 span &#xe903; 
                                 span= (blog.like||0) + ' '
                                 span &#xe902;  
-                                span= blog.comment 
+                                span= blog.comment||0 
     section.blog-pages
         if currentPage > 1
             a(href="/blog/" + (currentPage-1) + search) Previous

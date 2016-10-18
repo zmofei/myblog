@@ -15,18 +15,29 @@ block content
     div.admin
         div.admin-slidebar
         div.admin-editor
-            input.admin-editor-title#title(placeholder="标题")
-            textarea.admin-editor-markdown#text-input(placeholder="正文内容")
-            div.admin-editor-markdown-preview.article-content#preview
-            div.publish
-                div.open Post
-                div
-                    each blogclass in blogClass
+            form(action="article_post" method="post")
+                input.admin-editor-title#title(name="title" placeholder="标题")
+                textarea.admin-editor-markdown#text-input(name="content" placeholder="正文内容")
+                div.admin-editor-markdown-preview.article-content#preview
+                div.publish
+                    div.open Post
+                    div
+                        each blogclass in blogClass
+                            label
+                                input(type="checkbox" value=blogclass.classid name="class") 
+                                span= blogclass.classname
+                    div
                         label
-                            input(type="checkbox" value=blogclass.classid) 
-                            span= blogclass.classname
-                div
-                    button#pub 发布   
+                                input(type="radio" value=0 name="state") 
+                                span 发布
+                        label
+                                input(type="radio" value=1 name="state") 
+                                span 隐藏URL
+                        label
+                                input(type="radio" value=2 name="state") 
+                                span 草稿
+                    div
+                        button#pub 发布   
                 
     script.
         var converter = new showdown.Converter({
