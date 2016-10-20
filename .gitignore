@@ -6,4 +6,5 @@ system/config/account.js
 *.swp
 .sass-cache/**/*.*
 .vscode/*
+*.tar.gz
 

@@ -9,8 +9,8 @@ html {
 
 @font-face {
   font-family: 'Open Sans';
-  src: url("/font/OpenSans-Light.eot?eyv41e");
-  src: url("/font/OpenSans-Light.eot?eyv41e#iefix") format("embedded-opentype"), url("/font/OpenSans-Light.ttf?eyv41e") format("truetype"), url("/font/OpenSans-Light.woff?eyv41e") format("woff"), url("/font/OpenSans-Light.svg?eyv41e#OpenSans-Light") format("svg");
+  src: url("//static.zhuwenlong.com/font/OpenSans-Light.eot?eyv41e");
+  src: url("//static.zhuwenlong.com/font/OpenSans-Light.eot?eyv41e#iefix") format("embedded-opentype"), url("//static.zhuwenlong.com/font/OpenSans-Light.ttf?eyv41e") format("truetype"), url("//static.zhuwenlong.com/font/OpenSans-Light.woff?eyv41e") format("woff"), url("//static.zhuwenlong.com/font/OpenSans-Light.svg?eyv41e#OpenSans-Light") format("svg");
   font-weight: normal;
   font-style: normal; }
 
@@ -20,8 +20,8 @@ body a {
 
 @font-face {
   font-family: 'icomoon';
-  src: url("/font/icomoon.eot?eyv41e");
-  src: url("/font/icomoon.eot?eyv41e#iefix") format("embedded-opentype"), url("/font/icomoon.ttf?eyv41e") format("truetype"), url("/font/icomoon.woff?eyv41e") format("woff"), url("/font/icomoon.svg?eyv41e#icomoon") format("svg");
+  src: url("//static.zhuwenlong.com/font/icomoon.eot?eyv41e");
+  src: url("//static.zhuwenlong.com/font/icomoon.eot?eyv41e#iefix") format("embedded-opentype"), url("//static.zhuwenlong.com/font/icomoon.ttf?eyv41e") format("truetype"), url("//static.zhuwenlong.com/font/icomoon.woff?eyv41e") format("woff"), url("//static.zhuwenlong.com/font/icomoon.svg?eyv41e#icomoon") format("svg");
   font-weight: normal;
   font-style: normal; }
 
@@ -110,12 +110,12 @@ body a {
   width: 40px;
   height: 40px;
   float: right;
-  background: url("/image/index/bars.svg") no-repeat center; }
+  background: url("//static.zhuwenlong.com/image/index/bars.svg") no-repeat center; }
 
 .global-nav-close {
   height: 50px;
   display: block;
-  background: url("/image/index/close.svg") no-repeat 96% center; }
+  background: url("//static.zhuwenlong.com/image/index/close.svg") no-repeat 96% center; }
 
 .global-nav-bg {
   position: fixed;
@@ -844,7 +844,7 @@ p {
   top: 0;
   right: 0;
   margin: -20px;
-  background: url("/image/index/close.svg") no-repeat center #999;
+  background: url("//static.zhuwenlong.com/image/index/close.svg") no-repeat center #999;
   cursor: pointer; }
 
 .message-login {

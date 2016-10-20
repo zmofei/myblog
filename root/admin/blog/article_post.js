@@ -19,7 +19,7 @@ var post = function () {
 
         Mongo.open(function (db) {
             db.collection('blog').insertOne({
-                "classid": post.class ? post.class.join(',') : null,
+                "classid": post.class ? (typeof (post.class) == 'string' ? post.class : post.class.join(',')) : null,
                 "state": post.state,
                 "content": post.content,
                 "title": post.title,
