@@ -1,0 +1,27 @@
+html
+    head
+        title 管理系统 - I'm Mofei
+        link(rel="stylesheet" href= host + "/css/admin/index.css")
+        link(rel="stylesheet" href= host + "/css/tools/default.css")
+    body
+        table(style="border-collapse: collapse; width: 100%;")
+            tr
+                th name
+                th email
+                th blog
+                th content
+                th avatar
+                th time
+            each blog in data
+                tr
+                    td(style="border:1px solid #ccc")= blog.name
+                    td(style="border:1px solid #ccc")= blog.email
+                    td(style="border:1px solid #ccc")= blog.blog
+                    td(style="border:1px solid #ccc")= blog.content
+                    td(style="border:1px solid #ccc") 
+                        img(src=blog.avatar)
+                    td(style="border:1px solid #ccc")= blog.time
+                
+            
+            
+    
