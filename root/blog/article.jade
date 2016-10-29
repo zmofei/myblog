@@ -25,6 +25,11 @@ block javascript
     script(src= host + "/js/tools/highlight.pack.js")
     script(src= host + "/js/blog/article.js")
     script(src= host + "/js/blog/article.main.js")
+    script.
+        var allLinks = document.querySelectorAll('.blog-content a');
+        for(var i = 0; i < allLinks.length; i++){
+            allLinks[i].setAttribute('target','_blank')
+        }
 
 
 block content
@@ -51,7 +56,7 @@ block content
                     a(href="http://www.zhuwenlong.com" rel="author") Mofei Zhu
                 div.commend-time
                     time= timeStr
-        div!= blog.html
+        div.blog-content!= blog.html
     section.article-tags
         each tag in tags
             a(href="/blog/1?tags=" + tag.classid)= tag.classname
