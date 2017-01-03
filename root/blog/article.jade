@@ -17,7 +17,6 @@ block javascriptBeforeLoad
             } else if(e.src != "/image/nobody.jpg") {
                 e.src = "/image/nobody.jpg";
             }
-
         }
 block javascript
     script(src= host + "/js/tools/utility.js")
@@ -61,7 +60,14 @@ block content
         each tag in tags
             a(href="/blog/1?tags=" + tag.classid)= tag.classname
     section.article-info 
-        div.article-info-makegood#makegood &#xe903;
+        .article-fns
+            .article-info-makegood.article-fns-block#makegood &#xe903;
+            .article-info-award.article-fns-block 
+                span 赏
+                .article-info-award-box
+                    img(src= host + "/image/blog/alipay.jpg")
+                    img(src= host + "/image/blog/wechat.jpg")
+            
         span.article-info-icon &#xe900;
         span= blog.visited
         span.article-info-icon &nbsp;&#xe903;

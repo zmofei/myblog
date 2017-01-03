@@ -4,7 +4,7 @@ html {
   background: #fafafa;
   padding: 0;
   margin: 0;
-  font-family: Arial,'Hiragino Sans GB',冬青黑,'Microsoft YaHei',微软雅黑,SimSun,宋体,Helvetica,Tahoma,'Arial sans-serif';
+  font-family: Arial, 'Hiragino Sans GB', 冬青黑, 'Microsoft YaHei', 微软雅黑, SimSun, 宋体, Helvetica, Tahoma, 'Arial sans-serif';
   -webkit-font-smoothing: antialiased; }
 
 @font-face {
@@ -542,7 +542,6 @@ svg path {
 
 .article-info {
   margin-top: 20px;
-  overflow: hidden;
   /*line-height: 1.6em;*/
   font-family: 'icomoon';
   border-bottom: 1px solid #e9e9e9; }
@@ -558,28 +557,39 @@ svg path {
   margin-right: 5px;
   /*margin-left: 10px;*/ }
 
-.article-info-makegood {
+.article-fns {
+  text-align: center; }
+
+.article-fns-block {
+  display: inline-block;
   cursor: pointer;
   font-size: 40px;
-  height: 60px;
-  line-height: 68px;
+  height: 75px;
+  line-height: 75px;
   color: #999;
-  width: 60px;
-  margin: 0 auto;
+  width: 75px;
+  margin: 3px 5px;
   border: 1px solid #ccc;
   text-align: center;
   border-radius: 100px;
-  padding: 15px;
-  margin-top: 3px;
-  /*transition: all 0.3s ease-in;*/ }
+  position: relative; }
 
-.article-info-makegood.active,
-.article-info-makegood:hover {
+.article-fns-block.active,
+.article-fns-block:hover {
   color: #f15623;
   border-color: #f15623;
-  border-width: 4px;
+  border-width: 1px;
   margin-top: 0;
   margin-bottom: -3px; }
+
+.article-info-award-box {
+  position: absolute;
+  background: white;
+  border: 1px solid #e4e4e4;
+  bottom: 76px;
+  left: 50%;
+  height: 200px;
+  font-size: 12px; }
 
 .blog-pages {
   padding: 10px 0;
@@ -961,7 +971,7 @@ p {
     .article-info span.article-info-icon {
       font-size: 14px;
       margin-right: 5px; }
-  .article-info-makegood {
+  .article-fns-block {
     font-size: 25px;
     height: 30px;
     line-height: 30px;
