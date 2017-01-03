@@ -568,11 +568,12 @@ svg path {
   line-height: 75px;
   color: #999;
   width: 75px;
-  margin: 3px 5px;
+  margin: 3px 10px;
   border: 1px solid #ccc;
   text-align: center;
   border-radius: 100px;
-  position: relative; }
+  position: relative;
+  cursor: pointer; }
 
 .article-fns-block.active,
 .article-fns-block:hover {
@@ -581,15 +582,44 @@ svg path {
   border-width: 1px;
   margin-top: 0;
   margin-bottom: -3px; }
+  .article-fns-block.active span,
+  .article-fns-block:hover span {
+    color: #f15623; }
+
+.article-info-award:hover .article-info-award-box {
+  display: block; }
 
 .article-info-award-box {
+  display: none;
   position: absolute;
   background: white;
   border: 1px solid #e4e4e4;
-  bottom: 76px;
+  bottom: 90px;
   left: 50%;
   height: 200px;
-  font-size: 12px; }
+  width: 300px;
+  height: 170px;
+  font-size: 12px;
+  margin-left: -150px; }
+  .article-info-award-box img {
+    width: 150px;
+    height: 170px; }
+  .article-info-award-box .article-info-award-arrow {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    border: 1px solid #e4e4e4;
+    border-top: none;
+    border-right: none;
+    bottom: 0;
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    background: white;
+    left: 50%;
+    margin-left: -8px;
+    margin-bottom: -9px; }
 
 .blog-pages {
   padding: 10px 0;
@@ -971,8 +1001,10 @@ p {
     .article-info span.article-info-icon {
       font-size: 14px;
       margin-right: 5px; }
+  .article-info-award {
+    display: none; }
   .article-fns-block {
-    font-size: 25px;
+    font-size: 20px;
     height: 30px;
     line-height: 30px;
     width: 30px;
