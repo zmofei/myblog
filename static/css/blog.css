@@ -1,7 +1,7 @@
 @charset "UTF-8";
 body,
 html {
-  background: #fafafa;
+  background: #f7f7f7;
   padding: 0;
   margin: 0;
   font-family: Arial, 'Hiragino Sans GB', 冬青黑, 'Microsoft YaHei', 微软雅黑, SimSun, 宋体, Helvetica, Tahoma, 'Arial sans-serif';
@@ -266,10 +266,9 @@ svg path {
     fill: rgba(0, 0, 0, 0.2); } }
 
 .blog-content-area {
-  background: #fafafa;
   padding-top: 30px;
   min-width: 850px;
-  max-width: 1000px;
+  max-width: 1200px;
   margin: 0 auto;
   /*padding-top: 20px;*/
   overflow: hidden; }
@@ -278,15 +277,17 @@ svg path {
   /*border-bottom: 1p*/
   min-width: 770px;
   position: relative;
-  margin: 0 40px 20px 40px;
-  border-radius: 3px;
-  background: white;
+  margin: 0 0px 20px 0px;
   /*border-bottom: 1px solid #F7F7F7;*/
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
-  border: 1px solid rgba(0, 0, 0, 0.09);
   padding: 30px 30px 25px;
   color: #333;
-  overflow: hidden; }
+  overflow: hidden;
+  box-sizing: border-box;
+  margin-bottom: 30px;
+  background: white;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.05); }
+  .blog-content-block:last-child {
+    margin-bottom: 0; }
 
 .blog-content-block a {
   text-decoration: none; }
@@ -302,7 +303,8 @@ svg path {
   line-height: 1.6em;
   position: relative;
   font-size: 16px;
-  overflow: hidden; }
+  overflow: hidden;
+  margin: 5px 0 10px 0; }
 
 .blog-content-block h2:hover,
 .blog-review:hover {
@@ -338,7 +340,7 @@ svg path {
   float: right; }
 
 .blog-content {
-  background: #fafafa; }
+  padding-bottom: -20px; }
 
 .blog-content-img {
   float: left;
@@ -430,6 +432,7 @@ svg path {
 
 .index-copyright-bottom {
   /*opacity: 0.95;*/
+  background: white;
   padding-top: 10px; }
 
 .index-copyright-bottom-txt {
@@ -443,6 +446,9 @@ svg path {
   color: #f15623;
   text-decoration: none; }
 
+.index-copyright-bottom-txt {
+  background: white; }
+
 /** article **/
 .article-pubinfo {
   margin-bottom: 20px; }
@@ -450,13 +456,20 @@ svg path {
 .article-content,
 .article-info,
 .article-tags {
-  max-width: 1000px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.05);
+  max-width: 1200px;
   margin: 0 auto;
+  background: white;
   padding: 0 40px;
   font-size: 16px;
   color: #444;
   line-height: 1.6em;
+  box-sizing: border-box;
   /*padding-top: 30px;*/ }
+
+.article-content {
+  overflow: hidden;
+  margin-top: 20px; }
 
 .article-content h1,
 .article-content h2,
@@ -524,9 +537,6 @@ svg path {
   border: none;
   border-bottom: 1px solid #F3ECEC; }
 
-.article-tags {
-  margin-top: 20px; }
-
 .article-tags a {
   display: inline-block;
   padding: 5px 10px;
@@ -541,7 +551,6 @@ svg path {
   color: #fff; }
 
 .article-info {
-  margin-top: 20px;
   /*line-height: 1.6em;*/
   font-family: 'icomoon';
   border-bottom: 1px solid #e9e9e9; }
@@ -631,9 +640,11 @@ svg path {
 .blog-pages span {
   color: #999;
   text-decoration: none;
-  padding: 3px 8px;
+  padding: 5px 8px;
   border: 1px solid #fff;
-  margin: 0 2px; }
+  margin: 0 2px;
+  background: white;
+  font-size: 14px; }
 
 .blog-pages a.active,
 .blog-pages a:hover {
@@ -644,17 +655,17 @@ svg path {
 
 /*** commend ***/
 .commend {
-  max-width: 1000px;
+  max-width: 1200px;
   margin: 20px auto;
-  padding: 0 40px;
+  padding: 0;
   color: #666;
   font-size: 14px; }
 
 .commend-block {
-  border: 1px solid #e4e4e4;
+  background: white;
   padding: 15px 25px;
   margin-bottom: 20px;
-  border-radius: 4px; }
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.05); }
 
 .commend-block:hover {
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.15); }
@@ -730,11 +741,11 @@ svg path {
   float: right; }
 
 .commend-pub {
-  border: 1px solid #e9e9e9;
+  background: white;
   /*background: #f9f9f9;*/
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.05);
   padding: 10px 20px;
   margin-bottom: 20px;
-  border-radius: 4px;
   transition: all 0.5s ease-in; }
 
 .commend-pub.active {
@@ -927,6 +938,11 @@ p {
   background: #f15623;
   color: #fff; }
 
+@media (max-width: 1220px) {
+  .article-content {
+    overflow: hidden;
+    margin-top: 0px; } }
+
 @media (max-width: 900px) {
   .global-nav-text-link li a {
     color: #fff;
@@ -939,6 +955,8 @@ p {
     margin: 20px;
     box-sizing: border-box;
     min-width: 0; }
+    .blog-content-block:last-child {
+      margin-bottom: 0; }
   .blog-content-text {
     min-width: 0; }
     .blog-content-text h2 {

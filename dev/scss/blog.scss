@@ -1,7 +1,7 @@
 @import '../../system/config/config.scss';
 body,
 html {
-    background: #fafafa;
+    background: #f7f7f7;
     padding: 0;
     margin: 0;
     font-family: Arial, 'Hiragino Sans GB', 冬青黑, 'Microsoft YaHei', 微软雅黑, SimSun, 宋体, Helvetica, Tahoma, 'Arial sans-serif';
@@ -154,10 +154,10 @@ svg path {
 }
 
 .blog-content-area {
-    background: #fafafa;
+    // background: #fafafa;
     padding-top: 30px;
     min-width: 850px;
-    max-width: 1000px;
+    max-width: 1200px;
     margin: 0 auto;
     /*padding-top: 20px;*/
     overflow: hidden;
@@ -167,15 +167,22 @@ svg path {
     /*border-bottom: 1p*/
     min-width: 770px;
     position: relative;
-    margin: 0 40px 20px 40px;
-    border-radius: 3px;
-    background: white;
+    margin: 0 0px 20px 0px;
+    // border-radius: 3px;
+    // background: white;
     /*border-bottom: 1px solid #F7F7F7;*/
-    box-shadow: 0 1px 4px rgba(0, 0, 0, .04);
-    border: 1px solid rgba(0, 0, 0, .09);
+    // box-shadow: 0 1px 4px rgba(0, 0, 0, .04);
+    // border: 1px solid rgba(0, 0, 0, .09);
     padding: 30px 30px 25px;
     color: #333;
     overflow: hidden;
+    box-sizing: border-box;
+    margin-bottom: 30px;
+    background: white;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.05);
+    &:last-child {
+        margin-bottom: 0;
+    }
 }
 
 .blog-content-block a {
@@ -195,6 +202,7 @@ svg path {
     position: relative;
     font-size: 16px;
     overflow: hidden;
+    margin: 5px 0 10px 0;
 }
 
 .blog-content-block h2:hover,
@@ -238,7 +246,8 @@ svg path {
 }
 
 .blog-content {
-    background: #fafafa;
+    // background: #fafafa;
+    padding-bottom: -20px;
 }
 
 .blog-content-img {
@@ -347,10 +356,15 @@ svg path {
 .index-copyright-bottom {
     /*opacity: 0.95;*/
     // background: rgba(255, 255, 255, 0.95);
+    background: white;
     padding-top: 10px;
 }
 
 @import 'copyright.scss';
+.index-copyright-bottom-txt {
+    background: white;
+}
+
 
 /** article **/
 
@@ -361,13 +375,21 @@ svg path {
 .article-content,
 .article-info,
 .article-tags {
-    max-width: 1000px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.05);
+    max-width: 1200px;
     margin: 0 auto;
+    background: white;
     padding: 0 40px;
     font-size: 16px;
     color: #444;
     line-height: 1.6em;
+    box-sizing: border-box;
     /*padding-top: 30px;*/
+}
+
+.article-content {
+    overflow: hidden;
+    margin-top: 20px;
 }
 
 .article-content h1,
@@ -451,7 +473,7 @@ svg path {
 }
 
 .article-tags {
-    margin-top: 20px;
+    // margin-top: 20px;
 }
 
 .article-tags a {
@@ -470,7 +492,7 @@ svg path {
 }
 
 .article-info {
-    margin-top: 20px;
+    // margin-top: 20px;
     // overflow: hidden;
     /*line-height: 1.6em;*/
     font-family: 'icomoon';
@@ -515,7 +537,6 @@ svg path {
 
 .article-fns-block.active,
 .article-fns-block:hover {
-    
     color: #f15623;
     span {
         color: #f15623;
@@ -578,9 +599,11 @@ svg path {
 .blog-pages span {
     color: #999;
     text-decoration: none;
-    padding: 3px 8px;
+    padding: 5px 8px;
     border: 1px solid #fff;
     margin: 0 2px;
+    background: white;
+    font-size: 14px;
 }
 
 .blog-pages a.active,
@@ -670,6 +693,13 @@ svg path {
     color: #fff;
 }
 
+@media (max-width: 1220px) {
+    .article-content {
+        overflow: hidden;
+        margin-top: 0px;
+    }
+}
+
 @media (max-width: 900px) {
     .global-nav-text-link li a {
         color: #fff;
@@ -684,6 +714,9 @@ svg path {
         margin: 20px;
         box-sizing: border-box;
         min-width: 0;
+        &:last-child {
+            margin-bottom: 0;
+        }
     }
     .blog-content-text {
         min-width: 0;

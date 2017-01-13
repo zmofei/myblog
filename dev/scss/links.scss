@@ -1,12 +1,11 @@
 @import '../../system/config/config.scss';
-
 body,
 html {
     padding: 0;
     margin: 0;
-    font-family: Arial,'Hiragino Sans GB',冬青黑,'Microsoft YaHei',微软雅黑,SimSun,宋体,Helvetica,Tahoma,'Arial sans-serif';
+    font-family: Arial, 'Hiragino Sans GB', 冬青黑, 'Microsoft YaHei', 微软雅黑, SimSun, 宋体, Helvetica, Tahoma, 'Arial sans-serif';
     -webkit-font-smoothing: antialiased;
-    background: #efefef;
+    background: #f7f7f7;
 }
 
 body a {
@@ -31,17 +30,15 @@ body a {
 }
 
 @import '../scss/component/nav.scss';
-
 .index-copyright-bottom {
     background: rgba(255, 255, 255, 0.95);
 }
 
 @import 'copyright.scss';
-
 .links-contenter {
     max-width: 1200px;
     min-width: 800px;
-    padding: 40px;
+    padding: 10px 0;
     box-sizing: border-box;
     margin: 0 auto;
 }
@@ -53,10 +50,24 @@ body a {
 
 .links-block {
     float: left;
-    width: 33%;
-    padding: 20px;
+    width: 30%;
+    margin: 1.5%;
+    // padding: 10px;
+    height: 400px;
     box-sizing: border-box;
     margin-bottom: 10px;
+    background: white;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.link-block-content {
+    padding: 10px;
+    font-size: 14px;
+    a {
+        display: block;
+        font-size: 16px;
+        padding: 10px 0;
+    }
 }
 
 .links-block-title {
@@ -70,13 +81,13 @@ body a {
     line-height: 1.6em;
 }
 
-
 .links-block-img {
     width: 100%;
     background-size: cover;
     background-repeat: no-repeat;
     overflow: hidden;
-    margin-bottom: 10px;
+    // margin-bottom: 10px;
+    border-bottom: 1px solid #f4f4f4;
     background-position: center;
     transition: all 0.4s ease-in;
 }
@@ -84,16 +95,19 @@ body a {
 .links-block-img img {
     opacity: 0;
     width: 100%;
+    
     float: left;
 }
 
 @media (max-width: 800px) {
+    .links-box {
+        padding: 10px;
+    }
     .global-nav-text-link li a {
         color: #fff;
-        background: rgba(51,51,51,0.95);
+        background: rgba(51, 51, 51, 0.95);
         border-bottom: 1px solid #484848;
     }
-
     .links-contenter {
         min-width: 0;
         margin: 0;
@@ -106,12 +120,17 @@ body a {
         float: inherit;
         width: auto;
         padding: 0;
+        height: auto;
+        margin: 0;
         width: 100%;
         margin-bottom: 40px;
         font-size: 14px;
     }
-
     .links-block img {
         max-width: 100%;
     }
+}
+
+.index-copyright-bottom-txt {
+    background: white;
 }

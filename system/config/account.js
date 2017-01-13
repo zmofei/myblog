@@ -1,6 +1,6 @@
 exports.email = {
     user: 'hello@zhuwenlong.com',
-    pass: 'zwl891027'
+    pass: '7zSAbK3z1nKQlaQ5'
 };
 
 exports.db = {
