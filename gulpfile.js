@@ -39,7 +39,7 @@ gulp.task('prepareStatic', ['bundle', 'sass'], () => {
 });
 
 gulp.task('prepareRoot', () => {
-    return gulp.src('root/**/*.jade')
+    return gulp.src('root/**/*.*')
         .pipe(gulp.dest('build/root/'))
 });
 

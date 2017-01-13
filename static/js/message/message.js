@@ -15,6 +15,7 @@ publish.addEventListener('click', function(e) {
     if (!commendBox.innerHTML) {
         commendBox.focus();
     } else {
+        console.log(commendBox.innerHTML)
         sendComment({
             message: commendBox.innerHTML,
             success: function(data) {
@@ -61,7 +62,7 @@ on('.commend-replay-btn', 'click', function(e) {
 
 // replay submit
 on('.commend-replay-box-btn', 'click', function(e) {
-    var message = e.target.previousSibling.innerHTML;
+    var message = e.target.parentElement.querySelector('.commend-replay-box-text').innerHTML;
     var id = e.target.getAttribute('id')
     sendComment({
         message: message,
