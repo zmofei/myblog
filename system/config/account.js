@@ -1,10 +1,10 @@
 exports.email = {
-    user: 'hello@zhuwenlong.com',
-    pass: '7zSAbK3z1nKQlaQ5'
+    user: '***',
+    pass: '****'
 };
 
 exports.db = {
-    user: 'mofei',
-    pwd: 'mofei@*(!)@&',
-    dbName: 'zhuwenlong_com'
+    user: '**',
+    pwd: '**',
+    dbName: '****'
 }
