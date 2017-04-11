@@ -1,6 +1,14 @@
 var Mongo = require('../../../system/mongo/init.js');
 
 var get = function () {
+    if (this.session.get('pow') !== 'admin') {
+        this.res.writeHead(302, {
+            Location: '/admin/'
+        });
+        this.res.end();
+        return false;
+    }
+
     var self = this;
 
     Mongo.open(function (db) {

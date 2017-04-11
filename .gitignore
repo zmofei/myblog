@@ -8,3 +8,4 @@ system/config/account.js
 .vscode/*
 *.tar.gz
 mongoback/
+static/upload

@@ -401,3 +401,38 @@ _map.add([100, 26], {
 _map.add([104, 21], {
     title: '西宁'
 })
+
+_map.add([135, 60], {
+    title: 'Auckland'
+})
+
+_map.add([135, 60], {
+    title: 'Waitomo'
+})
+_map.add([135, 60], {
+    title: 'Matamata'
+})
+
+_map.add([132, 62], {
+    title: 'Christchurch'
+})
+
+_map.add([131, 62], {
+    title: 'FOX GLACIER'
+})
+
+_map.add([131, 63], {
+    title: 'Wanaka'
+})
+
+_map.add([131, 63], {
+    title: 'Queenstown'
+})
+
+_map.add([131, 63], {
+    title: 'Dunedin'
+})
+
+_map.add([130, 63], {
+    title: 'Te Anau'
+})
