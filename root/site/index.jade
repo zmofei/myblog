@@ -1,0 +1,27 @@
+doctype xml
+urlset(xmlns="http://www.sitemaps.org/schemas/sitemap/0.9")
+    url
+        loc https://www.zhuwenlong.com/
+        changefreq yearly
+        priority 1
+    url
+        loc https://www.zhuwenlong.com/blog
+        changefreq monthly
+        priority 0.8
+    url
+        loc https://www.zhuwenlong.com/lab
+        changefreq monthly
+        priority 0.5
+    url
+        loc https://www.zhuwenlong.com/message
+        changefreq weekly
+        priority 0.5
+    url
+        loc https://www.zhuwenlong.com/links
+        changefreq monthly
+        priority 0.5
+    for blog in blogs
+        url
+            loc= 'https://www.zhuwenlong.com/blog/article/' + blog._id
+            changefreq monthly
+            priority 1

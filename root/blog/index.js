@@ -70,7 +70,7 @@ var render = function () {
                 limit: perPage,
                 skip: skip,
                 sort: {
-                    _id: -1
+                    pubtime: -1
                 }
             }).toArray(function (err, docs) {
                 // console.log(docs);

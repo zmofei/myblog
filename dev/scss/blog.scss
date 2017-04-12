@@ -185,6 +185,8 @@ svg path {
     }
 }
 
+
+
 .blog-content-block a {
     text-decoration: none;
 }
@@ -381,7 +383,7 @@ svg path {
     background: white;
     padding: 0 40px;
     font-size: 16px;
-    color: #444;
+    color: #333;
     line-height: 1.6em;
     box-sizing: border-box;
     /*padding-top: 30px;*/
@@ -390,6 +392,13 @@ svg path {
 .article-content {
     overflow: hidden;
     margin-top: 20px;
+}
+
+.article-content  blockquote {
+    border-left: 4px solid #ddd;
+    margin-left: 0;
+    padding-left: 15px;
+    color: #777;
 }
 
 .article-content h1,
