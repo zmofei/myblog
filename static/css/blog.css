@@ -594,9 +594,7 @@ svg path {
 .article-fns-block:hover {
   color: #f15623;
   border-color: #f15623;
-  border-width: 1px;
-  margin-top: 0;
-  margin-bottom: -3px; }
+  border-width: 1px; }
   .article-fns-block.active span,
   .article-fns-block:hover span {
     color: #f15623; }
@@ -852,10 +850,9 @@ p {
   color: #fff; }
 
 @media (max-width: 800px) {
-  .commend {
-    padding: 0 20px; }
   .commend-pub {
-    padding: 5px 10px; }
+    padding: 10px 20px;
+    margin-bottom: 1px; }
   .commend-pub .commend-avatar img {
     height: 30px;
     width: 30px; }
@@ -864,7 +861,10 @@ p {
     line-height: 30px;
     font-size: 16px; }
   .commend-block {
-    padding: 10px; }
+    padding: 10px 20px;
+    margin-bottom: 0;
+    border-bottom: 1px solid #f3f3f3;
+    border-top: 1px solid #ffffff; }
   .commend-avatar img {
     width: 40px;
     height: 40px; }
@@ -1010,14 +1010,12 @@ p {
   .article-content code {
     margin: 3px; }
   .article-tags {
-    margin-top: 10px;
-    padding: 0 20px; }
+    padding: 0 20px 20px 20px; }
   .article-tags a {
     font-size: 14px;
     padding: 0px 5px;
     border-radius: 0; }
   .article-info {
-    margin-top: 10px;
     padding: 0 20px;
     color: #ccc; }
     .article-info span {

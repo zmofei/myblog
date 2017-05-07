@@ -196,10 +196,11 @@ p {
 }
 @media (max-width: 800px) {
     .commend {
-        padding: 0 20px;
+        // padding: 0 20px;
     }
     .commend-pub {
-        padding: 5px 10px;
+        padding: 10px 20px;
+        margin-bottom: 1px;
     }
     .commend-pub .commend-avatar img {
         height: 30px;
@@ -211,7 +212,10 @@ p {
         font-size: 16px;
     }
     .commend-block {
-        padding: 10px;
+        padding: 10px 20px;
+        margin-bottom: 0;
+        border-bottom: 1px solid #f3f3f3;
+        border-top: 1px solid #ffffff;
     }
     .commend-avatar img {
         width: 40px;
