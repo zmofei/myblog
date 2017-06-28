@@ -14,6 +14,7 @@ then
     scp -r ./build_$FileName.tar.gz root@zhuwenlong.com:/usr/local/zhuwenlong/www/zhuwenlong.com/receive/build_$FileName.tar.gz;
     CP="cd /usr/local/zhuwenlong/www/zhuwenlong.com/receive/; rm -rf build; tar -xvzf build_$FileName.tar.gz; cd ..; cp -r receive/build/root/* ./root/; cp -r receive/build/static/* ./static/;"
     ssh root@zhuwenlong.com "${CP}";
+    rm ./build_$FileName.tar.gz;
 else
     echo '**** dev';
     echo '**** setting config';

@@ -2,7 +2,7 @@ var Mongo = require('../../system/mongo/init.js');
 var ObjectID = require('mongodb').ObjectID;
 var marked = require('marked');
 
-var render = function() {
+var render = function () {
     var self = this;
     var id = this.reqParam && this.reqParam[1];
     if (!id) {
@@ -12,8 +12,8 @@ var render = function() {
 
     var data = {}
 
-    Mongo.open(function(db) {
-        var getBlog = new Promise(function(reslove, reject) {
+    Mongo.open(function (db) {
+        var getBlog = new Promise(function (reslove, reject) {
             var findQuery = {
                 _id: ObjectID(id)
             };
@@ -26,8 +26,8 @@ var render = function() {
                 }, {
                     new: true
                 },
-                function(err, docs) {
-                    data.blog = docs.value;
+                function (err, docs) {
+                    data.blog = docs.value || {};
                     if (!docs.value) {
                         reslove();
                     } else {
@@ -39,7 +39,7 @@ var render = function() {
                                 $set: {
                                     html: docs.value.html
                                 }
-                            }, function(err, results) {
+                            }, function (err, results) {
                                 reslove();
                             })
                         }
@@ -47,8 +47,8 @@ var render = function() {
                 });
         });
 
-        var getBlogClass = new Promise(function(resolve, reject) {
-            db.collection('blog_class').find({}).toArray(function(err, docs) {
+        var getBlogClass = new Promise(function (resolve, reject) {
+            db.collection('blog_class').find({}).toArray(function (err, docs) {
                 var blogClass = {};
                 for (var i in docs) {
                     blogClass[docs[i].classid] = docs[i];
@@ -59,7 +59,7 @@ var render = function() {
         });
 
         function getComment() {
-            return new Promise(function(reslove, reject) {
+            return new Promise(function (reslove, reject) {
                 if (data.blog) {
                     db.collection('blog_comment').find({
                         blogid: ObjectID(data.blog._id)
@@ -67,8 +67,8 @@ var render = function() {
                         sort: {
                             _id: -1
                         }
-                    }).toArray(function(err, docs) {
-                        data.comments = docs;
+                    }).toArray(function (err, docs) {
+                        data.comments = docs || [];
                         reslove();
                     });
                 } else {
@@ -77,11 +77,11 @@ var render = function() {
             });
         }
 
-        Promise.all([getBlog, getBlogClass]).then(getComment).then(function() {
+        Promise.all([getBlog, getBlogClass]).then(getComment).then(function () {
             if (data.blog) {
                 var classid = data.blog.classid;
                 var tags = []
-                if (typeof(classid) == 'string') {
+                if (typeof (classid) == 'string') {
                     var classId = data.blog.classid.split(',');
                 } else {
                     classId = classid;
@@ -92,6 +92,9 @@ var render = function() {
                 }
 
                 data.tags = tags;
+                data.meta = {
+                    title:  data.blog.content.replace(/(\!{0,1}\[.+?\]\(.+?\))|#|(`+?)|\*|=|-/g,' ').slice(0,180)+ ' ...'
+                }
 
                 self.jade.render({
                     data: data

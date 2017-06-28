@@ -36,7 +36,7 @@ var render = function () {
                 
             }
             findquery.classid = {
-                $in: newTags
+                $in: newTags 
             }
         }
 
@@ -53,7 +53,7 @@ var render = function () {
                 for (var i in docs) {
                     blogClass[docs[i].classid] = docs[i];
                 }
-                data.blogClass = blogClass;
+                data.blogClass = blogClass || [];
                 resolve();
             });
         });
@@ -73,8 +73,7 @@ var render = function () {
                     pubtime: -1
                 }
             }).toArray(function (err, docs) {
-                // console.log(docs);
-                data.blogs = docs;
+                data.blogs = docs || [];
                 resolve();
             });
         });
