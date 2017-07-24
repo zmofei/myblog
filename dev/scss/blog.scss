@@ -30,6 +30,7 @@ body a {
 }
 
 @import '../scss/component/nav.scss';
+
 .blog-title {
     /*height: 280px;*/
     text-align: center;
@@ -362,7 +363,7 @@ svg path {
     padding-top: 10px;
 }
 
-@import 'copyright.scss';
+@import 'component/copyright.scss';
 .index-copyright-bottom-txt {
     background: white;
 }

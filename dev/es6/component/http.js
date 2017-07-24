@@ -1,18 +1,3 @@
-class Nav {
-    constructor() {
-        var navTar = document.getElementById('navTar');
-        var navLink = document.querySelector('.global-nav-text-link');
-        navTar.addEventListener('click', function(e) {
-            if (navLink.style.display == 'block') {
-                navLink.style.display = 'none';
-            } else {
-                navLink.style.display = 'block';
-            }
-        });
-
-    }
-}
-
 /**
  * @file http
  */
@@ -162,21 +147,4 @@ const Http = {
     jsonp
 };
 
-new Nav();
-
-
-Http.fetch({
-    url: 'https://api.github.com/users/zmofei?',
-    success: function (data) {
-        document.getElementById('gitFollower').innerText = data.data.followers;
-        document.getElementById('gitRepos').innerText = data.data.public_repos;
-        document.getElementById('gitRepos').innerText = data.data.public_repos;
-        document.getElementById('gitFollowing').innerText = data.data.following;
-        
-
-        
-        // let data = data.data.followers;
-        // console.log(data.data);
-    }
-});
-// console.log(Http)
+export default Http;

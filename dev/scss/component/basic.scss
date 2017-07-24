@@ -1,0 +1,31 @@
+@import '../../../system/config/config.scss';
+
+body,
+html {
+    background: #f7f7f7;
+    padding: 0;
+    margin: 0;
+    font-family: Arial, 'Hiragino Sans GB', 冬青黑, 'Microsoft YaHei', 微软雅黑, SimSun, 宋体, Helvetica, Tahoma, 'Arial sans-serif';
+    -webkit-font-smoothing: antialiased;
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    src: url($host + '/font/OpenSans-Light.eot?eyv41e');
+    src: url($host + '/font/OpenSans-Light.eot?eyv41e#iefix') format('embedded-opentype'), url($host + '/font/OpenSans-Light.ttf?eyv41e') format('truetype'), url($host + '/font/OpenSans-Light.woff?eyv41e') format('woff'), url($host + '/font/OpenSans-Light.svg?eyv41e#OpenSans-Light') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body a {
+    color: #f15623;
+    text-decoration: none;
+}
+
+@font-face {
+    font-family: 'icomoon';
+    src: url($host + '/font/icomoon.eot?eyv41e');
+    src: url($host + '/font/icomoon.eot?eyv41e#iefix') format('embedded-opentype'), url($host + '/font/icomoon.ttf?eyv41e') format('truetype'), url($host + '/font/icomoon.woff?eyv41e') format('woff'), url($host + '/font/icomoon.svg?eyv41e#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
