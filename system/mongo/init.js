@@ -16,8 +16,9 @@ var open = (function() {
             cb && callbacks.push(cb);
             if (!connectionStatus) {
                 // connect to the db
-                var url = 'mongodb://localhost:27017/' + config.db.dbName;
+                var url = 'mongodb://127.0.0.1:27017/' + config.db.dbName;
                 MongoClient.connect(url, function(err, _db) {
+                    console.log(err);
                     _db.authenticate(config.db.user, config.db.pwd, function(err, result) {
                         console.log('err', err)
                         console.log("Connected correctly to server [system/mongo/init.js]");

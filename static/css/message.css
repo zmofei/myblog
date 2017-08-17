@@ -420,6 +420,19 @@ p {
     margin-right: 370px;
     margin-left: 20px; }
 
+@media (max-width: 800px) {
+  .message-list .commend {
+    margin-right: 10px;
+    margin-left: 10px; }
+  .message-list .message-info {
+    position: relative;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: 20px 10px;
+    width: auto; } }
+
 .message-info {
   width: 330px;
   position: absolute;
@@ -462,7 +475,8 @@ p {
   font-size: 14px; }
   .message-github .content a {
     display: inline-block;
-    width: 33%;
+    width: 33.3%;
+    box-sizing: border-box;
     padding: 5px 0;
     border-right: 1px solid #eee; }
     .message-github .content a span {
