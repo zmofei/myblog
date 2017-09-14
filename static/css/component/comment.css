@@ -215,3 +215,32 @@ p {
   .commend-time {
     height: 20px;
     line-height: 20px; } }
+
+.popbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.2);
+  z-index: 10000;
+  transition: all 0.5s ease-in; }
+
+.popbox-in {
+  position: absolute;
+  width: 400px;
+  top: 50%;
+  left: 50%;
+  margin: -200px;
+  background: white; }
+
+.popbox-close {
+  width: 40px;
+  height: 40px;
+  border-radius: 100px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: -20px;
+  background: url("//static.zhuwenlong.com/image/index/close.svg") no-repeat center #999;
+  cursor: pointer; }

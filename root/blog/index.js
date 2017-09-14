@@ -40,8 +40,6 @@ var render = function () {
             }
         }
 
-        console.log(findquery);
-
         var data = {
             currentPage: page + 1,
             search: search,

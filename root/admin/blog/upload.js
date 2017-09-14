@@ -5,8 +5,8 @@ var path = require('path');
 var formidable = require("formidable");
 
 var post = function () {
-    let req = this.req;
-    let res = this.res;
+    var req = this.req;
+    var res = this.res;
 
     var form = new formidable.IncomingForm();
     var files = [];

@@ -84,12 +84,12 @@
   width: 40px;
   height: 40px;
   float: right;
-  background: url("/image/index/bars.svg") no-repeat center; }
+  background: url("//static.zhuwenlong.com/image/index/bars.svg") no-repeat center; }
 
 .global-nav-close {
   height: 50px;
   display: block;
-  background: url("/image/index/close.svg") no-repeat 96% center; }
+  background: url("//static.zhuwenlong.com/image/index/close.svg") no-repeat 96% center; }
 
 .global-nav-bg {
   position: fixed;
@@ -143,8 +143,8 @@ html {
 
 @font-face {
   font-family: 'Open Sans';
-  src: url("/font/OpenSans-Light.eot?eyv41e");
-  src: url("/font/OpenSans-Light.eot?eyv41e#iefix") format("embedded-opentype"), url("/font/OpenSans-Light.ttf?eyv41e") format("truetype"), url("/font/OpenSans-Light.woff?eyv41e") format("woff"), url("/font/OpenSans-Light.svg?eyv41e#OpenSans-Light") format("svg");
+  src: url("//static.zhuwenlong.com/font/OpenSans-Light.eot?eyv41e");
+  src: url("//static.zhuwenlong.com/font/OpenSans-Light.eot?eyv41e#iefix") format("embedded-opentype"), url("//static.zhuwenlong.com/font/OpenSans-Light.ttf?eyv41e") format("truetype"), url("//static.zhuwenlong.com/font/OpenSans-Light.woff?eyv41e") format("woff"), url("//static.zhuwenlong.com/font/OpenSans-Light.svg?eyv41e#OpenSans-Light") format("svg");
   font-weight: normal;
   font-style: normal; }
 
@@ -154,8 +154,8 @@ body a {
 
 @font-face {
   font-family: 'icomoon';
-  src: url("/font/icomoon.eot?eyv41e");
-  src: url("/font/icomoon.eot?eyv41e#iefix") format("embedded-opentype"), url("/font/icomoon.ttf?eyv41e") format("truetype"), url("/font/icomoon.woff?eyv41e") format("woff"), url("/font/icomoon.svg?eyv41e#icomoon") format("svg");
+  src: url("//static.zhuwenlong.com/font/icomoon.eot?eyv41e");
+  src: url("//static.zhuwenlong.com/font/icomoon.eot?eyv41e#iefix") format("embedded-opentype"), url("//static.zhuwenlong.com/font/icomoon.ttf?eyv41e") format("truetype"), url("//static.zhuwenlong.com/font/icomoon.woff?eyv41e") format("woff"), url("//static.zhuwenlong.com/font/icomoon.svg?eyv41e#icomoon") format("svg");
   font-weight: normal;
   font-style: normal; }
 
@@ -388,6 +388,35 @@ p {
     height: 20px;
     line-height: 20px; } }
 
+.popbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.2);
+  z-index: 10000;
+  transition: all 0.5s ease-in; }
+
+.popbox-in {
+  position: absolute;
+  width: 400px;
+  top: 50%;
+  left: 50%;
+  margin: -200px;
+  background: white; }
+
+.popbox-close {
+  width: 40px;
+  height: 40px;
+  border-radius: 100px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: -20px;
+  background: url("//static.zhuwenlong.com/image/index/close.svg") no-repeat center #999;
+  cursor: pointer; }
+
 .blog-pages {
   padding: 10px 0;
   margin: 20px;
@@ -487,3 +516,43 @@ p {
         font-weight: bolder; }
     .message-github .content a:last-child {
       border: none; }
+
+.message-login {
+  padding: 20px;
+  line-height: 1.6em;
+  font-size: 12px;
+  color: #F15623; }
+
+.message-login input {
+  border: none;
+  border-bottom: 1px solid #ccc;
+  background: none;
+  width: 300px;
+  padding: 10px 4px;
+  margin-bottom: 10px;
+  outline: none; }
+
+.message-login input:focus {
+  border-bottom: 1px solid #f15623; }
+
+.message-login-title {
+  font-size: 16px;
+  color: #333;
+  padding-bottom: 8px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #f4f4f4; }
+
+.message-login-btn {
+  font-size: 16px;
+  padding: 10px 20px;
+  border: 1px solid #f15623;
+  color: #f15623;
+  margin: 10px 0;
+  background: #f4f4f4;
+  border-radius: 40px;
+  cursor: pointer;
+  outline: none; }
+
+.message-login-btn:hover {
+  background: #f15623;
+  color: #fff; }

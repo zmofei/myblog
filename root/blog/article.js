@@ -93,7 +93,7 @@ var render = function () {
 
                 data.tags = tags;
                 data.meta = {
-                    title:  data.blog.content.replace(/(\!{0,1}\[.+?\]\(.+?\))|#|(`+?)|\*|=|-/g,' ').slice(0,180)+ ' ...'
+                    title: data.blog.content.replace(/(\!{0,1}\[.+?\]\(.+?\))|#|(`+?)|\*|=|-/g, ' ').slice(0, 180) + ' ...'
                 }
 
                 self.jade.render({
