@@ -1,0 +1,74 @@
+extends ../layout.en.jade
+
+block title
+    title Blog - Hi! I'm Mofei
+
+block css
+    link(rel="stylesheet" href= host + "/css/blog.css")
+
+block javascript
+    script(src= host + "/js/tools/utility.js")
+    script(src= host + "/js/blog/index.js")
+    script(src= host + "/js/blog/blog.main.js")
+
+block content    
+    include ../../system/jade/nav.en.jade
+    section.blog-content
+        div.blog-search
+            div.blog-search-box
+                each blogclass in blogClass
+                    div.blog-search-tag(id= 'tag_' + blogclass.classid)=  blogclass.classname
+            div.blog-search-btn 
+                btn GO
+        div.blog-search-toggle &#xe5c5; 
+        div.blog-content-area
+            each blog in blogs
+                div.blog-content-block
+                    if (blog.cover)
+                        div.blog-content-img
+                            a(href="/blog/article/" + blog._id)
+                                img(src="/image/blog/cover.jpg")
+                                div.blog-content-img-body(style="background-image:url('" + blog.cover +"')")
+                    div.blog-content-text(class= blog.cover?'':'noimg')
+                        a(href="/blog/article/" + blog._id)
+                            h2= blog.title
+                        div.blog-tag &#xe901; 
+                            - var tags = blog.tags;
+                                each tag in tags
+                                    a(href="/blog/1?tags=" + tag.id)= tag.name
+                        a(href="/blog/article/" + blog._id)
+                            div.blog-review= blog.content.replace(/(\!{0,1}\[.+?\]\(.+?\))|#|(`+?)|\*|=|-/g,' ').slice(0,180)+ ' ...'
+                        div.blog-info
+                            div.blog-time 
+                                span &#xe904;
+                                - var time = new Date(blog.pubtime);
+                                - var year = time.getFullYear();
+                                - var month = (time.getMonth()+1);
+                                - var date = time.getDate();
+                                    span= year + '-' + (month < 10 ? '0' + month : month) + '-' + (date < 10 ? '0' + date : date)
+                            div.blog-read
+                                span &#xe900; 
+                                span= (blog.visited||0) + ' '
+                                span &#xe903; 
+                                span= (blog.like||0) + ' '
+                                span &#xe902;  
+                                span= blog.comment||0 
+    section.blog-pages
+        if currentPage > 1
+            a(href="/blog/" + (currentPage-1) + search) Previous
+        - var showPre = showNext = true;
+        - for (var i = 1; i <= totalPage; i++) 
+            if (i == 1 || Math.abs(currentPage - i) <= 2 || i == totalPage)
+                a(href="/blog/" + i + search class= (i == currentPage? 'active' : '') )= i
+            else if ((currentPage - i) >=  2 && showPre)
+                span ...
+                - showPre = false;
+            else if (i>currentPage && (totalPage - currentPage) >=  2 && showNext)
+                span ...
+                - showNext = false;
+        if currentPage < totalPage
+            a(href="/blog/" + (currentPage+1) + search) Next
+
+    section.index-copyright
+        div.index-copyright-bottom
+            include ../copyright.en.jade

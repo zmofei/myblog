@@ -6,8 +6,7 @@ var render = function () {
     }
 
     this.jade.render({
-        path: path,
-        data: { isEnglihs: isEnglish }
+        path: path
     });
 }
 

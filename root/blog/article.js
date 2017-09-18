@@ -3,6 +3,12 @@ var ObjectID = require('mongodb').ObjectID;
 var marked = require('marked');
 
 var render = function () {
+    const isEnglish = /himofei\.com/.test(this.req.headers.host);
+    var path;
+    if (isEnglish) {
+        path = this.jade.proto.router.path.replace(/\.\w+$/, '.en.jade');
+    }
+
     var self = this;
     var id = this.reqParam && this.reqParam[1];
     if (!id) {
@@ -97,7 +103,8 @@ var render = function () {
                 }
 
                 self.jade.render({
-                    data: data
+                    data: data,
+                    path: path
                 });
             } else {
                 self.response.http(404);

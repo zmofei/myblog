@@ -3,9 +3,9 @@ var Mongo = require('../../system/mongo/init.js');
 var encode = function (strUni) {
     var strUtf = strUni.replace(/./g, function (c) {
         var cc = c.charCodeAt(0);
-        if(cc<32){
+        if (cc < 32) {
             return '';
-        }else{
+        } else {
             return c;
         }
         // return String.fromCharCode(0xc0 | cc >> 6, 0x80 | cc & 0x3f);
@@ -26,6 +26,12 @@ var encode = function (strUni) {
 var render = function () {
     var self = this;
 
+    const isEnglish = /himofei\.com/.test(this.req.headers.host);
+    var path;
+    if (isEnglish) {
+        path = this.jade.proto.router.path.replace(/\.\w+$/, '.en.jade');
+    }
+
     Mongo.open(function (db) {
         var collection = db.collection('blog');
         collection.find({}, {
@@ -37,12 +43,15 @@ var render = function () {
         }).toArray(function (err, docs) {
             for (var i in docs) {
                 var item = docs[i];
-                item.html = encode(item.html);
+                if (item.html) {
+                    item.html = encode(item.html);
+                }
                 // console.log()
             };
 
             // console.log('@@@',docs);
             self.jade.render({
+                path: path,
                 header: {
                     'Content-Type': 'application/xml; charset=utf-8'
                 },

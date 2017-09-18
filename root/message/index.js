@@ -1,7 +1,13 @@
 var Mongo = require('../../system/mongo/init.js');
 var ObjectID = require('mongodb').ObjectID;
 
-var render = function() {
+var render = function () {
+    const isEnglish = /himofei\.com/.test(this.req.headers.host);
+    var path;
+    if (isEnglish) {
+        path = this.jade.proto.router.path.replace(/\.\w+$/, '.en.jade');
+    }
+
     var self = this;
 
     var page = 0;
@@ -17,24 +23,25 @@ var render = function() {
         currentPage: page + 1,
     };
 
-    Mongo.open(function(db) {
-        var getComment = new Promise(function(reslove, reject) {
-            db.collection('blog_message').find({}, { limit: perPage, skip: skip, sort: { _id: -1 } }).toArray(function(err, docs) {
+    Mongo.open(function (db) {
+        var getComment = new Promise(function (reslove, reject) {
+            db.collection('blog_message').find({}, { limit: perPage, skip: skip, sort: { _id: -1 } }).toArray(function (err, docs) {
                 data.comments = docs;
                 reslove();
             });
         });
 
-        var getCount = new Promise(function(resolve, reject) {
-            db.collection('blog_message').count(function(err, count) {
+        var getCount = new Promise(function (resolve, reject) {
+            db.collection('blog_message').count(function (err, count) {
                 data.totalPage = Math.ceil(count / perPage);
                 resolve();
             });
         });
 
-        Promise.all([getComment, getCount]).then(function() {
+        Promise.all([getComment, getCount]).then(function () {
             self.jade.render({
-                data: data
+                data: data,
+                path: path
             });
         });
 

@@ -4,6 +4,12 @@ var url = require('url');
 
 
 var render = function () {
+    const isEnglish = /himofei\.com/.test(this.req.headers.host);
+    var path;
+    if (isEnglish) {
+        path = this.jade.proto.router.path.replace(/\.\w+$/, '.en.jade');
+    }
+
     var self = this;
     var page = 0;
     var perPage = 10;
@@ -33,10 +39,10 @@ var render = function () {
                 newTags.push(tags[i]);
                 newTags.push(parseInt(tags[i]));
                 newTags.push(new RegExp(tags[i]));
-                
+
             }
             findquery.classid = {
-                $in: newTags 
+                $in: newTags
             }
         }
 
@@ -99,7 +105,8 @@ var render = function () {
                 }
             }
             self.jade.render({
-                data: data
+                data: data,
+                path: path
             })
         });
     });
