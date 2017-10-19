@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "./make.sh",
-    "build:online": "./make.sh online"
+    "dev": "./make.sh",
+    "build": "./make.sh online"
   },
   "repository": {
     "type": "git",

@@ -56,6 +56,9 @@ var render = function () {
                 var blogClass = {};
                 for (var i in docs) {
                     blogClass[docs[i].classid] = docs[i];
+                    if (isEnglish && blogClass[docs[i].classid]['classname-en']) {
+                        blogClass[docs[i].classid].classname = blogClass[docs[i].classid]['classname-en']
+                    }
                 }
                 data.blogClass = blogClass || [];
                 resolve();

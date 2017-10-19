@@ -18,7 +18,7 @@ var post = function () {
         var post = qs.parse(body);
         // filter xss
         var message = post.content;
-        console.log(message);
+        // console.log(message);
         // for <script>
         message = message.replace(/(<[\s\/]*?script.*?>)/g, '');
         // for attribuits <img on='' error=""> => <img>

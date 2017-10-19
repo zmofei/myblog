@@ -35,7 +35,7 @@ var render = function () {
                 _id: -1
             }
         }).toArray(function (err, docs) {
-            console.log('@@@',docs);
+            // console.log('@@@',docs);
             self.jade.render({
                 header: {
                     'Content-Type': 'application/xml; charset=utf-8'

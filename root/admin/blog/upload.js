@@ -13,11 +13,11 @@ var post = function () {
     var fields = [];
     form
         .on('field', function (field, value) {
-            console.log('field')
+            // console.log('field')
             fields.push([field, value]);
         })
         .on('file', function (field, file) {
-            console.log('file')
+            // console.log('file')
             files.push([field, file]);
         })
         .on('end', function () {});

@@ -72,12 +72,12 @@ block content
         });
 
         $('pub').addEventListener('click', function () {
-            console.log($("title").value);
-            console.log($("text-input").value);
+            //- console.log($("title").value);
+            //- console.log($("text-input").value);
             var tags = document.querySelectorAll('input:checked');
             var choosedTag = [];
             for(var i =0; i<tags.length; i++){
                 choosedTag.push(tags[i].value);
             }
-            console.log(choosedTag);
+            //- console.log(choosedTag);
         });

@@ -25,7 +25,7 @@ var get = function () {
         });
 
         Promise.all([getBlogClass]).then(function () {
-            console.log(data)
+            // console.log(data)
             self.jade.render({
                 data: data
             });
