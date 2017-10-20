@@ -84,7 +84,8 @@ var render = function () {
         }
 
         Promise.all([getBlog, getBlogClass]).then(getComment).then(function () {
-            if (data.blog) {
+            if (data.blog && data.blog.content) {
+                // console.log('222222',data.blog)
                 var classid = data.blog.classid;
                 var tags = []
                 if (typeof (classid) == 'string') {

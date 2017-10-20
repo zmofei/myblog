@@ -39,7 +39,6 @@ var render = function () {
                 newTags.push(tags[i]);
                 newTags.push(parseInt(tags[i]));
                 newTags.push(new RegExp(tags[i]));
-
             }
             findquery.classid = {
                 $in: newTags
@@ -80,12 +79,17 @@ var render = function () {
                     pubtime: -1
                 }
             }).toArray(function (err, docs) {
+                // if(err){
+                //     throw new Error(err)
+                // }
+                // console.log(data.blogs)
                 data.blogs = docs || [];
                 resolve();
             });
         });
 
         Promise.all([getBlogClass, getCount, getBlog]).then(function (val) {
+            // data.blogs = undefined;
             for (var i in data.blogs) {
                 data.blogs[i].tags = [];
                 var _class = data.blogs[i].classid;
