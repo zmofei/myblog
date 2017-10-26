@@ -11,7 +11,7 @@ var render = function () {
 
     var self = this;
     var id = this.reqParam && this.reqParam[1];
-    if (!id) {
+    if (!id || id.length != 24) {
         self.response.http(404);
     }
 
@@ -84,7 +84,7 @@ var render = function () {
         }
 
         Promise.all([getBlog, getBlogClass]).then(getComment).then(function () {
-            if (data.blog && data.blog.content) {
+            if (data.blog && data.blog.content && data.blog.title) {
                 // console.log('222222',data.blog)
                 var classid = data.blog.classid;
                 var tags = []

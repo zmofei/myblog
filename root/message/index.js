@@ -38,7 +38,14 @@ var render = function () {
             });
         });
 
-        Promise.all([getComment, getCount]).then(function () {
+        var getGithub = new Promise(function (resolve, reject) {
+            db.collection('system').find({ key: 'github' }).toArray(function (err, docs) {
+                data.github = docs && docs[0];
+                resolve();
+            });;
+        });
+
+        Promise.all([getComment, getCount, getGithub]).then(function () {
             self.jade.render({
                 data: data,
                 path: path
