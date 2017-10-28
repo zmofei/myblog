@@ -6,6 +6,7 @@ html {
     padding: 0;
     margin: 0;
 }
+
 @font-face {
     font-family: 'Open Sans';
     src: url($host + '/font/OpenSans-Light.eot?eyv41e');
@@ -13,53 +14,72 @@ html {
     font-weight: normal;
     font-style: normal;
 }
+
 body,
 h1,
 h2 {
     font-family: Open Sans, Tahoma, Arial, Roboto, ”Droid Sans”, ”Helvetica Neue”, ”Droid Sans Fallback”, ”Heiti SC”, ”Hiragino Sans GB”, Simsun, sans-self;
 }
+
 body {
     background: url($host + '/image/index/cover.jpg') center center;
     background-size: cover;
 }
+
 .global-nav-text {
-    font-family: Arial,'Hiragino Sans GB',冬青黑,'Microsoft YaHei',微软雅黑,SimSun,宋体,Helvetica,Tahoma,'Arial sans-serif';
+    font-family: Arial, 'Hiragino Sans GB', 冬青黑, 'Microsoft YaHei', 微软雅黑, SimSun, 宋体, Helvetica, Tahoma, 'Arial sans-serif';
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     background: none;
 }
+
 .body-content {
     min-width: 800px;
     height: 100%;
     width: 100%;
 }
+
 @import './component/nav.scss';
 .global-nav-text {
     position: absolute;
     top: 0;
     left: 0;
     z-index: 1000;
-    background: rgba(0,0,0,0.3);
+    background: rgba(0, 0, 0, 0.3);
 }
+
 #bgvid {
+    // position: fixed;
+    // right: 0;
+    // bottom: 0;
+    // min-width: 100%;
+    // min-height: 100%;
+    // width: auto;
+    // height: auto;
+    // z-index: -100;
+    // -webkit-animation: fadein 3s;
+    // -moz-animation: fadein 3s;
+    // -ms-animation: fadein 3s;
+    // -o-animation: fadein 3s;
+    // animation: fadein 3s;
+    //
+    // display: none;
     position: fixed;
-    right: 0;
-    bottom: 0;
+    top: 50%;
+    left: 50%;
     min-width: 100%;
     min-height: 100%;
     width: auto;
     height: auto;
     z-index: -100;
-    -webkit-animation: fadein 3s;
-    -moz-animation: fadein 3s;
-    -ms-animation: fadein 3s;
-    -o-animation: fadein 3s;
-    animation: fadein 3s;
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
 }
+
 .videobg {
-    position: absolute;
+    position: fixed;
     right: 0;
     bottom: 0;
     min-width: 100%;
@@ -69,20 +89,24 @@ body {
     z-index: -50;
     background: rgba(0, 0, 0, 0.70);
 }
+
 .index {
     height: 100%;
     width: 100%;
     overflow: hidden;
     position: relative;
 }
+
 .index-cover-mini {
     display: none;
 }
+
 .index-cover h2 {
     font-size: 16px;
     color: #999;
     animation: titleh2 3s ease-in;
 }
+
 .index-cover .title {
     text-align: center;
     color: #fff;
@@ -94,6 +118,7 @@ body {
     font-family: sans-serif;
     animation: titlepos 1s ease-in;
 }
+
 .index-cover .title h1 {
     display: none;
     text-align: center;
@@ -101,10 +126,12 @@ body {
     font-weight: 300;
     margin-bottom: 10px;
 }
+
 .index-cover svg {
     max-width: 1200px;
     margin: 0 auto;
 }
+
 .index-cover svg path {
     fill: rgba(0, 0, 0, 0);
     stroke: #fff;
@@ -112,22 +139,27 @@ body {
     stroke-dashoffset: 0;
     animation: title 4s ease-in forwards;
 }
+
 .index-cover nav {
     max-width: 1200px;
     margin: 0 auto;
 }
+
 .index-cover nav a {
     color: #ccc;
     text-decoration: none;
     font-size: 12px;
     padding: 10px 6px;
 }
+
 .index-cover .nav-main {
     float: left;
 }
+
 .index-cover .nav-sub {
     float: right;
 }
+
 .index-cover .btn {
     position: absolute;
     bottom: 100px;
@@ -137,6 +169,7 @@ body {
     padding: 10px 0;
     animation: titleh2 3s ease-in;
 }
+
 .btn {
     position: relative;
     transition: all 0.15s ease-in;
@@ -147,6 +180,7 @@ body {
     outline: none;
     cursor: pointer;
 }
+
 .btn:after {
     transition: all 0.15s ease-in;
     position: absolute;
@@ -158,10 +192,12 @@ body {
     opacity: 0;
     border: 1px solid #fff;
 }
+
 .btn:hover {
     background: rgba(255, 255, 255, 0);
     color: #fff;
 }
+
 .btn:hover:after {
     top: 0;
     left: 0;
@@ -169,6 +205,7 @@ body {
     bottom: 0;
     opacity: 1;
 }
+
 @keyframes title {
     0% {
         stroke-dasharray: 1000;
@@ -184,6 +221,7 @@ body {
         fill: rgba(0, 0, 0, 0.2);
     }
 }
+
 @keyframes titlepos {
     0% {
         margin-top: -250px;
@@ -194,6 +232,7 @@ body {
         opacity: 1;
     }
 }
+
 @keyframes titleh2 {
     0% {
         opacity: 0;
@@ -205,14 +244,17 @@ body {
         opacity: 1;
     }
 }
+
 .index-about {
     background: rgba(255, 255, 255, 0.9);
     overflow: hidden;
     padding: 60px 0 80px;
 }
+
 .index-about p {
     margin: 8px;
 }
+
 .index-about .img {
     margin: 0 auto 30px;
     text-align: center;
@@ -222,56 +264,68 @@ body {
     border: 20px solid #fff;
     box-shadow: 0 0 1px #333;
 }
+
 .index-about .img img {
     height: 0;
     width: 0;
 }
+
 .index-about-identity .img {
     background: url("/image/index/idnetity.jpg");
     background-size: cover;
 }
+
 .index-about-work .img {
     background: url("/image/index/work.jpg");
     background-size: cover;
 }
+
 .index-about-dream .img {
     background: url("/image/index/dream.jpg");
     background-size: cover;
 }
+
 .index-about-identity:hover .img {
     background: url("/image/index/idnetity.gif");
     background-size: cover;
 }
+
 .index-about-work:hover .img {
     background: url("/image/index/work.gif");
     background-size: cover;
 }
+
 .index-about-dream:hover .img {
     background: url("/image/index/dream.gif");
     background-size: cover;
 }
+
 .index-about h2 {
     text-align: center;
     margin: 20px;
     font-size: 66px;
     font-weight: 300;
 }
+
 .index-about-who {
     max-width: 1200px;
     margin: 0 auto;
     overflow: hidden;
 }
+
 .index-about-block {
     float: left;
     width: 28%;
     padding: 2%;
     line-height: 1.6em;
 }
+
 .index-travel {
     background: #4a6ebc;
     overflow: hidden;
     color: #fff;
 }
+
 .index-coffee h2,
 .index-content h2,
 .index-travel h2 {
@@ -280,6 +334,7 @@ body {
     margin: 40px 0 15px;
     text-align: center;
 }
+
 .index-coffee h3,
 .index-content h3,
 .index-travel h3 {
@@ -288,15 +343,18 @@ body {
     /*font-size: 14px;*/
     text-align: center;
 }
+
 .index-travel-world {
     margin: 40px 0;
 }
+
 .index-coffee {
     padding: 40px 0 80px;
     overflow: hidden;
     color: #333;
     background: rgba(255, 255, 255, 0.85);
 }
+
 .index-coffee p {
     font-size: 16px;
     line-height: 1.6em;
@@ -305,22 +363,26 @@ body {
     padding: 0 20px;
     max-width: 1200px;
 }
+
 .index-content {
     background: #363941;
     overflow: hidden;
     color: #ccc;
     position: relative;
 }
+
 .index-content-tips {
     margin-left: 10px;
     color: #A5A5A5;
     opacity: 0;
     transition: all 0.8s ease-out;
 }
+
 .index-content .btn {
     padding: 8px 0;
     width: 140px;
 }
+
 .index-content input,
 .index-content textarea {
     color: #ccc;
@@ -331,14 +393,17 @@ body {
     box-sizing: border-box;
     width: 90%;
 }
+
 .index-content input:disabled,
 .index-content textarea:disabled {
     color: #999;
 }
+
 .index-content textarea {
     width: 95%;
     height: 8em;
 }
+
 .index-content-box {
     margin: 40px auto;
     padding: 40px 0 40px 3.5%;
@@ -346,17 +411,21 @@ body {
     overflow: hidden;
     border-top: 1px solid #484b53;
 }
+
 .index-content-boxblock {
     overflow: hidden;
 }
+
 .index-content-message {
     box-sizing: border-box;
     padding: 5px;
 }
+
 .index-content-boxhalf {
     float: left;
     width: 50%;
 }
+
 .index-media {
     border-top: 1px solid #484b53;
     background: rgba(54, 57, 65, 1);
@@ -364,9 +433,11 @@ body {
     color: #fff;
     text-align: center;
 }
+
 .index-media a {
     text-decoration: none;
 }
+
 .index-media .btn {
     height: 80px;
     width: 80px;
@@ -377,22 +448,26 @@ body {
     padding: 10px;
     margin: 0 10px;
 }
+
 .index-media .btn:after {
     border-width: 2px;
     border-radius: 60px;
 }
+
 .index-copyright-top {
     opacity: 0.95;
     height: 50px;
     background: #fff;
     width: 100%;
 }
+
 .index-copyright-mid {
     opacity: 0.95;
     overflow: hidden;
     height: 127px;
     position: relative;
 }
+
 .index-copyright-midleft {
     width: 50%;
     margin-left: -206px;
@@ -401,6 +476,7 @@ body {
     background: #fff;
     height: 127px;
 }
+
 .index-copyright-midcenter {
     width: 412px;
     position: absolute;
@@ -408,6 +484,7 @@ body {
     margin-left: -206px;
     top: 0;
 }
+
 .index-copyright-midright {
     position: absolute;
     width: 50%;
@@ -417,6 +494,7 @@ body {
     background: #fff;
     height: 127px;
 }
+
 .index-copyright-bottom {
     /*opacity: 0.95;*/
     background: rgba(255, 255, 255, 0.95);
@@ -424,7 +502,6 @@ body {
 }
 
 @import 'component/copyright.scss';
-
 .popbox {
     position: fixed;
     top: 0;
@@ -435,6 +512,7 @@ body {
     z-index: 10000;
     transition: all 0.5s ease-in;
 }
+
 .popbox-in {
     position: absolute;
     width: 400px;
@@ -443,6 +521,7 @@ body {
     margin: -200px;
     background: white;
 }
+
 .popbox-close {
     width: 40px;
     height: 40px;
@@ -454,6 +533,7 @@ body {
     background: url($host + '/image/index/close.svg') no-repeat center #999;
     cursor: pointer;
 }
+
 @media (max-width: 800px) {
     // index
     .body-content {
@@ -497,7 +577,7 @@ body {
                 font-size: 5vw;
                 line-height: 2em;
                 color: #fff;
-                text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+                text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
                 p {
                     margin: 0;
                 }
@@ -509,7 +589,7 @@ body {
             bottom: 15%;
             left: 50%;
             margin-left: -25%;
-            text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+            text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
         }
     }
     .index-about,
@@ -540,7 +620,7 @@ body {
         margin: 10px;
         background: white;
         border-radius: 6px;
-        box-shadow: 1px 1px 1px rgba(0,0,0,0.1);
+        box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
         display: block;
         float: none;
     }

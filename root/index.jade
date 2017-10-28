@@ -15,10 +15,10 @@ block javascript
 block content
     div.body-content
         include ../system/jade/nav.jade
-        video#bgvid(autoplay, loop, poster= host + '/image/index/cover.jpg')
-            source(src= host + '/video/bgvid.webm', type='video/webm')
-            source(src= host + '/video/bgvid.mp4', type='video/mp4')
-            source(src= host + '/video/bgvid.ogv', type='video/ogv')
+        video#bgvid(autoplay loop muted poster= host + '/image/index/cover.jpg')
+            source(src= host + '/video/bgvideo.mp4', type='video/mp4')
+            source(src= host + '/video/bgvideo.webm', type='video/webm')
+            source(src= host + '/video/bgvideo.ogv', type='video/ogg')
         div.videobg
         section.index.index-cover-mini
             div.mini-title

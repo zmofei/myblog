@@ -23,7 +23,7 @@ body {
   background-size: cover; }
 
 .global-nav-text {
-  font-family: Arial,'Hiragino Sans GB',冬青黑,'Microsoft YaHei',微软雅黑,SimSun,宋体,Helvetica,Tahoma,'Arial sans-serif';
+  font-family: Arial, 'Hiragino Sans GB', 冬青黑, 'Microsoft YaHei', 微软雅黑, SimSun, 宋体, Helvetica, Tahoma, 'Arial sans-serif';
   position: absolute;
   top: 0;
   left: 0;
@@ -178,21 +178,18 @@ body {
 
 #bgvid {
   position: fixed;
-  right: 0;
-  bottom: 0;
+  top: 50%;
+  left: 50%;
   min-width: 100%;
   min-height: 100%;
   width: auto;
   height: auto;
   z-index: -100;
-  -webkit-animation: fadein 3s;
-  -moz-animation: fadein 3s;
-  -ms-animation: fadein 3s;
-  -o-animation: fadein 3s;
-  animation: fadein 3s; }
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%); }
 
 .videobg {
-  position: absolute;
+  position: fixed;
   right: 0;
   bottom: 0;
   min-width: 100%;
