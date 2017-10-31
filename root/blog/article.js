@@ -37,14 +37,21 @@ var render = function () {
                     if (!docs.value) {
                         reslove();
                     } else {
-                        if (docs.value.html) {
+                        let extendKey = '';
+                        if (isEnglish && docs.value['content-en']) {
+                            docs.value.title = docs.value['title-en'] || docs.value.title;
+                            extendKey = '-en';
+                        }
+                        if (docs.value['html' + extendKey]) {
+                            docs.value.html = docs.value['html' + extendKey] || docs.value.html;
                             reslove();
                         } else {
-                            docs.value.html = marked(docs.value.content);
+                            docs.value['html' + extendKey] = marked(docs.value['content' + extendKey]);
+                            docs.value.html = docs.value['html' + extendKey] || docs.value.html;
+                            const updateObj = {};
+                            updateObj['html' + extendKey] = docs.value['html' + extendKey];
                             db.collection('blog').updateOne(findQuery, {
-                                $set: {
-                                    html: docs.value.html
-                                }
+                                $set: updateObj
                             }, function (err, results) {
                                 reslove();
                             })
@@ -99,9 +106,21 @@ var render = function () {
                 }
 
                 data.tags = tags;
-                data.meta = {
-                    title: data.blog.content.replace(/(\!{0,1}\[.+?\]\(.+?\))|#|(`+?)|\*|=|-/g, ' ').slice(0, 180) + ' ...'
+                let content
+                if (isEnglish) {
+                    content = (data.blog['content-en'] || data.blog.content);
+                    content = content.replace(/(\!{0,1}\[.+?\]\(.+?\))|#|(`+?)|\*|=|\n/g, ' ').split(' ');
+                    content.length = 180;
+                    content = content.join(' ');
+                } else {
+                    content = data.blog.content;
+                    content = content.replace(/(\!{0,1}\[.+?\]\(.+?\))|#|(`+?)|\*|=|-/g, ' ').slice(0, 180) + ' ...'
                 }
+
+                data.meta = {
+                    title: content
+                }
+
 
                 self.jade.render({
                     data: data,

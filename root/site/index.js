@@ -26,9 +26,19 @@ var encode = function (strUni) {
 var render = function () {
     var self = this;
 
+    const isEnglish = /himofei\.com/.test(this.req.headers.host);
+    var path;
+    if (isEnglish) {
+        path = this.jade.proto.router.path.replace(/\.\w+$/, '.en.jade');
+    }
+
     Mongo.open(function (db) {
         var collection = db.collection('blog');
-        collection.find({}, {
+        collection.find({
+            "state": {
+                $in: ["0", 0, null]
+            }
+        }, {
             _id: 1,
         }, {
             sort: {
@@ -41,6 +51,7 @@ var render = function () {
                     'Content-Type': 'application/xml; charset=utf-8'
                 },
                 data: {
+                    host: isEnglish ? 'https://www.himofei.com' : 'https://www.zhuwenlong.com',
                     blogs: docs
                 }
             })

@@ -72,17 +72,19 @@ var render = function () {
         });
 
         var getBlog = new Promise(function (resolve, reject) {
-            collection.find(findquery, {
+            collection.find(findquery, { html: false }, {
                 limit: perPage,
                 skip: skip,
                 sort: {
                     pubtime: -1
                 }
             }).toArray(function (err, docs) {
-                // if(err){
-                //     throw new Error(err)
-                // }
-                // console.log(data.blogs)
+                if (isEnglish) {
+                    docs.forEach(item => {
+                        item.title = item['title-en'] || item.title;
+                        item.content = item['content-en'] || item.content;
+                    })
+                }
                 data.blogs = docs || [];
                 resolve();
             });

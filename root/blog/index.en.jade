@@ -20,11 +20,15 @@ block content
                     div.blog-search-tag(id= 'tag_' + blogclass.classid)=  blogclass.classname
             div.blog-search-btn 
                 btn GO
-        div.blog-search-toggle &#xe5c5; 
-        div.blog-content-area
+        .blog-search-toggle &#xe5c5; 
+        
+        div.blog-content-area.blog-content-area-en
             if blogs
                 each blog in blogs
                     div.blog-content-block
+                        if !blog['content-en']
+                                .blog-tips 
+                                    a(href="blog/article/59f861c54f287c3519e8bad7" target="_blank") Why not English?
                         if (blog.cover)
                             div.blog-content-img
                                 a(href="/blog/article/" + blog._id)

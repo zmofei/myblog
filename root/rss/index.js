@@ -34,7 +34,11 @@ var render = function () {
 
     Mongo.open(function (db) {
         var collection = db.collection('blog');
-        collection.find({}, {
+        collection.find({
+            "state": {
+                $in: ["0", 0, null]
+            }
+        }, {
             limit: 10,
             skip: 0,
             sort: {

@@ -254,8 +254,7 @@ function initUserinfo() {
 
 function getAvatar(email) {
     var avatarHash = md5(email);
-    return 'http://www.gravatar.com/avatar/' + avatarHash;
-
+    return 'https://www.gravatar.com/avatar/' + avatarHash;
 }
 
 

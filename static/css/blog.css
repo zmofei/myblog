@@ -273,6 +273,9 @@ svg path {
   /*padding-top: 20px;*/
   overflow: hidden; }
 
+.blog-content-area-en {
+  padding-top: 10px; }
+
 .blog-content-block {
   /*border-bottom: 1p*/
   min-width: 770px;
@@ -1071,3 +1074,13 @@ p {
     margin-right: 0; }
   .message-login input {
     width: 95%; } }
+
+.blog-tips {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 10px;
+  background: #ed5724;
+  margin-bottom: 10px; }
+  .blog-tips a {
+    color: #fff; }
