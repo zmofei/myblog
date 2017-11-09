@@ -483,6 +483,10 @@ svg path {
     border-bottom: 1px solid #F3ECEC;
 }
 
+.article-content img {
+    max-width: 100%;
+}
+
 .article-tags {
     // margin-top: 20px;
 }
@@ -712,6 +716,12 @@ svg path {
 }
 
 @media (max-width: 900px) {
+    .blog-tips {
+        // left: 0;
+        // float: right;
+        position: relative !important;
+        margin-top: -15px;
+    }
     .global-nav-text-link li a {
         color: #fff;
         background: rgba(51, 51, 51, 0.95);
