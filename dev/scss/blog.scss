@@ -858,12 +858,15 @@ svg path {
     position: absolute;
     right: 0;
     top: 0;
-    padding: 10px;
+    text-align: right;
+    z-index: 1000;
+    
     background: #ed5724;
-    // margin-top: 1px;
-    // border-top: 4px #525252 solid;
-    a {
+    a { 
+        padding: 10px;
         color: #fff;
+        display: inline-block;
+        text-decoration: underline;
     }
     margin-bottom: 10px;
 }

@@ -1085,8 +1085,12 @@ p {
   position: absolute;
   right: 0;
   top: 0;
-  padding: 10px;
+  text-align: right;
+  z-index: 1000;
   background: #ed5724;
   margin-bottom: 10px; }
   .blog-tips a {
-    color: #fff; }
+    padding: 10px;
+    color: #fff;
+    display: inline-block;
+    text-decoration: underline; }
