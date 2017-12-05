@@ -110,7 +110,6 @@ var render = function () {
                             name: data.blogClass[item] ? data.blogClass[item].classname : ''
                         });
                     });
-
                 }
             }
             self.jade.render({

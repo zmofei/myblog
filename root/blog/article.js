@@ -92,7 +92,6 @@ var render = function () {
 
         Promise.all([getBlog, getBlogClass]).then(getComment).then(function () {
             if (data.blog && data.blog.content && data.blog.title) {
-                // console.log('222222',data.blog)
                 var classid = data.blog.classid;
                 var tags = []
                 if (typeof (classid) == 'string') {
@@ -120,7 +119,6 @@ var render = function () {
                 data.meta = {
                     title: content
                 }
-
 
                 self.jade.render({
                     data: data,

@@ -38,7 +38,7 @@ block content
                                     each tag in tags
                                         a(href="/blog/1?tags=" + tag.id)= tag.name
                             a(href="/blog/article/" + blog._id)
-                                div.blog-review= blog.content.replace(/(\!{0,1}\[.+?\]\(.+?\))|#|(`+?)|\*|=|-/g,' ').slice(0,180)+ ' ...'
+                                div.blog-review= blog.content.replace(/\<.+?\>/g,'').replace(/(\!{0,1}\[.+?\]\(.+?\))|#|(`+?)|\*|=|-/g,' ').slice(0,180)+ ' ...'
                             div.blog-info
                                 div.blog-time 
                                     span &#xe904;
