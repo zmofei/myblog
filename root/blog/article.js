@@ -24,8 +24,8 @@ var render = function () {
                 _id: ObjectID(id)
             };
             db.collection('blog').findAndModify(findQuery, [
-                    ['_id', 'asc']
-                ], {
+                ['_id', 'asc']
+            ], {
                     $inc: {
                         visited: 1
                     }
@@ -77,20 +77,27 @@ var render = function () {
                     db.collection('blog_comment').find({
                         blogid: ObjectID(data.blog._id)
                     }, {
-                        sort: {
-                            _id: -1
-                        }
-                    }).toArray(function (err, docs) {
-                        data.comments = docs || [];
-                        reslove();
-                    });
+                            sort: {
+                                _id: -1
+                            }
+                        }).toArray(function (err, docs) {
+                            data.comments = docs || [];
+                            reslove();
+                        });
                 } else {
                     reslove();
                 }
             });
         }
 
-        Promise.all([getBlog, getBlogClass]).then(getComment).then(function () {
+        var getGithub = new Promise(function (resolve, reject) {
+            db.collection('system').find({ key: 'github' }).toArray(function (err, docs) {
+                data.github = docs && docs[0];
+                resolve();
+            });;
+        });
+
+        Promise.all([getBlog, getBlogClass, getGithub]).then(getComment).then(function () {
             if (data.blog && data.blog.content && data.blog.title) {
                 var classid = data.blog.classid;
                 var tags = []
