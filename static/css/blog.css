@@ -999,7 +999,7 @@ p {
 
 .message-info {
   width: 330px;
-  position: absolute;
+  float: left;
   right: 20px;
   top: 0px;
   background: white;
@@ -1158,3 +1158,36 @@ p {
     margin-right: 0; }
   .message-login input {
     width: 95%; } }
+
+.commend-name {
+  vertical-align: middle; }
+  .commend-name a {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 10px; }
+  .commend-name iframe {
+    vertical-align: middle; }
+
+.commend-name-githbu {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 1px 5px;
+  height: 20px;
+  line-height: 18px;
+  margin-left: 10px;
+  font-size: 14px; }
+  .commend-name-githbu .count {
+    display: inline-block;
+    padding: 2px 5px;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1;
+    color: #586069;
+    background-color: rgba(27, 31, 35, 0.08);
+    border-radius: 20px;
+    margin-left: 5px; }
+  .commend-name-githbu svg {
+    margin-right: 5px;
+    vertical-align: middle; }
+  .commend-name-githbu span {
+    vertical-align: middle; }
