@@ -1,7 +1,7 @@
 @import '../../system/config/config.scss';
 body,
 html {
-    background: #f7f7f7;
+    background: white;
     padding: 0;
     margin: 0;
     font-family: Arial, 'Hiragino Sans GB', 冬青黑, 'Microsoft YaHei', 微软雅黑, SimSun, 宋体, Helvetica, Tahoma, 'Arial sans-serif';
@@ -124,19 +124,6 @@ body a {
     background: #525252;
 }
 
-svg {
-    max-width: 1000px;
-    margin: 0 auto;
-}
-
-svg path {
-    fill: rgba(0, 0, 0, 0);
-    stroke: #fff;
-    stroke-dasharray: 0;
-    stroke-dashoffset: 0;
-    animation: title 4s ease-in forwards;
-}
-
 @keyframes title {
     0% {
         stroke-dasharray: 1000;
@@ -178,7 +165,12 @@ svg path {
     min-width: 770px;
     position: relative;
     margin: 0 0px 20px 0px;
-    padding: 10px;
+    // border-radius: 3px;
+    // background: white;
+    /*border-bottom: 1px solid #fafafa;*/
+    // box-shadow: 0 1px 4px rgba(0, 0, 0, .04);
+    // border: 1px solid rgba(0, 0, 0, .09);
+    padding: 30px 30px 25px;
     color: #333;
     overflow: hidden;
     box-sizing: border-box;
@@ -346,13 +338,16 @@ svg path {
 }
 
 .index-copyright-bottom {
-    background: white;
+    /*opacity: 0.95;*/
+    // background: rgba(255, 255, 255, 0.95);
+    background: #fafafa;
     padding-top: 10px;
 }
 
 @import 'component/copyright.scss';
 .index-copyright-bottom-txt {
-    background: white;
+    border-top: 1px solid #f1f1f1;
+    background: #fafafa;
 }
 
 
@@ -362,14 +357,30 @@ svg path {
     margin-bottom: 20px;
 }
 
+.blog {
+    margin-top: 20px;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.blog {
+    position: relative;
+}
+
+.article {
+    margin-top: 20px;
+    // margin-right: 370px;
+    // margin-left: 20px;
+}
+
 .article-content,
 .article-info,
 .article-tags {
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.05);
-    max-width: 1200px;
+    // box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.05);
+    // max-width: 1200px;
     margin: 0 auto;
     background: white;
-    padding: 0 40px;
+    // padding: 0 40px;
     font-size: 16px;
     color: #333;
     line-height: 1.6em;
@@ -379,7 +390,8 @@ svg path {
 
 .article-content {
     overflow: hidden;
-    margin-top: 20px;
+    padding: 0;
+    // margin-top: 20px;
 }
 
 .article-content blockquote {
@@ -497,7 +509,7 @@ svg path {
     // overflow: hidden;
     /*line-height: 1.6em;*/
     font-family: 'icomoon';
-    border-bottom: 1px solid #e9e9e9;
+    // border-bottom: 1px solid #e9e9e9;
 }
 
 .article-info span {
@@ -508,6 +520,16 @@ svg path {
 
 
 /*** comment ****/
+@import "./component/comment.scss";
+
+
+.commend {
+    max-width: 700px;
+}
+.commend-box {
+    background: #fafafa;
+    padding: 20px;
+}
 
 .article-info-icon {
     font-size: 20px;
@@ -615,7 +637,7 @@ svg path {
     background: #f15623;
 }
 
-@import "./component/comment.scss";
+
 .popbox {
     position: fixed;
     top: 0;
@@ -694,18 +716,106 @@ svg path {
     color: #fff;
 }
 
-@media (max-width: 1220px) {
-    .article-content {
+.blog-tips {
+    position: absolute;
+    right: 0;
+    top: 0;
+    text-align: right;
+    z-index: 1000;
+    
+    background: #ed5724;
+    a { 
+        padding: 10px;
+        color: #fff;
+        display: inline-block;
+        text-decoration: underline;
+    }
+    margin-bottom: 10px;
+}
+
+
+.message-info {
+    width: 330px;
+    float: left;
+
+    right: 20px;
+    top: 0px;
+    // padding: 10px;
+    background: white;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.05);
+    transition: all 0.5s ease-in;
+}
+
+
+.message-github {
+    .title {
+        background-color: #24292e;
+        color: rgba(255, 255, 255, 0.75);
+        height: 40px;
+        line-height: 40px;
+        padding: 0 10px;
+        vertical-align: middle;
+        fill: rgba(255, 255, 255, 0.75);
+        svg {
+            vertical-align: middle;
+            width: 22px;
+            height: 22px;
+        }
+        span {
+            vertical-align: middle;
+            padding-left: 10px;
+            display: inline-block;
+        }
+        a {
+            float: right;
+            padding: 5px 10px;
+            background: #f15623;
+            color: #fff;
+            font-size: 12px;
+            border-radius: 2px;
+            height: 16px;
+            line-height: 16px;
+            margin-top: 7px;
+        }
+    }
+    .content {
         overflow: hidden;
-        margin-top: 0px;
+        background: white;
+        font-size: 14px;
+        a {
+            display: inline-block;
+            width: 33.3%;
+            box-sizing: border-box;
+            padding: 5px 0;
+            border-right: 1px solid #eee;
+            span {
+                line-height: 1.46em;
+                display: block;
+                text-align: center;
+                &.number {
+                    font-weight: bolder;
+                }
+            }
+            &:last-child {
+                border: none;
+            }
+        }
     }
 }
 
+
 @media (max-width: 800px) {
-    .blog-content-img {
+    .article {
+        margin: 10px;
+    }
+    .message-info {
         position: relative;
-        width: 100%;
-        height: 200px;
+        top: auto;
+        left: auto;
+        bottom: auto;
+        right: auto;
+        margin: 20px;
+        width: auto;
     }
     .blog-tips {
         // left: 0;
@@ -848,18 +958,41 @@ svg path {
     }
 }
 
-.blog-tips {
-    position: absolute;
-    right: 0;
-    top: 0;
-    text-align: right;
-    z-index: 1000;
-    background: #ed5724;
+.commend-name {
+    vertical-align: middle;
     a {
-        padding: 10px;
-        color: #fff;
         display: inline-block;
-        text-decoration: underline;
+        vertical-align: middle;
+        margin-right: 10px;
     }
-    margin-bottom: 10px;
+    iframe{
+        vertical-align: middle;
+    }
+}
+.commend-name-githbu {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 1px 5px;
+    height: 20px;
+    line-height: 18px;
+    margin-left: 10px;
+    font-size: 14px;
+    .count{
+        display: inline-block;
+        padding: 2px 5px;
+        font-size: 12px;
+        font-weight: 600;
+        line-height: 1;
+        color: #586069;
+        background-color: rgba(27,31,35,0.08);
+        border-radius: 20px;
+        margin-left: 5px;
+    }
+    svg {
+        margin-right: 5px;
+        vertical-align: middle;
+    }
+    span {
+        vertical-align: middle;
+    }
 }
