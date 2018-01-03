@@ -61,6 +61,8 @@ body {
   color: #fff;
   text-decoration: none;
   margin: 0 8px; }
+  .global-nav-text-link li a.active {
+    color: #f15623; }
 
 .global-nav {
   position: fixed;

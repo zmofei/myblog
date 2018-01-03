@@ -28,7 +28,6 @@ block content
                         if (blog.cover)
                             div.blog-content-img
                                 a(href="/blog/article/" + blog._id)
-                                    img(src="/image/blog/cover.jpg")
                                     div.blog-content-img-body(style="background-image:url('" + blog.cover +"')")
                         div.blog-content-text(class= blog.cover?'':'noimg')
                             a(href="/blog/article/" + blog._id)
