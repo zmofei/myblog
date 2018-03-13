@@ -402,6 +402,10 @@ _map.add([104, 21], {
     title: '西宁'
 })
 
+_map.add([114, 37], {
+    title: 'Semporna [2018/03/02 - 2018/03/07]'
+})
+
 _map.add([135, 60], {
     title: 'Auckland'
 })
