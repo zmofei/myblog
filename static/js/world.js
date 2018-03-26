@@ -440,3 +440,12 @@ _map.add([131, 63], {
 _map.add([130, 63], {
     title: 'Te Anau'
 })
+
+_map.add([28, 19], {
+    title: 'Washington, DC [2018/03/24 - 2018/03/31]'
+})
+
+_map.add([8, 21], {
+    title: 'San Francisco [2018/04/01 - 2018/04/08]'
+})
+

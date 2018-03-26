@@ -242,5 +242,5 @@ p {
   top: 0;
   right: 0;
   margin: -20px;
-  background: url("/image/index/close.svg") no-repeat center #999;
+  background: url("//static.zhuwenlong.com/image/index/close.svg") no-repeat center #999;
   cursor: pointer; }
