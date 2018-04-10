@@ -30,12 +30,12 @@ block content
                                 .blog-tips 
                                     a(href="blog/article/59f861c54f287c3519e8bad7" target="_blank") Why not English?
                                     a(href="https://translate.google.com/translate?sl=zh-CN&tl=en&u=https://www.himofei.com/blog/article/" + blog._id target="_blank") Translate
-                        if (blog.cover)
+                        if (blog.coverFalse)
                             div.blog-content-img
                                 a(href="/blog/article/" + blog._id)
                                     img(src="/image/blog/cover.jpg")
                                     div.blog-content-img-body(style="background-image:url('" + blog.cover +"')")
-                        div.blog-content-text(class= blog.cover?'':'noimg')
+                        div.blog-content-text(class= blog.coverFalse?'':'noimg')
                             a(href="/blog/article/" + blog._id)
                                 h2= blog.title
                             div.blog-tag &#xe901; 

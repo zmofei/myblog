@@ -25,11 +25,11 @@ block content
             if blogs
                 each blog in blogs
                     div.blog-content-block
-                        if (blog.cover)
+                        if (blog.coverFalse)
                             div.blog-content-img
                                 a(href="/blog/article/" + blog._id)
                                     div.blog-content-img-body(style="background-image:url('" + blog.cover +"')")
-                        div.blog-content-text(class= blog.cover?'':'noimg')
+                        div.blog-content-text(class= blog.coverFalse?'':'noimg')
                             a(href="/blog/article/" + blog._id)
                                 h2= blog.title
                             div.blog-tag &#xe901; 

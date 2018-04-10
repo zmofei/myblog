@@ -258,7 +258,7 @@ body a {
 
 .blog-content-area {
   padding-top: 30px;
-  max-width: 1200px;
+  max-width: 1024px;
   margin: 0 auto;
   /*padding-top: 20px;*/
   overflow: hidden; }
@@ -271,7 +271,7 @@ body a {
   min-width: 770px;
   position: relative;
   margin: 0 0px 20px 0px;
-  /*border-bottom: 1px solid #fafafa;*/
+  border: 1px solid #f7f7f7;
   padding: 30px 30px 25px;
   color: #333;
   overflow: hidden;
