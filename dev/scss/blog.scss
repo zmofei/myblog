@@ -355,13 +355,13 @@ body a {
 
 .article-pubinfo {
     margin-bottom: 50px;
-    max-width: 700px;
+    max-width: 750px;
     margin: auto;
 }
 
 .blog {
     margin-top: 20px;
-    // max-width: 700px;
+    // max-width: 750px;
     margin: 0 auto;
 }
 
@@ -379,7 +379,7 @@ body a {
 .article-info,
 .article-tags {
     // box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.05);
-    max-width: 700px;
+    max-width: 750px;
     margin: 0 auto;
     background: white;
     // padding: 0 40px;
@@ -414,7 +414,7 @@ body a {
     margin: 29px auto 0;
     font-weight: 300;
     line-height: 1.8em;
-    max-width: 700px;
+    max-width: 750px;
 }
 
 .article-content h1 {
@@ -445,7 +445,7 @@ body a {
 
 .article-content p {
     margin: 10px auto;
-    max-width: 700px;
+    max-width: 750px;
 }
 
 .article-content a {
@@ -454,7 +454,7 @@ body a {
 }
 
 .article-content table {
-    max-width: 700px;
+    max-width: 750px;
     margin: 0 auto;
 }
 
@@ -474,7 +474,7 @@ body a {
     background: #f4f4f4;
     padding: 3px 5px;
     margin: 3px auto;
-    max-width: 700px;
+    max-width: 750px;
     display: inline-block;
     /*border-radius: 2px;*/
 }
@@ -500,7 +500,7 @@ body a {
 .article-content ol,
 .article-content ul {
     margin: 3px auto;
-    max-width: 700px;
+    max-width: 750px;
     line-height: 1.6em;
 }
 
@@ -533,7 +533,7 @@ body a {
     // margin-top: 20px;
     // overflow: hidden;
     /*line-height: 1.6em;*/
-    max-width: 700px;
+    max-width: 750px;
     margin: 0 auto;
     font-family: "icomoon";
     // border-bottom: 1px solid #e9e9e9;
@@ -550,7 +550,7 @@ body a {
 
 @import "./component/comment.scss";
 .commend {
-    max-width: 700px;
+    max-width: 750px;
 }
 
 .commend-box {
