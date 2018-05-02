@@ -9,8 +9,8 @@ html {
 
 @font-face {
   font-family: "Open Sans";
-  src: url("//static.zhuwenlong.com/font/OpenSans-Light.eot?eyv41e");
-  src: url("//static.zhuwenlong.com/font/OpenSans-Light.eot?eyv41e#iefix") format("embedded-opentype"), url("//static.zhuwenlong.com/font/OpenSans-Light.ttf?eyv41e") format("truetype"), url("//static.zhuwenlong.com/font/OpenSans-Light.woff?eyv41e") format("woff"), url("//static.zhuwenlong.com/font/OpenSans-Light.svg?eyv41e#OpenSans-Light") format("svg");
+  src: url("/font/OpenSans-Light.eot?eyv41e");
+  src: url("/font/OpenSans-Light.eot?eyv41e#iefix") format("embedded-opentype"), url("/font/OpenSans-Light.ttf?eyv41e") format("truetype"), url("/font/OpenSans-Light.woff?eyv41e") format("woff"), url("/font/OpenSans-Light.svg?eyv41e#OpenSans-Light") format("svg");
   font-weight: normal;
   font-style: normal; }
 
@@ -20,8 +20,8 @@ body a {
 
 @font-face {
   font-family: "icomoon";
-  src: url("//static.zhuwenlong.com/font/icomoon.eot?eyv41e");
-  src: url("//static.zhuwenlong.com/font/icomoon.eot?eyv41e#iefix") format("embedded-opentype"), url("//static.zhuwenlong.com/font/icomoon.ttf?eyv41e") format("truetype"), url("//static.zhuwenlong.com/font/icomoon.woff?eyv41e") format("woff"), url("//static.zhuwenlong.com/font/icomoon.svg?eyv41e#icomoon") format("svg");
+  src: url("/font/icomoon.eot?eyv41e");
+  src: url("/font/icomoon.eot?eyv41e#iefix") format("embedded-opentype"), url("/font/icomoon.ttf?eyv41e") format("truetype"), url("/font/icomoon.woff?eyv41e") format("woff"), url("/font/icomoon.svg?eyv41e#icomoon") format("svg");
   font-weight: normal;
   font-style: normal; }
 
@@ -112,12 +112,12 @@ body a {
   width: 40px;
   height: 40px;
   float: right;
-  background: url("//static.zhuwenlong.com/image/index/bars.svg") no-repeat center; }
+  background: url("/image/index/bars.svg") no-repeat center; }
 
 .global-nav-close {
   height: 50px;
   display: block;
-  background: url("//static.zhuwenlong.com/image/index/close.svg") no-repeat 96% center; }
+  background: url("/image/index/close.svg") no-repeat 96% center; }
 
 .global-nav-bg {
   position: fixed;
@@ -435,7 +435,7 @@ body a {
 /** article **/
 .article-pubinfo {
   margin-bottom: 50px;
-  max-width: 700px;
+  max-width: 750px;
   margin: auto; }
 
 .blog {
@@ -451,7 +451,7 @@ body a {
 .article-content,
 .article-info,
 .article-tags {
-  max-width: 700px;
+  max-width: 750px;
   margin: 0 auto;
   background: white;
   font-size: 16px;
@@ -461,7 +461,6 @@ body a {
   /*padding-top: 30px;*/ }
 
 .article-content {
-  overflow: hidden;
   padding: 0;
   line-height: 2em; }
 
@@ -481,7 +480,7 @@ body a {
   margin: 29px auto 0;
   font-weight: 300;
   line-height: 1.8em;
-  max-width: 700px; }
+  max-width: 750px; }
 
 .article-content h1 {
   /*color:#333;*/
@@ -505,14 +504,14 @@ body a {
 
 .article-content p {
   margin: 10px auto;
-  max-width: 700px; }
+  max-width: 750px; }
 
 .article-content a {
   color: #f15623;
   /*text-decoration: none;*/ }
 
 .article-content table {
-  max-width: 700px;
+  max-width: 750px;
   margin: 0 auto; }
 
 .article-content table,
@@ -529,7 +528,7 @@ body a {
   background: #f4f4f4;
   padding: 3px 5px;
   margin: 3px auto;
-  max-width: 700px;
+  max-width: 750px;
   display: inline-block;
   /*border-radius: 2px;*/ }
 
@@ -548,10 +547,16 @@ body a {
 .article-content img {
   max-width: 100%; }
 
+.article-content p img {
+  max-width: 1000px;
+  transform: translate(-50%);
+  position: relative;
+  left: 50%; }
+
 .article-content ol,
 .article-content ul {
   margin: 3px auto;
-  max-width: 700px;
+  max-width: 750px;
   line-height: 1.6em; }
 
 .article-content li {
@@ -574,7 +579,7 @@ body a {
 
 .article-info {
   /*line-height: 1.6em;*/
-  max-width: 700px;
+  max-width: 750px;
   margin: 0 auto;
   font-family: "icomoon"; }
 
@@ -827,11 +832,11 @@ body a {
   top: 0;
   right: 0;
   margin: -20px;
-  background: url("//static.zhuwenlong.com/image/index/close.svg") no-repeat center #999;
+  background: url("/image/index/close.svg") no-repeat center #999;
   cursor: pointer; }
 
 .commend {
-  max-width: 700px; }
+  max-width: 750px; }
 
 .commend-box {
   background: #fafafa;
@@ -953,7 +958,7 @@ body a {
   top: 0;
   right: 0;
   margin: -20px;
-  background: url("//static.zhuwenlong.com/image/index/close.svg") no-repeat center #999;
+  background: url("/image/index/close.svg") no-repeat center #999;
   cursor: pointer; }
 
 .message-login {
