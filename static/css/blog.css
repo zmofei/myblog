@@ -4,11 +4,11 @@ html {
   background: white;
   padding: 0;
   margin: 0;
-  font-family: Arial, 'Hiragino Sans GB', 冬青黑, 'Microsoft YaHei', 微软雅黑, SimSun, 宋体, Helvetica, Tahoma, 'Arial sans-serif';
+  font-family: Arial, "Hiragino Sans GB", 冬青黑, "Microsoft YaHei", 微软雅黑, SimSun, 宋体, Helvetica, Tahoma, "Arial sans-serif";
   -webkit-font-smoothing: antialiased; }
 
 @font-face {
-  font-family: 'Open Sans';
+  font-family: "Open Sans";
   src: url("//static.zhuwenlong.com/font/OpenSans-Light.eot?eyv41e");
   src: url("//static.zhuwenlong.com/font/OpenSans-Light.eot?eyv41e#iefix") format("embedded-opentype"), url("//static.zhuwenlong.com/font/OpenSans-Light.ttf?eyv41e") format("truetype"), url("//static.zhuwenlong.com/font/OpenSans-Light.woff?eyv41e") format("woff"), url("//static.zhuwenlong.com/font/OpenSans-Light.svg?eyv41e#OpenSans-Light") format("svg");
   font-weight: normal;
@@ -19,7 +19,7 @@ body a {
   text-decoration: none; }
 
 @font-face {
-  font-family: 'icomoon';
+  font-family: "icomoon";
   src: url("//static.zhuwenlong.com/font/icomoon.eot?eyv41e");
   src: url("//static.zhuwenlong.com/font/icomoon.eot?eyv41e#iefix") format("embedded-opentype"), url("//static.zhuwenlong.com/font/icomoon.ttf?eyv41e") format("truetype"), url("//static.zhuwenlong.com/font/icomoon.woff?eyv41e") format("woff"), url("//static.zhuwenlong.com/font/icomoon.svg?eyv41e#icomoon") format("svg");
   font-weight: normal;
@@ -195,8 +195,8 @@ body a {
   font-size: 16px; }
 
 .blog-search-tag:hover {
-  background: #C5C5C5;
-  border-color: #C5C5C5;
+  background: #c5c5c5;
+  border-color: #c5c5c5;
   color: #333; }
 
 .blog-search-tag.active {
@@ -335,7 +335,7 @@ body a {
   float: right; }
 
 .blog-content {
-  padding-bottom: -20px; }
+  padding-bottom: 20px; }
 
 .blog-content-img {
   bottom: 0;
@@ -434,11 +434,12 @@ body a {
 
 /** article **/
 .article-pubinfo {
-  margin-bottom: 20px; }
+  margin-bottom: 50px;
+  max-width: 700px;
+  margin: auto; }
 
 .blog {
   margin-top: 20px;
-  max-width: 700px;
   margin: 0 auto; }
 
 .blog {
@@ -450,6 +451,7 @@ body a {
 .article-content,
 .article-info,
 .article-tags {
+  max-width: 700px;
   margin: 0 auto;
   background: white;
   font-size: 16px;
@@ -460,7 +462,8 @@ body a {
 
 .article-content {
   overflow: hidden;
-  padding: 0; }
+  padding: 0;
+  line-height: 2em; }
 
 .article-content blockquote {
   border-left: 4px solid #ddd;
@@ -475,9 +478,10 @@ body a {
 .article-content h5,
 .article-content h6 {
   /*color:#8F8F8F;*/
-  margin: 29px 0 0;
+  margin: 29px auto 0;
   font-weight: 300;
-  line-height: 1.8em; }
+  line-height: 1.8em;
+  max-width: 700px; }
 
 .article-content h1 {
   /*color:#333;*/
@@ -500,11 +504,16 @@ body a {
   font-size: 16px; }
 
 .article-content p {
-  margin: 10px 0; }
+  margin: 10px auto;
+  max-width: 700px; }
 
 .article-content a {
   color: #f15623;
   /*text-decoration: none;*/ }
+
+.article-content table {
+  max-width: 700px;
+  margin: 0 auto; }
 
 .article-content table,
 .article-content td,
@@ -519,7 +528,8 @@ body a {
 .article-content code {
   background: #f4f4f4;
   padding: 3px 5px;
-  margin: 3px 5px;
+  margin: 3px auto;
+  max-width: 700px;
   display: inline-block;
   /*border-radius: 2px;*/ }
 
@@ -527,15 +537,27 @@ body a {
   padding: 10px;
   display: block;
   /*width: 100%;*/
-  margin: 0; }
+  margin: 3px auto;
+  max-width: 680px; }
 
 .article-content hr {
   margin: 28px 0;
   border: none;
-  border-bottom: 1px solid #F3ECEC; }
+  border-bottom: 1px solid #f3ecec; }
 
 .article-content img {
   max-width: 100%; }
+
+.article-content ol,
+.article-content ul {
+  margin: 3px auto;
+  max-width: 700px;
+  line-height: 1.6em; }
+
+.article-content li {
+  line-height: 2em;
+  padding-top: 5px;
+  padding-bottom: 5px; }
 
 .article-tags a {
   display: inline-block;
@@ -552,7 +574,9 @@ body a {
 
 .article-info {
   /*line-height: 1.6em;*/
-  font-family: 'icomoon'; }
+  max-width: 700px;
+  margin: 0 auto;
+  font-family: "icomoon"; }
 
 .article-info span {
   height: 60px;
@@ -734,8 +758,7 @@ body a {
   margin-bottom: 10px;
   line-height: 25px; }
 
-.commend-replay-box-text div,
-p {
+.commend-replay-box-text div {
   margin: 0;
   padding: 0;
   line-height: 25px; }
@@ -937,7 +960,7 @@ p {
   padding: 20px;
   line-height: 1.6em;
   font-size: 12px;
-  color: #F15623; }
+  color: #f15623; }
 
 .message-login input {
   border: none;
