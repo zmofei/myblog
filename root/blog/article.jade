@@ -55,7 +55,7 @@ block content
                     div.commend-info
                         div.commend-name
                             a(href="https://www.zhuwenlong.com" rel="author") Mofei Zhu 
-                            a(class="github-button" href="https://github.com/zmofei" style="display:none"  data-show-count="true" aria-label="Follow @zmofei on GitHub") Follow @zmofei
+                            //- a(class="github-button" href="https://github.com/zmofei" style="display:none"  data-show-count="true" aria-label="Follow @zmofei on GitHub") Follow @zmofei
                         div.commend-time
                             time= timeStr
                     //- if (github&&false)
@@ -149,5 +149,6 @@ block content
     section.index-copyright
         div.index-copyright-bottom
             include ../copyright.jade
-    <!-- Place this tag in your head or just before your close body tag. -->
-    script(defer src="https://buttons.github.io/buttons.js")
+    //- script(src="https://buttons.github.io/buttons.js")
+    //- script(src="//res.wx.qq.com/open/js/jweixin-1.2.0.js")
+    //- script(src= host + "/js/component/wx_share.main.js")

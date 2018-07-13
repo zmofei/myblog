@@ -1,9 +1,12 @@
 const Mongo = require('../../../system/mongo/init.js');
+const account = require('../../../system/config/account.js');
 const https = require('https');
-const appid = 'wx65d07a7fbed35d0d';
-const appsecret = '*****';
+const appid = account.weixin && account.weixin.appid;
+const appsecret = account.weixin && account.weixin.appsecret;
 const crypto = require('crypto');
 const hash = crypto.createHash('sha1');
+
+
 
 const get = function() {
     var self = this;
