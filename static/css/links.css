@@ -25,6 +25,11 @@ body a {
   font-weight: normal;
   font-style: normal; }
 
+.global-icon {
+  height: 36px;
+  width: 36px;
+  vertical-align: middle; }
+
 .global-nav-text {
   height: 50px;
   line-height: 50px;
@@ -34,12 +39,12 @@ body a {
 
 .global-nav-text-logo {
   float: left;
-  font-size: 20px;
-  margin-left: 40px; }
+  font-size: 26px;
+  margin-left: 10px; }
 
 .global-nav-text-link {
   float: right;
-  margin-right: 40px; }
+  margin-right: 10px; }
 
 .global-nav-text-link li,
 .global-nav-text-link ul {
