@@ -2,29 +2,34 @@ var Mongo = require('../../../system/mongo/init.js');
 
 var qs = require('querystring');
 
-var post = function () {
+var post = function() {
 
     var self = this;
 
     var body = '';
-    this.req.on('data', function (data) {
+    this.req.on('data', function(data) {
         body += data;
         if (body.length > 1e6) {
             this.req.connection.destroy();
         }
     });
 
-    this.req.on('end', function () {
+    this.req.on('end', function() {
         var post = qs.parse(body);
 
-        Mongo.open(function (db) {
+        Mongo.open(function(db) {
+            let postClass = [];
+            if (post.class) {
+                classIds = typeof post.class === 'string' ? [post.class] : post.class;
+                postClass = classIds.map(classid => Number(classid))
+            }
             db.collection('blog').insertOne({
-                "classid": post.class ? (typeof (post.class) == 'string' ? post.class : post.class.join(',')) : null,
+                "classid": postClass,
                 "state": post.state,
                 "content": post.content,
                 "title": post.title,
                 "pubtime": new Date(),
-            }, function (err, res) {
+            }, function(err, res) {
                 if (err) {
                     self.response.json({
                         code: 400,
@@ -36,8 +41,33 @@ var post = function () {
                         data: post
                     });
                 }
-            })
-        })
+            });
+
+            // update class
+            if (postClass && postClass.length > 0) {
+                // classid
+                var classIds = postClass;
+                classIds.forEach(classid => {
+                    db.collection('blog').find({
+                        state: {
+                            $in: ["0", 0, null]
+                        },
+                        classid: { $in: [classid] }
+                    }).count(function(err, count) {
+                        console.log(classid, count);
+                        var classCollection = db.collection('blog_class');
+                        classCollection.update({ classid: classid }, {
+                            $set: { classcount: count }
+                        }, function(err, doc) {
+                            console.log(err)
+                        });
+                    });
+                });
+
+
+            }
+
+        });
     })
 
     // Mongo.open(function (db) {

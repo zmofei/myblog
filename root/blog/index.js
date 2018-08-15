@@ -3,7 +3,7 @@ var Mongo = require('../../system/mongo/init.js');
 var url = require('url');
 
 
-var render = function () {
+var render = function() {
     const isEnglish = /himofei\.com/.test(this.req.headers.host);
     var path;
     if (isEnglish) {
@@ -20,7 +20,7 @@ var render = function () {
         skip = perPage * page;
     }
 
-    Mongo.open(function (db) {
+    Mongo.open(function(db) {
         var collection = db.collection('blog');
         var classCollection = db.collection('blog_class');
 
@@ -50,8 +50,8 @@ var render = function () {
             search: search,
         };
 
-        var getBlogClass = new Promise(function (resolve, reject) {
-            classCollection.find({}).toArray(function (err, docs) {
+        var getBlogClass = new Promise(function(resolve, reject) {
+            classCollection.find({}).toArray(function(err, docs) {
                 var blogClass = {};
                 for (var i in docs) {
                     blogClass[docs[i].classid] = docs[i];
@@ -64,21 +64,21 @@ var render = function () {
             });
         });
 
-        var getCount = new Promise(function (resolve, reject) {
-            collection.find(findquery).count(function (err, count) {
+        var getCount = new Promise(function(resolve, reject) {
+            collection.find(findquery).count(function(err, count) {
                 data.totalPage = Math.ceil(count / perPage);
                 resolve();
             });
         });
 
-        var getBlog = new Promise(function (resolve, reject) {
+        var getBlog = new Promise(function(resolve, reject) {
             collection.find(findquery, { html: false }, {
                 limit: perPage,
                 skip: skip,
                 sort: {
                     pubtime: -1
                 }
-            }).toArray(function (err, docs) {
+            }).toArray(function(err, docs) {
                 if (isEnglish) {
                     docs.forEach(item => {
                         item.title = item['title-en'] || item.title;
@@ -90,24 +90,16 @@ var render = function () {
             });
         });
 
-        Promise.all([getBlogClass, getCount, getBlog]).then(function (val) {
-            // data.blogs = undefined;
+        Promise.all([getBlogClass, getCount, getBlog]).then(function(val) {
             for (var i in data.blogs) {
-                data.blogs[i].tags = [];
-                var _class = data.blogs[i].classid;
-                var tagIds = '';
-                if (typeof (_class) == 'string') {
-                    tagIds = [_class]
-                } else {
-                    tagIds = _class
-                }
-
-                for (var j in tagIds) {
-                    var ids = tagIds[j].split(',');
-                    ids.map(function (item) {
-                        data.blogs[i].tags.push({
-                            id: item,
-                            name: data.blogClass[item] ? data.blogClass[item].classname : ''
+                let blog = data.blogs[i];
+                let classIds = blog.classid;
+                blog.tags = blog.tags || [];
+                if (classIds && typeof classIds === 'object') {
+                    classIds.forEach(classId => {
+                        blog.tags.push({
+                            id: classId,
+                            name: data.blogClass[classId] ? data.blogClass[classId].classname : ''
                         });
                     });
                 }
