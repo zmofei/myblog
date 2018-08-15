@@ -15,13 +15,14 @@ block content
     include ../common/nav.en.jade
     section.blog-content
         div.blog-search
-            div.blog-search-box
+            .blog-search-title Category
+            ul.blog-search-box
+                a(href="/blog/1")
+                    li.blog-search-tag.blog-search-tagAll All categories
                 each blogclass in blogClass
-                    div.blog-search-tag(id= 'tag_' + blogclass.classid)=  blogclass.classname
-            div.blog-search-btn 
-                btn GO
-        .blog-search-toggle &#xe5c5; 
-        
+                    a(href="/blog/1?tags=" + blogclass.classid)
+                        li.blog-search-tag(id= 'tag_' + blogclass.classid)=  blogclass.classname 
+                            span= blogclass.classcount
         div.blog-content-area.blog-content-area-en
             if blogs
                 each blog in blogs
@@ -38,7 +39,7 @@ block content
                         div.blog-content-text(class= blog.coverFalse?'':'noimg')
                             a(href="/blog/article/" + blog._id)
                                 h2= blog.title
-                            div.blog-tag &#xe901; 
+                            div.blog-tag &#xe901; Tags:  
                                 - var tags = blog.tags;
                                     each tag in tags
                                         a(href="/blog/1?tags=" + tag.id)= tag.name
