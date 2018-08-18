@@ -37,6 +37,7 @@ body a {
 }
 
 .blog-search {
+    z-index: 100000;
     padding: 30px 30px 10px 10px;
     box-sizing: border-box;
     margin: 0 auto;
@@ -54,6 +55,11 @@ body a {
         font-size: 16px;
         font-weight: bold;
         height: 2em;
+    }
+    .blog-search-title,.blog-search-traget {
+        button {
+            display: none;
+        }
     }
     ul,
     li {
@@ -94,6 +100,10 @@ body a {
             list-style: disc;
         }
     }
+}
+
+.blog-search-traget {
+    display: none;
 }
 
 @keyframes title {
@@ -733,19 +743,23 @@ body a {
 }
 
 .blog-tips {
-    position: absolute;
-    right: 0;
-    top: 0;
-    text-align: right;
-    z-index: 1000;
-    background: #ed5724;
+    // position: absolute;
+    // right: 0;
+    // top: 0;
+    text-align: left;
+    line-height: 1.6em;
+    z-index: 100;
+    background: #f7f7f7;
+    padding:5px;
+    color: #999;
     a {
-        padding: 10px;
-        color: #fff;
+        color: #999;
         display: inline-block;
         text-decoration: underline;
     }
     margin-bottom: 10px;
+    font-size: 14px;
+    margin-top: -10px;
 }
 
 .message-info {
@@ -832,9 +846,41 @@ body a {
         background: white;
         margin: 0;
         width: auto;
+        &.blog-search-active {
+            right: 0px;
+            left: 0px;
+            display: block;
+        }
+        .blog-search-title {
+            border-bottom: 1px solid #e6e6e6;
+            padding-bottom: 10px;
+            line-height: 2em;
+            margin-bottom: 5px;
+            button {
+                display: block;
+                float: right;
+            }
+        }
+        ul,li{
+            font-size: 16px;
+        }
+    }
+    .blog-search-title,.blog-search-traget {
+        button {
+            display: block;
+            cursor: pointer;
+            outline: none;
+            height: 34px;
+            background-color: #fff;
+            border: 1px solid #e6e6e6;
+        }
+    }
+    .blog-search-traget {
+        display: block;
+        padding: 10px; 
     }
     .blog-content-area {
-        margin: 20px 10px;
+        margin: 0 10px 20px 10px;
         padding: 0;
     }
     .blog-pages {
@@ -850,10 +896,10 @@ body a {
         width: auto;
     }
     .blog-tips {
-        // left: 0;
-        // float: right;
+        text-align: left;
         position: relative !important;
-        margin-top: -15px;
+        border-radius: 4px;
+        margin: -0px 10px 10px 10px;
     }
     .global-nav-text-link li a {
         color: #fff;
