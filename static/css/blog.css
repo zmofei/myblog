@@ -160,6 +160,7 @@ body a {
     font-size: 18px; } }
 
 .blog-search {
+  z-index: 100000;
   padding: 30px 30px 10px 10px;
   box-sizing: border-box;
   margin: 0 auto;
@@ -176,7 +177,7 @@ body a {
     font-size: 16px;
     font-weight: bold;
     height: 2em; }
-  .blog-search .blog-search-title button {
+  .blog-search .blog-search-title button, .blog-search .blog-search-traget button {
     display: none; }
   .blog-search ul,
   .blog-search li {
@@ -962,16 +963,17 @@ body a {
   color: #fff; }
 
 .blog-tips {
-  position: absolute;
-  right: 0;
-  top: 0;
-  text-align: right;
-  z-index: 1000;
-  background: #ed5724;
-  margin-bottom: 10px; }
+  text-align: left;
+  line-height: 1.6em;
+  z-index: 100;
+  background: #f7f7f7;
+  padding: 5px;
+  color: #999;
+  margin-bottom: 10px;
+  font-size: 14px;
+  margin-top: -10px; }
   .blog-tips a {
-    padding: 10px;
-    color: #fff;
+    color: #999;
     display: inline-block;
     text-decoration: underline; }
 
@@ -1062,17 +1064,26 @@ body a {
       right: 0px;
       left: 0px;
       display: block; }
-    .blog-search ul,
-    .blog-search li {
-      font-size: 16px; }
-    .blog-search .blog-search-title button {
-      display: block;
-      float: right; }
     .blog-search .blog-search-title {
       border-bottom: 1px solid #e6e6e6;
       padding-bottom: 10px;
       line-height: 2em;
       margin-bottom: 5px; }
+      .blog-search .blog-search-title button {
+        display: block;
+        float: right; }
+    .blog-search ul, .blog-search li {
+      font-size: 16px; }
+  .blog-search-title button, .blog-search-traget button {
+    display: block;
+    cursor: pointer;
+    outline: none;
+    height: 34px;
+    background-color: #fff;
+    border: 1px solid #e6e6e6; }
+  .blog-search-traget {
+    display: block;
+    padding: 10px; }
   .blog-content-area {
     margin: 0 10px 20px 10px;
     padding: 0; }
@@ -1087,8 +1098,10 @@ body a {
     margin: 20px;
     width: auto; }
   .blog-tips {
+    text-align: left;
     position: relative !important;
-    margin-top: -15px; }
+    border-radius: 4px;
+    margin: -0px 10px 10px 10px; }
   .global-nav-text-link li a {
     color: #fff;
     background: rgba(51, 51, 51, 0.95);
