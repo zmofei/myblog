@@ -8,14 +8,6 @@ html {
     -webkit-font-smoothing: antialiased;
 }
 
-@font-face {
-    font-family: "Open Sans";
-    src: url($host+"/font/OpenSans-Light.eot?eyv41e");
-    src: url($host+"/font/OpenSans-Light.eot?eyv41e#iefix") format("embedded-opentype"), url($host+"/font/OpenSans-Light.ttf?eyv41e") format("truetype"), url($host+"/font/OpenSans-Light.woff?eyv41e") format("woff"), url($host+"/font/OpenSans-Light.svg?eyv41e#OpenSans-Light") format("svg");
-    font-weight: normal;
-    font-style: normal;
-}
-
 body a {
     color: #f15623;
     text-decoration: none;
@@ -30,12 +22,6 @@ body a {
 }
 
 @import "../scss/component/nav.scss";
-.blog-title {
-    text-align: center;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-    background-size: cover;
-}
-
 .blog-search {
     padding: 30px 30px 10px 10px;
     box-sizing: border-box;
@@ -54,6 +40,9 @@ body a {
         font-size: 16px;
         font-weight: bold;
         height: 2em;
+    }
+    .blog-search-title button {
+        display: none;
     }
     ul,
     li {
@@ -96,20 +85,8 @@ body a {
     }
 }
 
-@keyframes title {
-    0% {
-        stroke-dasharray: 1000;
-        stroke-dashoffset: 1000;
-    }
-    80% {
-        stroke-dashoffset: 0;
-        fill: rgba(0, 0, 0, 0);
-    }
-    100% {
-        stroke-dasharray: 1000;
-        stroke-dashoffset: 0;
-        fill: rgba(0, 0, 0, 0.2);
-    }
+.blog-search-traget {
+    display: none;
 }
 
 .blog-content {
@@ -371,7 +348,7 @@ body a {
 .article-content {
     // overflow: hidden;
     padding: 0;
-    line-height: 2em;
+    line-height: 1.6em;
     // margin-top: 20px;
 }
 
@@ -397,28 +374,30 @@ body a {
 
 .article-content h1 {
     /*color:#333;*/
-    font-size: 34px;
+    font-size: 2em;
     margin-bottom: 20px;
 }
 
 .article-content h2 {
-    font-size: 27px;
+    border-bottom: 1px solid #eaecef;
+    margin-bottom: 16px;
+    font-size: 1.5em;
 }
 
 .article-content h3 {
-    font-size: 24px;
+    font-size: 1.25em;
 }
 
 .article-content h4 {
-    font-size: 21px;
+    font-size: 1em;
 }
 
 .article-content h5 {
-    font-size: 18px;
+    font-size: 0.875em;
 }
 
 .article-content h6 {
-    font-size: 16px;
+    font-size: 0.85em;
 }
 
 .article-content p {
@@ -429,6 +408,9 @@ body a {
 .article-content a {
     color: #f15623;
     /*text-decoration: none;*/
+    &:hover {
+        text-decoration: underline;
+    }
 }
 
 .article-content table {
@@ -449,13 +431,19 @@ body a {
 }
 
 .article-content code {
-    background: #f4f4f4;
-    padding: 3px 5px;
-    margin: 3px auto;
-    max-width: 750px;
-    // display: inline-block;
-    overflow: auto;
-    border-radius: px;
+    padding: 0.2em 0.4em;
+    margin: 0;
+    font-size: 85%;
+    background-color: rgba(27, 31, 35, 0.05);
+    border-radius: 3px;
+    // background: #f4f4f4;
+    // padding: 3px 5px;
+    // margin: 3px auto;
+    // // max-width: 750px;
+    // // display: inline-block;
+    // overflow: auto;
+    // border-radius: 2px;
+    // font-size: 85%;
     /*border-radius: 2px;*/
 }
 
@@ -464,7 +452,7 @@ body a {
     display: block;
     /*width: 100%;*/
     margin: 3px auto;
-    max-width: 680px;
+    // max-width: 680px;
 }
 
 .article-content hr {
@@ -493,7 +481,7 @@ body a {
 }
 
 .article-content li {
-    line-height: 2em;
+    line-height: 1.39em;
     padding-top: 5px;
     padding-bottom: 5px;
 }
@@ -820,21 +808,56 @@ body a {
         margin-bottom: 0;
         padding-bottom: 0;
     }
+    .blog-search-title,
+    .blog-search-traget {
+        button {
+            cursor: pointer;
+            outline: none;
+            height: 34px;
+            background-color: #fff;
+            border: 1px solid #e6e6e6;
+            border-radius: 2px;
+        }
+    }
+    .blog-search-traget {
+        display: block;
+        padding: 10px;
+    }
     .blog-search {
         display: none;
         position: absolute;
         top: 50px;
-        right: 0;
-        left: 0;
+        right: 800px;
+        left: -800px;
         overflow: auto;
         bottom: 0;
         z-index: 1000;
         background: white;
         margin: 0;
         width: auto;
+        transition: all 0.3s ease-in-out;
+        &.blog-search-active {
+            right: 0px;
+            left: 0px;
+            display: block;
+        }
+        ul,
+        li {
+            font-size: 16px;
+        }
+        .blog-search-title button {
+            display: block;
+            float: right;
+        }
+        .blog-search-title {
+            border-bottom: 1px solid #e6e6e6;
+            padding-bottom: 10px;
+            line-height: 2em;
+            margin-bottom: 5px;
+        }
     }
     .blog-content-area {
-        margin: 20px 10px;
+        margin: 0 10px 20px 10px;
         padding: 0;
     }
     .blog-pages {
