@@ -19,6 +19,9 @@
 .global-nav-text-link {
   float: right;
   margin-right: 10px; }
+  .global-nav-text-link img,
+  .global-nav-text-link a {
+    vertical-align: middle; }
 
 .global-nav-text-link li,
 .global-nav-text-link ul {
