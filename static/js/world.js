@@ -1,4 +1,4 @@
-(function (root) {
+(function(root) {
     var grid = {
         "1": [39, 40, 41, 42, 43, 50, 51, 52, 53, 54, 55],
         "2": [37, 38, 39, 40, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 68, 69, 88, 89, 90],
@@ -79,9 +79,9 @@
 
     var eventPoints = {};
 
-    var wave = (function () {
+    var wave = (function() {
         var radius = 0;
-        return function () {
+        return function() {
             var pos = false;
             for (var i in eventPoints) {
                 var eventPOS = i.split('_');
@@ -196,7 +196,7 @@
         ctxWave = canvasGenerate();
         ctxPoint = canvasGenerate();
 
-        _box.addEventListener('mousemove', function (e) {
+        _box.addEventListener('mousemove', function(e) {
             var width = ctxActivePoint.canvas.width / pixelRatio / grid_y;
             var height = ctxActivePoint.canvas.height / pixelRatio / grid_x;
             var x = mouseX = e.offsetX;
@@ -207,7 +207,7 @@
             drawEventPoint();
         });
 
-        _box.addEventListener('click', function (e) {
+        _box.addEventListener('click', function(e) {
             var width = ctxActivePoint.canvas.width / pixelRatio / grid_y;
             var height = ctxActivePoint.canvas.height / pixelRatio / grid_x;
             var x = e.offsetX;
@@ -326,7 +326,7 @@
         ctx.scale(pixelRatio, pixelRatio);
     };
 
-    app.prototype.add = function (pos, option) {
+    app.prototype.add = function(pos, option) {
         var index = pos[0] + '_' + pos[1];
         eventPoints[index] = eventPoints[index] || [];
         eventPoints[index].push(option);
@@ -351,7 +351,7 @@ _map.add([114, 25], {
 })
 
 _map.add([106, 37], {
-    title: '普吉岛'
+    title: 'Phuket Island'
 })
 
 _map.add([101, 19], {
@@ -449,3 +449,10 @@ _map.add([8, 21], {
     title: 'San Francisco [2018/04/01 - 2018/04/08]'
 })
 
+_map.add([106, 33], {
+    title: 'Bangkok'
+})
+
+_map.add([10, 24], {
+    title: 'Los Angeles'
+})
