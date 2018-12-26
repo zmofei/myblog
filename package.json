@@ -4,9 +4,10 @@
   "description": "new version of my blog http://www.zhuwenlong.com",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "exit 0",
     "dev": "./make.sh",
-    "build": "./make.sh online"
+    "build": "./make.sh online",
+    "deploy": "gulp online"
   },
   "repository": {
     "type": "git",
