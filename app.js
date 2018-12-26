@@ -3,7 +3,7 @@
 let Dufing = require('dufing');
 
 let site = new Dufing({
-    port: 8333
+    port: 8027
 });
 
 // only for old version 302
