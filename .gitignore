@@ -1,7 +1,5 @@
 build/
 node_modules/
-system/config/account.js
-root/system/config/account.js
 .DS_Store
 *.*~
 *.swp
