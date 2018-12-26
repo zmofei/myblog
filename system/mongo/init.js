@@ -18,6 +18,9 @@ var open = (function() {
         // connect to the db
         const dbName = config.db.dbName;
         const url = `mongodb://${process.env.DBADDRESS || '127.0.0.1'}:27017/${dbName}`;
+        console.log('connect to ', url);
+        console.log('user ', config.db.user);
+        console.log('password ', config.db.pwd);
         MongoClient.connect(url, {
           useNewUrlParser: true,
           auth: {
@@ -25,12 +28,12 @@ var open = (function() {
             password: config.db.pwd
           }
         }, function(err, _db) {
-        //   console.log(_db);
-          db = _db.db(dbName);
+          //   console.log(_db);
           if (err) {
             console.log('mongodb authenticate error ', err);
           } else {
             console.log('mongodb authenticate sueess ');
+            db = _db.db(dbName);
             var _cb = callbacks.shift();
             while (_cb) {
               if (typeof(_cb) == 'function') {
