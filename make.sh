@@ -14,6 +14,7 @@ then
     CP="cd /usr/local/zhuwenlong/www/myblog/receive/; rm -rf build; tar -xvzf build_$FileName.tar.gz; cd ..; cp -r receive/build/root/* ./root/; cp -r receive/build/static/* ./static/;"
     ssh root@zhuwenlong.com "${CP}";
     rm ./build_$FileName.tar.gz;
+    # /usr/local/zhuwenlong/www/myblog
 else
     echo '**** dev';
     echo '**** setting config';
