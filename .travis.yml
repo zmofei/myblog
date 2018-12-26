@@ -1,6 +1,8 @@
 language: node_js
 node_js:
 - 8
+addons:
+  ssh_known_hosts: zhuwenlong.com
 before_deploy:
 - openssl aes-256-cbc -K $encrypted_3e38cf0623c0_key -iv $encrypted_3e38cf0623c0_iv
   -in deploy_rsa.enc -out /tmp/deploy_rsa -d
