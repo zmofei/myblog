@@ -8,7 +8,7 @@ deploy:
   script: bash ./deploy.sh
   skip_cleanup: true
   on:
-    branch: deploy
+    branch: master
 before_deploy:
 - openssl aes-256-cbc -K $encrypted_7c94771581e8_key -iv $encrypted_7c94771581e8_iv -in id_rsa.enc -out /tmp/id_rsa -d
 - eval "$(ssh-agent -s)"
