@@ -1,8 +1,6 @@
 language: node_js
 node_js:
-- stable
-- '6'
-- '4'
+- 8
 before_deploy:
 - openssl aes-256-cbc -K $encrypted_137f45644142_key -iv $encrypted_137f45644142_iv
   -in deploy_rsa.enc -out deploy_rsa -d
