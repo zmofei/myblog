@@ -22,7 +22,7 @@
     "dufing": "^1.0.14",
     "formidable": "^1.2.1",
     "marked": "^0.3.19",
-    "mongodb": "^2.2.35",
+    "mongodb": "^3.1.10",
     "nodemailer": "^2.3.0"
   },
   "devDependencies": {
