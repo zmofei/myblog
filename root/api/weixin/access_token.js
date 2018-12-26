@@ -70,7 +70,7 @@ const get = function() {
 
 function getSignature(jsapiTicket, timestamp, noncestr, url) {
     var str = 'jsapi_ticket=' + jsapiTicket + '&noncestr=' + noncestr + '&timestamp=' + timestamp + '&url=' + url;
-    str = crypto.createHash('sha1').update(str).digest('hex');
+    str = crypto.createHash('sha1').updateOne(str).digest('hex');
     return str;
 }
 
@@ -81,7 +81,7 @@ function getAccessToken(db, callback) {
             if (token) {
                 var date = new Date();
                 var expire = (+date) + (token.expires_in - 600) * 1000;
-                db.collection('system').update({
+                db.collection('system').updateOne({
                     'name': 'weixin',
                 }, {
                     $set: {
@@ -112,7 +112,7 @@ function getJsapiTicket(db, access_token, expire, callback) {
         res.on('data', (d) => {
             var jsapiTicket = JSON.parse(d.toString());
             if (jsapiTicket.errcode == 0 && jsapiTicket.ticket) {
-                db.collection('system').update({
+                db.collection('system').updateOne({
                     'name': 'weixin',
                 }, {
                     $set: {

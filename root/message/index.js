@@ -32,7 +32,7 @@ var render = function () {
         });
 
         var getCount = new Promise(function (resolve, reject) {
-            db.collection('blog_message').count(function (err, count) {
+            db.collection('blog_message').estimatedDocumentCount(function (err, count) {
                 data.totalPage = Math.ceil(count / perPage);
                 resolve();
             });

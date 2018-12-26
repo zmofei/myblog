@@ -17,7 +17,7 @@ https.get(options, (res) => {
         const info = JSON.parse(data)
         if (info) {
             Mongo.open(function (db) {
-                db.collection('system').update({
+                db.collection('system').updateOne({
                     key: 'github',
                 }, {
                     $set: {

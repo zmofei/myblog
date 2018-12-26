@@ -17,7 +17,7 @@ var post = function() {
         Mongo.open(function(db) {
             var collection = 'blog_message';
             var id = post.commentid;
-            db.collection(collection).update({ _id: ObjectID(id) }, {
+            db.collection(collection).updateOne({ _id: ObjectID(id) }, {
                 $inc: { like: 1 }
             }, function(err, doc) {
                 if (err) {
