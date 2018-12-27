@@ -1015,6 +1015,9 @@ body a {
     .message-login input {
         width: 95%;
     }
+    .blog-money {
+        display: none;
+    }
 }
 
 .blog {
@@ -1063,5 +1066,15 @@ body a {
     }
     span {
         vertical-align: middle;
+    }
+}
+
+.blog-money {
+    border-top: 1px solid #f4f4f4;
+    border-bottom: 1px solid #f4f4f4;
+    text-align: right;
+    padding: 5px 0;
+    img {
+        width: 700px;
     }
 }
