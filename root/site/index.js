@@ -38,9 +38,7 @@ var render = function () {
             "state": {
                 $in: ["0", 0, null]
             }
-        }, {
-            _id: 1,
-        }, {
+        },{
             sort: {
                 _id: -1
             }

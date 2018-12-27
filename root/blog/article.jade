@@ -60,20 +60,22 @@ block content
                         div.commend-time
                             time= timeStr
 
-                div.blog-content!= blog.html
+                .blog-content!= blog.html
+                .blog-money
+                    img(src= host + "/image/blog/money.png")
             section.article-tags
                 each tag in tags
                     a(href="/blog/1?tags=" + tag.classid)= tag.classname
             section.article-info 
                 .article-fns
                     .article-info-makegood.article-fns-block#makegood &#xe903;
-                    .article-info-award.article-fns-block 
-                        span 赏
-                        .article-info-award-box
-                            img(src= host + "/image/blog/alipay.jpg")
-                            img(src= host + "/image/blog/wechat.jpg")
-                            .article-info-award-arrow
-                    
+                    //- .article-info-award.article-fns-block 
+                        //- span 赏
+                        //- .article-info-award-box
+                        //-     img(src= host + "/image/blog/alipay.jpg")
+                        //-     img(src= host + "/image/blog/wechat.jpg")
+                        //-     .article-info-award-arrow
+                
                 span.article-info-icon &#xe900;
                 span= blog.visited
                 span.article-info-icon &nbsp;&#xe903;
@@ -132,6 +134,3 @@ block content
     section.index-copyright
         div.index-copyright-bottom
             include ../copyright.jade
-    //- script(src="https://buttons.github.io/buttons.js")
-    //- script(src="//res.wx.qq.com/open/js/jweixin-1.2.0.js")
-    //- script(src= host + "/js/component/wx_share.main.js")
