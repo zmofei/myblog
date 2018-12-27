@@ -14,3 +14,9 @@ before_deploy:
 - eval "$(ssh-agent -s)"
 - chmod 600 /tmp/id_rsa
 - ssh-add /tmp/id_rsa
+
+ db.createUser({user:'zhuwenlong_com_admin', pwd:'pXL7ebyRCZGJbb', roles:[ "read", "readWrite", "dbOwner" ]})
+
+
+use zhuwenlong_com
+ db.auth('zhuwenlong_com_admin','pXL7ebyRCZGJbb')

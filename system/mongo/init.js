@@ -16,18 +16,19 @@ var open = (function() {
       cb && callbacks.push(cb);
       if (!connectionStatus) {
         // connect to the db
-        const dbName = config.db.dbName;
+        const dbName = config.db.dbName || 'zhuwenlong_com';
         const url = `mongodb://${process.env.DBADDRESS || '127.0.0.1'}:27017/${dbName}`;
         console.log('connect to ', url);
         console.log('user ', config.db.user);
         console.log('password ', config.db.pwd);
-        MongoClient.connect(url, {
-          useNewUrlParser: true,
-          auth: {
+        const connectInfo = { useNewUrlParser: true };
+        if (config.db.user && config.db.pwd) {
+          connectInfo.auth = {
             user: config.db.user,
             password: config.db.pwd
           }
-        }, function(err, _db) {
+        }
+        MongoClient.connect(url, connectInfo, function(err, _db) {
           //   console.log(_db);
           if (err) {
             console.log('mongodb authenticate error ', err);
