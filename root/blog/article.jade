@@ -61,8 +61,8 @@ block content
                             time= timeStr
 
                 .blog-content!= blog.html
-                .blog-money
-                    img(src= host + "/image/blog/money.png")
+                    .blog-money
+                        img(src= host + "/image/blog/money.png")
             section.article-tags
                 each tag in tags
                     a(href="/blog/1?tags=" + tag.classid)= tag.classname
