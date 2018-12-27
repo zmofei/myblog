@@ -17,7 +17,7 @@ var render = function () {
         if (info.username && info.password) {
             const secret = 'mofei';
             const password = crypto.createHmac('sha256', secret)
-                .updateOne(info.password)
+                .update(info.password)
                 .digest('hex');
             Mongo.open(function (db) {
                 db.collection('blog_user').find({

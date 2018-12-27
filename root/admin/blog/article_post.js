@@ -2,8 +2,45 @@ var Mongo = require('../../../system/mongo/init.js');
 
 var qs = require('querystring');
 
-var post = function() {
+function getDB() {
+  return new Promise(resolve => {
+    Mongo.open(function(db) {
+      resolve(db);
+    });
+  })
+}
 
+function insertBlog(db, data) {
+  return new Promise(resolve => {
+    db.collection('blog')
+      .insertOne(data, (err, res) => {
+        resolve(res);
+      })
+  })
+}
+
+function updateClassCount(db, classid) {
+  return new Promise(resolve => {
+    db.collection('blog')
+      .countDocuments({
+        state: {
+          $in: ["0", 0, null]
+        },
+        classid: { $in: [classid] }
+      }, (err, count) => {
+        db.collection('blog_class')
+          .updateOne({ classid }, {
+            $set: { classcount: count }
+          }, function(err, doc) {
+            console.log(err)
+            console.log(`update ${classid} with ${count}`)
+            resolve();
+          });
+      })
+  })
+}
+
+var post = function() {
   var self = this;
 
   var body = '';
@@ -14,87 +51,37 @@ var post = function() {
     }
   });
 
-  this.req.on('end', function() {
+  this.req.on('end', async function() {
     var post = qs.parse(body);
 
-    Mongo.open(function(db) {
-      let postClass = [];
-      if (post.class) {
-        classIds = typeof post.class === 'string' ? [post.class] : post.class;
-        postClass = classIds.map(classid => Number(classid))
-      }
-      db.collection('blog').insertOne({
-        "classid": postClass,
-        "state": post.state,
-        "content": post.content,
-        "title": post.title,
-        "pubtime": new Date(),
-      }, function(err, res) {
-        if (err) {
-          self.response.json({
-            code: 400,
-            data: post
-          });
-        } else {
-          self.response.json({
-            code: 200,
-            data: post
-          });
-        }
-      });
+    // get post class
+    let postClass = [];
+    if (post.class) {
+      classIds = typeof post.class === 'string' ? [post.class] : post.class;
+      postClass = classIds.map(classid => Number(classid))
+    }
 
-      // update class
-      if (postClass && postClass.length > 0) {
-        // classid
-        var classIds = postClass;
-        classIds.forEach(classid => {
-          db.collection('blog').countDocuments({
-            state: {
-              $in: ["0", 0, null]
-            },
-            classid: { $in: [classid] }
-          }, function(err, count) {
-            console.log(classid, count);
-            var classCollection = db.collection('blog_class');
-            classCollection.updateOne({ classid: classid }, {
-              $set: { classcount: count }
-            }, function(err, doc) {
-              console.log(err)
-            });
-          });
-        });
+    const db = await getDB();
 
-
-      }
-
+    // insert blog
+    await insertBlog(db, {
+      "classid": postClass,
+      "state": post.state,
+      "content": post.content,
+      "title": post.title,
+      "pubtime": new Date(),
     });
-  })
 
-  // Mongo.open(function (db) {
-  //     // var classCollection = db.collection('blog_class');
-  //     // var data = {};
-  //     // var getBlogClass = new Promise(function (resolve, reject) {
-  //     //     classCollection.find({}).toArray(function (err, docs) {
-  //     //         var blogClass = {};
-  //     //         for (var i in docs) {
-  //     //             blogClass[docs[i].classid] = docs[i];
-  //     //         }
-  //     //         data.blogClass = blogClass;
-  //     //         resolve();
-  //     //     });
-  //     // });
-  //     // this.res.writeHead(200, {
-  //     //     'Content-Type': 'text/plain'
-  //     // });
-  //     self.response.json({
-  //         msg: 'got it'
-  //     });
-  //     // Promise.all([getBlogClass]).then(function (val) {
-  //     // self.jade.render({
-  //     // data: data
-  //     // });
-  //     // });
-  // });
+    // update class count
+    postClass.forEach(async classId => {
+      await updateClassCount(db, classId);
+    });
+
+    self.response.json({
+      code: 200,
+      data: post
+    });
+  });
 }
 
 exports.post = post;

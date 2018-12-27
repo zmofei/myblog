@@ -1,17 +1,22 @@
 # myblog
 
-new version of my blog http://www.zhuwenlong.com
+This is the source code of my blog https://zhuwenlong.com aka https://himofei.com
 
-use the new webserver for Node.js `Dufing` https://github.com/zmofei/dufing
+This repo is using the new webserver for Node.js `Dufing` https://github.com/zmofei/dufing
 
 ## Deploy
 
+push the code to `deploy` branch to deploy.
+
+or run the commend manually
+
 ```
-node app.js
+bash deploy.sh
 ```
 
 ## Dev
 
 ```
-NODE_ENV=dev node app.js
+npm run dev   // start dev server
+npm run dev:static  // start static bulid
 ```
