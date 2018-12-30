@@ -57,7 +57,6 @@ block content
                     div.commend-info
                         div.commend-name
                             a(href="https://www.zhuwenlong.com" rel="author") Mofei Zhu 
-                            a(class="github-button" href="https://github.com/zmofei" style="display:none"  data-show-count="true" aria-label="Follow @zmofei on GitHub") Follow @zmofei
                         div.commend-time
                             time= timeStr
                     //- if (github&&false)
@@ -146,10 +145,6 @@ block content
                     div.commend-replay-box
                         div.commend-replay-box-text(contenteditable=true)!= '@' + comment.name + '&nbsp;&nbsp;'
                         btn.commend-replay-box-btn(id=comment._id) Replay
-
-       
     section.index-copyright
         div.index-copyright-bottom
             include ../copyright.en.jade
-    <!-- Place this tag in your head or just before your close body tag. -->
-    script(defer src="https://buttons.github.io/buttons.js")
