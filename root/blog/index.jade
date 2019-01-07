@@ -6,6 +6,14 @@ block title
 block css
     link(rel="stylesheet" href= host + "/css/blog.css")
 
+block javascriptBeforeLoad
+    script(async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js")
+    script.
+      (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-0645475852185063",
+        enable_page_level_ads: true
+      });
+
 block javascript
     script(src= host + "/js/tools/utility.js")
     script(src= host + "/js/blog/index.js")
