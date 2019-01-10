@@ -69,9 +69,6 @@ block content
                 .blog-content!= blog.html
                     .blog-money
                         img(src= host + "/image/blog/money.png")
-                    ins.adsbygoogle(style="display:block" data-ad-client="ca-pub-0645475852185063" data-ad-slot="7966810114" data-ad-format="auto" data-full-width-responsive="true")
-                    script.
-                        (adsbygoogle = window.adsbygoogle || []).push({});
             section.article-tags
                 each tag in tags
                     a(href="/blog/1?tags=" + tag.classid)= tag.classname
