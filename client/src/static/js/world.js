@@ -80,9 +80,9 @@ let pixelRatio;
 
 let eventPoints = {};
 
-let wave = (function() {
+let wave = (function () {
   let radius = 0;
-  return function() {
+  return function () {
     let pos = false;
     for (let i in eventPoints) {
       let eventPOS = i.split('_');
@@ -129,6 +129,7 @@ let wave = (function() {
 })();
 
 function showInfo(x, y) {
+  console.log(111)
   let index = x + '_' + y;
   let data = eventPoints[index];
   if (data) {
@@ -197,7 +198,7 @@ function app(dom, config) {
   ctxWave = canvasGenerate();
   ctxPoint = canvasGenerate();
 
-  _box.addEventListener('mousemove', function(e) {
+  _box.addEventListener('mousemove', function (e) {
     let width = ctxActivePoint.canvas.width / pixelRatio / grid_y;
     let height = ctxActivePoint.canvas.height / pixelRatio / grid_x;
     let x = e.offsetX;
@@ -208,7 +209,7 @@ function app(dom, config) {
     drawEventPoint();
   });
 
-  _box.addEventListener('click', function(e) {
+  _box.addEventListener('click', function (e) {
     let width = ctxActivePoint.canvas.width / pixelRatio / grid_y;
     let height = ctxActivePoint.canvas.height / pixelRatio / grid_x;
     let x = e.offsetX;
@@ -243,7 +244,7 @@ function canvasGenerate() {
 function drawMap() {
   ctxMap.clearRect(0, 0, ctxMap.canvas.width, ctxMap.canvas.height);
   ctxMap.fillStyle = '#87bce1'
-    // console.log(ctxMap.)
+  // console.log(ctxMap.)
   for (let i = 1; i < grid_x; i++) {
     if (grid[i]) {
       for (let j in grid[i]) {
@@ -277,14 +278,15 @@ function drawActivePoint() {
 // draw event point 
 function drawEventPoint() {
   let hover = false;
+
   ctxPoint.clearRect(0, 0, ctxPoint.canvas.width, ctxPoint.canvas.height);
   for (let i in eventPoints) {
-    let pos = i.split('_');
+    let pos = i.split('_').map(i => Number(i));
     let x = Math.round(pos[0] * gridWidth + gridWidth / 2.5 / 2);
     let y = Math.round(pos[1] * gridHeight + gridWidth / 2.5 / 2);
     ctxPoint.beginPath();
     let grd = ctxPoint.createLinearGradient(x, y, x, y + 5);
-
+    // console.log(eventX, eventY, pos[0])
     if (eventX === pos[0] && eventY === pos[1]) {
       grd.addColorStop(0, "#3bc705");
       grd.addColorStop(1, "#6ce73c");
@@ -298,7 +300,7 @@ function drawEventPoint() {
     ctxPoint.arc(x, y, 5, 0, Math.PI * 2)
     ctxPoint.fill();
   }
-
+  console.log(hover)
   if (hover) {
     showInfo(hover[0], hover[1]);
   } else {
@@ -321,7 +323,7 @@ function adjustRatio(ctx) {
   ctx.scale(pixelRatio, pixelRatio);
 };
 
-app.prototype.add = function(pos, option) {
+app.prototype.add = function (pos, option) {
   let index = pos[0] + '_' + pos[1];
   eventPoints[index] = eventPoints[index] || [];
   eventPoints[index].push(option);
