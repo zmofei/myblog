@@ -16,7 +16,4 @@
     "url": "https://github.com/zmofei/myblog/issues"
   },
   "homepage": "https://github.com/zmofei/myblog#readme",
-  "dependencies": {
-    "npx": "^10.2.0"
-  }
 }

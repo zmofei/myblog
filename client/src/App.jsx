@@ -13,6 +13,7 @@ function BasicExample() {
 
       <Route exact path="/" component={Home} />
       <Route exact path="/blog" component={Blog} />
+      <Route exact path="/blog/article/:id" component={Blog} />
     </Router>
   );
 }
