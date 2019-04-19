@@ -1,13 +1,18 @@
 import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import Home from './home/home';
 import Nav from './commons/nav';
+import Home from './home/home';
+import Blog from './blog/blog';
 
 function BasicExample() {
   return (
     <Router>
-      <Nav />
+      <Route children={({ location }) => (
+        <Nav path={location.pathname} />
+      )} />
+
       <Route exact path="/" component={Home} />
+      <Route exact path="/blog" component={Blog} />
     </Router>
   );
 }

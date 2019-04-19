@@ -16,7 +16,6 @@ h2 {
     background: rgba(0, 0, 0, 0.4);
     height: 50px;
     line-height: 50px;
-    overflow: hidden;
     position: absolute;
     top: 0;
     left: 0;
@@ -53,6 +52,85 @@ h2 {
                 color: #fff;
                 margin: 0 8px;
             }
+        }
+    }
+    .global-nav-btn {
+        background: none;
+        border: none;
+        display: none;
+        outline: none;
+        position: absolute;
+        right: 0;
+        top: 0;
+        line-height: 35px;
+        vertical-align: middle;
+        font-size: 14px;
+        color: #fff;
+        text-decoration: none;
+        font-weight: bold;
+        padding: 5px;
+    }
+    .global-nav-btn:after {
+        content: ' ';
+        width: 40px;
+        height: 40px;
+        float: right;
+        background: url('../static/img/index/bars.svg') no-repeat center;
+    }
+    &.dark {
+        background: rgba(0, 0, 0, 0.8);
+    }
+}
+
+@media (max-width: 800px) {
+    .head {
+        .nav {
+            display: none;
+            margin-right: 0;
+            width: 100%;
+            position: absolute;
+            top: 50px;
+            z-index: 1000;
+            li {
+                float: none;
+                a {
+                    display: block;
+                    background: rgba(249, 251, 248, 0.8);
+                    margin: 0;
+                    padding: 0 10px;
+                    color: #333;
+                    text-align: center;
+                    border-bottom: 1px solid #F1F1F1;
+                    font-size: 18px;
+                }
+            }
+        }
+        .global-nav-btn {
+            display: block;
+        }
+        .global-nav-text {
+            overflow: visible;
+        }
+        .global-nav-text-logo {
+            margin-left: 10px;
+        }
+        .global-nav-text-link {
+            display: none;
+            margin-right: 0;
+            width: 100%;
+            position: absolute;
+            top: 50px;
+            z-index: 1000;
+        }
+        .global-nav-text-link li a {
+            display: block;
+            background: rgba(249, 251, 248, 0.8);
+            margin: 0;
+            padding: 0 10px;
+            color: #333;
+            text-align: center;
+            border-bottom: 1px solid #F1F1F1;
+            font-size: 18px;
         }
     }
 }
