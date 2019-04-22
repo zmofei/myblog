@@ -36,9 +36,9 @@ function Home() {
       url: '/api/emailmessage',
       method: 'post',
       data: {
-        username: username.value,
-        email: email.value,
-        message: message.value
+        username: username.current.value,
+        email: email.current.value,
+        message: message.current.value
       },
       success: function (data) {
         setMsgState(() => 2);
