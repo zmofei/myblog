@@ -1,9 +1,8 @@
 import React, { useEffect, useState, useRef } from "react";
 import CSS from './home.module.scss';
-import http from '../commons/http.js';
-
 import logo from '../static/img/index/logo.png';
 import world from '../static/js/world.js';
+import axios from 'axios';
 
 function Home() {
   const [msgState, setMsgState] = useState(0); // 0: ready 1: sending 2: sended 3: faild
@@ -32,40 +31,69 @@ function Home() {
     if (msgState === 1) return;
     setMsgState(() => 1);
 
-    http({
-      url: '/api/emailmessage',
-      method: 'post',
-      data: {
-        username: username.current.value,
-        email: email.current.value,
-        message: message.current.value
-      },
-      success: function (data) {
-        setMsgState(() => 2);
-        for (var i in inputs) {
-          inputs[i].current.value = '';
-        }
-
-        tips.current.innerText = 'Message sended';
-        tips.current.style.color = '#A5A5A5';
-        tips.current.style.opacity = 1;
-        setTimeout(function () {
-          tips.current.style.opacity = 0;
-        }, 2000);
-      },
-      error: function (data) {
-        setMsgState(() => 3);
-        for (var i in inputs) {
-          inputs[i].current.removeAttribute('disabled');
-        }
-        tips.current.innerText = 'Message send failed, Please try again';
-        tips.current.style.color = '#FF5F5F';
-        tips.current.style.opacity = 1;
-        setTimeout(function () {
-          tips.current.style.opacity = 0;
-        }, 4000);
+    axios.post('/api/emailmessage', {
+      username: username.current.value,
+      email: email.current.value,
+      message: message.current.value
+    }).then(res => {
+      setMsgState(() => 2);
+      for (var i in inputs) {
+        inputs[i].current.value = '';
       }
+
+      tips.current.innerText = 'Message sended';
+      tips.current.style.color = '#A5A5A5';
+      tips.current.style.opacity = 1;
+      setTimeout(function () {
+        tips.current.style.opacity = 0;
+      }, 2000);
+    }).catch(e => {
+      setMsgState(() => 3);
+      for (var i in inputs) {
+        inputs[i].current.removeAttribute('disabled');
+      }
+      tips.current.innerText = 'Message send failed, Please try again';
+      tips.current.style.color = '#FF5F5F';
+      tips.current.style.opacity = 1;
+      setTimeout(function () {
+        tips.current.style.opacity = 0;
+      }, 4000);
     })
+
+    // http({
+    //   url: '/api/emailmessage',
+    //   method: 'post',
+    //   data: {
+    //     username: username.current.value,
+    //     email: email.current.value,
+    //     message: message.current.value
+    //   },
+    //   success: function (data) {
+    //     setMsgState(() => 2);
+    //     for (var i in inputs) {
+    //       inputs[i].current.value = '';
+    //     }
+
+    //     tips.current.innerText = 'Message sended';
+    //     tips.current.style.color = '#A5A5A5';
+    //     tips.current.style.opacity = 1;
+    //     setTimeout(function () {
+    //       tips.current.style.opacity = 0;
+    //     }, 2000);
+    //   },
+    //   error: function (data) {
+    //     setMsgState(() => 3);
+    //     for (var i in inputs) {
+    //       inputs[i].current.removeAttribute('disabled');
+    //     }
+    //     tips.current.innerText = 'Message send failed, Please try again';
+    //     tips.current.style.color = '#FF5F5F';
+    //     tips.current.style.opacity = 1;
+    //     setTimeout(function () {
+    //       tips.current.style.opacity = 0;
+    //     }, 4000);
+    //   }
+    // })
   }
 
 

@@ -1,6 +1,6 @@
 const nodemailer = require('nodemailer');
 
-module.exports = function (req, res, next) {
+module.exports = function(req, res, next) {
   console.log({
     user: process.env.EmailUser,
     pass: process.env.EmailPwd,
@@ -23,7 +23,7 @@ module.exports = function (req, res, next) {
   mailOptions.html = '<p>来至' + req.body.username + (req.body.email ? '(' + req.body.email + ')' : '') + '的留言：</p>'
   mailOptions.html += '<p>' + req.body.message + '</p>';
 
-  transporter.sendMail(mailOptions, function (err, info) {
+  transporter.sendMail(mailOptions, function(err, info) {
     if (err) {
       res.json({
         code: 500,
@@ -31,7 +31,8 @@ module.exports = function (req, res, next) {
       })
     } else {
       res.json({
-        code: 200, text: info
+        code: 200,
+        text: info
       })
     }
   })
