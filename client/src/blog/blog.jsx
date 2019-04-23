@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import CSS from './blog.module.scss';
 import axios from 'axios';
+import moment from 'moment';
 
 function Blog() {
   const [tag, setTag] = useState(null);
@@ -30,6 +31,22 @@ function Blog() {
     }
   }
 
+  function getBlogClass(classinfo) {
+    if (classinfo.length > 0) {
+      return (
+        <div className={CSS["blog-tag"]}>&#xe901; Tags: &nbsp;
+          {
+            classinfo.map(info => (
+              <a href={`/blog/1?tags=${info.classid}`}>{info.classname}</a>
+            ))
+          }
+        </div>
+      )
+    } else {
+      return '';
+    }
+  }
+
   function getBlogLists() {
     if (blogLists && blogLists.length > 0) {
       return blogLists.map(blog => (
@@ -38,26 +55,24 @@ function Blog() {
             <a href={`/blog/article/${blog._id}`}>
               <h2>{blog.title}</h2>
             </a>
-            <div className={CSS["blog-tag"]}>&#xe901; Tags: &nbsp;
-              <a href="/blog/1?tags=100">JavaScript</a>
-              <a href="/blog/1?tags=350">前端基础</a>
-            </div>
+            {getBlogClass(blog.classid)}
             <a href="/blog/article/5c36ba26b95a0e17952cffd6">
-              <div className={CSS["blog-review"]}>经常处理财务数据的朋友可能会遇到这样一个需求：给定一个数值，转换成固定的长度的字符串，不足的地方前面补零，比如  123   &gt;  000123 。通常我们会尝试这样的做法：let num   123;// 把数值转换成字符串let numStr    num.toString();let strLen   5;// ...
+              <div className={CSS["blog-review"]}>
+                {blog.content}...
               </div>
             </a>
             <div className={CSS["blog-info"]}>
               <div className={CSS["blog-time"]}>
                 <span>&#xe904;</span>
-                <span>2019-01-10</span>
+                <span>{moment(blog.pubtime).format('YYYY-MM-DD HH:mm:ss')}</span>
               </div>
               <div className={CSS["blog-read"]}>
                 <span>&#xe900; </span>
-                <span>522 </span>
+                <span>{blog.visited} </span>
                 <span>&#xe903; </span>
-                <span>1 </span>
+                <span>{blog.like} </span>
                 <span>&#xe902; </span>
-                <span>230</span>
+                <span>{blog.comment}</span>
               </div>
             </div>
           </div>
