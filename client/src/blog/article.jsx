@@ -6,6 +6,7 @@ import moment from 'moment';
 
 import avatra from '../static/img/avatar.jpg';
 import blogMoney from '../static/img/blog/money.png';
+import Message from '../commons/message.jsx';
 
 function Article(props) {
   const id = props.match.params.id;
@@ -80,7 +81,10 @@ function Article(props) {
               </section>
             </section>
           </section>
-        </div >
+          <section className={CSS.message}>
+            <Message />
+          </section>
+        </div>
       )
     } else {
       return ''

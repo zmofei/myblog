@@ -141,6 +141,7 @@ function Blog(props) {
   }
 
   function getPageNav() {
+    if (!(blogLists && blogLists.length > 0)) return false;
     const start = Math.max(1, page.current - 2);
     const end = Math.min(page.total, page.current + 2);
     const pageArr = [];
