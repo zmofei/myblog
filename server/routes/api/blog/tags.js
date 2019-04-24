@@ -7,7 +7,7 @@ module.exports = async function(req, res, next) {
   const blogClassC = DB.collection('blog_class');
   const blogC = DB.collection('blog');
 
-  const all = await Promise.all([blogClassC.find({}).toArray(), blogC.countDocuments()])
+  const all = await Promise.all([blogClassC.find({}, { sort: { rank: 1 } }).toArray(), blogC.countDocuments()])
   const list = all[0];
 
   list.unshift({
