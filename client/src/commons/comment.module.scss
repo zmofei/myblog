@@ -231,43 +231,6 @@
     color: #fff;
 }
 
-@media (max-width: 800px) {
-    .commend {
-        // padding: 0 20px;
-    }
-    .commend-pub {
-        padding: 10px 20px;
-        margin-bottom: 1px;
-    }
-    .commend-pub .commend-avatar img {
-        height: 30px;
-        width: 30px;
-    }
-    .commend-pub-text {
-        height: 30px;
-        line-height: 30px;
-        font-size: 16px;
-    }
-    .commend-block {
-        padding: 10px 20px;
-        margin-bottom: 0;
-        border-bottom: 1px solid #f3f3f3;
-        border-top: 1px solid #ffffff;
-    }
-    .commend-avatar img {
-        width: 40px;
-        height: 40px;
-    }
-    .commend-name {
-        height: 20px;
-        line-height: 20px;
-    }
-    .commend-time {
-        height: 20px;
-        line-height: 20px;
-    }
-}
-
 .popbox {
     position: fixed;
     top: 0;

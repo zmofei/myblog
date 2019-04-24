@@ -10,14 +10,31 @@ import blogMoney from '../static/img/blog/money.png';
 function Article(props) {
   const id = props.match.params.id;
   const [blog, setBlog] = useState(null);
+  const [like, setLike] = useState(0);
+  const [isLike, setIsLike] = useState(false);
   useEffect(() => {
     axios.get(`/api/blog/article/${id}`)
       .then(res => {
         setBlog(() => {
           return res.data.data;
         })
+        setLike(() => {
+          return res.data.data.like
+        })
       })
   }, [])
+
+  function likeArticle(id) {
+    if (isLike) return false;
+    axios.post(`/api/blog/like/${id}`)
+      .then(res => {
+        setLike(like => {
+          return like += 1;
+        })
+
+        setIsLike(() => true)
+      })
+  }
 
   function getBlog() {
     if (blog) {
@@ -49,12 +66,14 @@ function Article(props) {
                 }
                 <section className={CSS["article-info"]}>
                   <div className={CSS["article-fns"]}>
-                    <div className={`${CSS["article-info-makegood"]} ${CSS["article-fns-block"]}`} id="makegood">&#xe903;</div>
+                    <div
+                      className={`${CSS["article-info-makegood"]} ${CSS["article-fns-block"]} ${isLike ? CSS.active : ''}`}
+                      onClick={() => { likeArticle(blog._id) }}>&#xe903;</div>
                   </div>
                   <span className={CSS["article-info-icon"]}>&#xe900;</span>
                   <span>{blog.visited}</span>
                   <span className={CSS["article-info-icon"]}>&nbsp;&#xe903;</span>
-                  <span className={CSS["count"]} id="goodCount">{blog.like}</span>
+                  <span className={CSS["count"]} id="goodCount">{like}</span>
                   <span className={CSS["article-info-icon"]}>&nbsp;&#xe902;</span>
                   <span>{blog.comment}</span>
                 </section>
@@ -68,7 +87,7 @@ function Article(props) {
     }
   }
 
-  return getBlog()
+  return getBlog();
 }
 
 export default Article;
