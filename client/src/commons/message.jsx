@@ -6,14 +6,19 @@ import nobody from '../static/img/nobody.jpg';
 
 function Message() {
     if (!Cookie.get('userinfo')) {
-        Cookie.set('userinfo', { username: `游客_` + Math.round(Math.random('1') * 10e3) }, { expires: 999999 })
+        Cookie.set('userinfo', {
+            username: `游客_` + Math.round(Math.random('1') * 10e3),
+            isInit: true
+        }, { expires: 999999 })
     }
+
     const [userinfo, setUserinfo] = useState(Cookie.getJSON('userinfo'));
     const [changingUserinfo, setChangingUserinfo] = useState(false);
 
     function updateUserinfo(key, value) {
         setUserinfo(info => {
             const newInfo = { ...info };
+            newInfo.isInit = false;
             newInfo[key] = value;
             Cookie.set('userinfo', newInfo, { expires: 999999 })
             return newInfo;
@@ -34,9 +39,14 @@ function Message() {
                                     onClick={() => {
                                         setChangingUserinfo(!changingUserinfo)
                                     }}>
-                                    {userinfo.username} {changingUserinfo ? '' : '[修改昵称]'}
+                                    <span>{userinfo.username} </span>
+                                    <span>
+                                        {(changingUserinfo || !userinfo.isInit) ? '' : <span>&#xe900;</span>}
+                                    </span>
                                 </div>
-                                <div className={CSS["commend-input-box"]} style={{ display: (changingUserinfo ? 'block' : 'none') }}>
+                                <div className={CSS["commend-input-box"]} style={{
+                                    display: (changingUserinfo ? 'block' : 'none')
+                                }}>
                                     <input
                                         type="text"
                                         placeholder="昵称"
