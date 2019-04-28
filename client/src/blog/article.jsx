@@ -43,7 +43,7 @@ function Article(props) {
         <>
           <section className={CSS.message}>
             <div className={CSS.messageBox}>
-              <Message />
+              <Message id={id} />
             </div>
           </section>
           <div className={CSS.articleBody}>

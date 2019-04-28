@@ -1,10 +1,6 @@
 const nodemailer = require('nodemailer');
 
 module.exports = function(req, res, next) {
-  console.log({
-    user: process.env.EmailUser,
-    pass: process.env.EmailPwd,
-  })
   const transporter = nodemailer.createTransport({
     service: 'QQex', // no need to set host or port etc.
     auth: {

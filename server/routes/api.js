@@ -7,6 +7,7 @@ router.get('/blog/tags', require('./api/blog/tags'));
 router.get('/blog/lists', require('./api/blog/list'));
 router.get('/blog/article/:id', require('./api/blog/article'));
 router.post('/blog/like/:id', require('./api/blog/like'));
+router.post('/blog/message', require('./api/blog/message'));
 
 
 
