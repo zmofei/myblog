@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import CSS from './message.module.scss';
 import Cookie from 'js-cookie';
 import axios from 'axios';
@@ -44,13 +45,24 @@ function Message(props) {
 
 
     function updateUserinfo(key, value) {
-        setUserinfo(info => {
-            const newInfo = { ...info };
-            newInfo.isInit = false;
-            newInfo[key] = value;
-            Cookie.set('userinfo', newInfo, { expires: 999999 })
-            return newInfo;
-        });
+        if (key === 'reset') {
+            setUserinfo(info => {
+                const userinfo = {
+                    name: `游客_` + Math.round(Math.random('1') * 10e3),
+                    isInit: true
+                };
+                Cookie.set('userinfo', userinfo, { expires: 999999 })
+                return userinfo;
+            });
+        } else {
+            setUserinfo(info => {
+                const newInfo = { ...info };
+                newInfo.isInit = false;
+                newInfo[key] = value;
+                Cookie.set('userinfo', newInfo, { expires: 999999 })
+                return newInfo;
+            });
+        }
     }
 
     function repPbulish() {
@@ -102,7 +114,7 @@ function Message(props) {
                     }}>
                     <span>{userinfo.name} </span>
                     <span>
-                        {(changingUserinfo || !userinfo.isInit) ? '' : <span>&#xe900;</span>}
+                        {(changingUserinfo || !userinfo.isInit) ? '' : <span>&#xe906;</span>}
                     </span>
                 </div>
                 <div className={CSS["commend-input-box"]} style={{
@@ -114,7 +126,13 @@ function Message(props) {
                         value={userinfo.name}
                         onChange={e => {
                             updateUserinfo('name', e.target.value)
-                        }} />
+                        }}
+                        onBlur={e => {
+                            if (e.target.value === '') {
+                                updateUserinfo('reset');
+                            }
+                        }
+                        } />
                     <input
                         type="text"
                         placeholder="邮箱（选填，用以展示头像和接收回复信息）"
@@ -201,8 +219,15 @@ function Message(props) {
                                     <div className={CSS["commend-info"]}>
                                         <div className={CSS["commend-name"]}>
                                             {l.blog ?
-                                                <a href={l.blog} target="_blank" rel="noopener noreferrer">{l.name} </a> :
-                                                <span>{l.name} </span>
+                                                <Link
+                                                    to={{
+                                                        pathname: `/api/jump`,
+                                                        search: `?url=${l.blog}`,
+                                                    }}
+                                                    target="_blank"
+                                                >
+                                                    {l.name}&nbsp;
+                                                </Link> : <span>{l.name} </span>
                                             }
                                             <span className={CSS["commend-time"]}>
                                                 {moment(l.time).format('YYYY-MM-DD HH:mm:ss')}
@@ -241,7 +266,6 @@ function Message(props) {
                             </div>
                         )
                     })}
-
                 </section>
             </section>
         </>

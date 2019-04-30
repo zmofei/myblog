@@ -10,6 +10,14 @@ router.post('/blog/like/:id', require('./api/blog/like'));
 router.post('/blog/message', require('./api/blog/message'));
 router.get('/blog/messagelist', require('./api/blog/messagelist'));
 
+router.get('/lib/getlist', require('./api/lab/lablist'));
+router.get('/links/getlist', require('./api/links/links'));
+router.get('/github/getinfo', require('./api/github/info'));
+
+
+
+router.get('/jump', require('./api/jump/jump'));
+
 
 
 

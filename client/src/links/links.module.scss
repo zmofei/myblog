@@ -1,0 +1,82 @@
+body a {
+    color: #f15623;
+    text-decoration: none;
+}
+
+.labBody {
+    padding: 50px 10px 0 10px;
+    background: #f7f7f7;
+}
+
+.lab {
+    max-width: 1200px;
+    min-width: 800px;
+    padding: 10px 0px 50px 0px;
+    box-sizing: border-box;
+    margin: 0 auto;
+}
+
+.lab-box {
+    overflow: hidden;
+    color: #333;
+}
+
+.lab-block {
+    float: left;
+    width: 30%;
+    margin: 1.5%;
+    // padding: 10px;
+    height: 400px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    background: white;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.lab-block img {
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    // margin-bottom: 10px;
+    background-position: center;
+    transition: all 0.4s ease-in;
+}
+
+.lab-block-title {
+    font-weight: bold;
+    padding-bottom: 5px;
+    display: inline-block;
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.lab-block-intro {
+    overflow: hidden;
+    // font-size: 14px;
+    // font-weight: 300;
+    color: #666;
+}
+
+.lab-block-author {
+    color: #666;
+    // font-size: 14px;
+    // line-height: 1.6em;
+}
+
+.lab-block-author a {
+    display: inline-block;
+    margin: 0 5px;
+}
+
+.lab-block-addone {
+    overflow: hidden;
+}
+
+.lab-block-content {
+    padding: 10px;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 24px;
+    color: #777;
+}

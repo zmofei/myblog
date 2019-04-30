@@ -41,11 +41,6 @@ function Article(props) {
     if (blog) {
       return (
         <>
-          <section className={CSS.message}>
-            <div className={CSS.messageBox}>
-              <Message id={id} />
-            </div>
-          </section>
           <div className={CSS.articleBody}>
             <section className={CSS.blog}>
               <section className={CSS.article}>
@@ -88,6 +83,11 @@ function Article(props) {
               </section>
             </section>
           </div>
+          <section className={CSS.message}>
+            <div className={CSS.messageBox}>
+              <Message id={id} />
+            </div>
+          </section>
         </>
       )
     } else {

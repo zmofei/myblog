@@ -91,12 +91,24 @@ function Blog(props) {
   }
 
   function getBlogClass(classinfo) {
+    let { tags } = { ...getSearchObj() };
+    tags = (tags || '').split(',').map(t => Number(t));
     if (classinfo.length > 0) {
       return (
         <div className={CSS["blog-tag"]}>&#xe901; Tags: &nbsp;
           {
             classinfo.map(info => (
-              info && <a key={`blogclass_${info.classid}`} href={`/blog/1?tags=${info.classid}`}>{info.classname}</a>
+              info && (
+                <Link key={`blogclass_${info.classid}`}
+                  to={{
+                    pathname: `/blog/1`,
+                    search: `?tags=${info.classid}`
+                  }}
+                  className={tags.indexOf(info.classid) !== -1 ? CSS.active : ''}
+                >
+                  {info.classname}
+                </Link>
+              )
             ))
           }
         </div>
@@ -111,15 +123,23 @@ function Blog(props) {
       return blogLists.map(blog => (
         <div key={`blog_${blog._id}`} className={CSS["blog-content-block"]}>
           <div className={`${CSS["blog-content-text"]} ${CSS["noimg"]}`}>
-            <a href={`/blog/article/${blog._id}`}>
+            <Link
+              to={{
+                pathname: `/blog/article/${blog._id}`,
+              }}
+            >
               <h2>{blog.title}</h2>
-            </a>
+            </Link>
             {getBlogClass(blog.classid)}
-            <a href="/blog/article/5c36ba26b95a0e17952cffd6">
+            <Link
+              to={{
+                pathname: `/blog/article/5c36ba26b95a0e17952cffd6`,
+              }}
+            >
               <div className={CSS["blog-review"]}>
                 {blog.content}...
               </div>
-            </a>
+            </Link>
             <div className={CSS["blog-info"]}>
               <div className={CSS["blog-time"]}>
                 <span>&#xe904;</span>

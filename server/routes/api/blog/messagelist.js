@@ -6,7 +6,10 @@ const makred = require('marked');
 
 module.exports = async function(req, res, next) {
   const url_parts = url.parse(req.url, true);
-  const query = url_parts.query;
+  const query = url_parts.query || {};
+
+  const page = query.page || 1;
+  const pageNumber = query.pageNumber || 20;
 
   if (!query.id) {
     res.status(403).json({
@@ -18,12 +21,22 @@ module.exports = async function(req, res, next) {
   const DB = await mongoConnect();
   const blogCommentC = DB.collection('blog_comment');
 
-  const list = await blogCommentC.find({
-    blogid: mongodb.ObjectID(query.id)
-  }, { sort: { _id: -1 } }).toArray();
+  const list = await blogCommentC
+    .find({
+      blogid: mongodb.ObjectID(query.id)
+    }, {
+      skip: (page - 1) * pageNumber,
+      limit: pageNumber,
+      sort: { _id: -1 }
+    })
+    .toArray();
 
   res.json({
     state: 'ok',
-    list
+    list,
+    page: {
+      page,
+      pageNumber
+    }
   });
 }
