@@ -51,9 +51,11 @@
         font-family: sans-serif;
         animation: titlepos 1s ease-in;
     }
+
     svg {
         max-width: 1200px;
         margin: 0 auto;
+
         path {
             fill: rgba(0, 0, 0, 0);
             stroke: #fff;
@@ -62,11 +64,13 @@
             animation: title 4s ease-in forwards;
         }
     }
+
     h2 {
         font-size: 16px;
         color: #999;
         animation: titleh2 3s ease-in;
     }
+
     .cover-more {
         position: absolute;
         width: 50%;
@@ -75,6 +79,7 @@
         margin-left: -25%;
         // text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
     }
+
     .btn {
         position: absolute;
         bottom: 100px;
@@ -90,9 +95,11 @@
     background: rgba(255, 255, 255, 0.9);
     overflow: hidden;
     padding: 60px 0 80px;
+
     p {
         margin: 8px;
     }
+
     .img {
         margin: 0 auto 30px;
         text-align: center;
@@ -101,6 +108,7 @@
         height: 120px;
         border: 20px solid #fff;
         box-shadow: 0 0 1px #333;
+
         img {
             height: 0;
             width: 0;
@@ -191,6 +199,7 @@
     overflow: hidden;
     color: #333;
     background: rgba(255, 255, 255, 0.85);
+
     p {
         font-size: 16px;
         line-height: 1.6em;
@@ -206,6 +215,7 @@
     overflow: hidden;
     color: #ccc;
     position: relative;
+
     .btn {
         padding: 8px 0;
         width: 140px;
@@ -268,9 +278,11 @@
     padding: 50px 0;
     color: #fff;
     text-align: center;
+
     a {
         text-decoration: none;
     }
+
     .btn {
         height: 80px;
         width: 80px;
@@ -281,6 +293,7 @@
         padding: 10px;
         margin: 0 10px;
     }
+
     .btn:after {
         border-width: 2px;
         border-radius: 60px;
@@ -375,10 +388,12 @@
         stroke-dasharray: 1000;
         stroke-dashoffset: 1000;
     }
+
     80% {
         stroke-dashoffset: 0;
         fill: rgba(0, 0, 0, 0);
     }
+
     100% {
         stroke-dasharray: 1000;
         stroke-dashoffset: 0;
@@ -391,6 +406,7 @@
         margin-top: -250px;
         opacity: 0;
     }
+
     100% {
         margin-top: -280px;
         opacity: 1;
@@ -401,10 +417,18 @@
     0% {
         opacity: 0;
     }
+
     80% {
         opacity: 0;
     }
+
     100% {
         opacity: 1;
     }
+}
+
+
+.copyright {
+    background: none !important;
+    color: #fff !important;
 }

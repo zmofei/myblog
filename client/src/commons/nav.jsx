@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import React, { useRef } from "react";
 import logo from '../static/img/logo-ico.png'
 import CSS from './nav.module.scss'
@@ -19,25 +19,25 @@ function nav(props) {
       <button className={CSS['global-nav-btn']} id="navTar" onClick={onClickMenu} />
       <ul className={CSS.nav} ref={navDom} >
         <li>
-          <Link to="/">首页</Link>
+          <NavLink to="/" exact={true} activeClassName={CSS.active} >首页</NavLink>
         </li>
         <li>
-          <Link to="/blog">博客</Link>
+          <NavLink to="/blog" activeClassName={CSS.active}>博客</NavLink>
         </li>
         <li>
-          <Link to="/lab">实验室</Link>
+          <NavLink to="/lab" activeClassName={CSS.active}>实验室</NavLink>
         </li>
         <li>
-          <Link to="/message">留言</Link>
+          <NavLink to="/message" activeClassName={CSS.active}>留言</NavLink>
         </li>
         <li>
-          <Link to="/links">小伙伴</Link>
+          <NavLink to="/NavLinks" activeClassName={CSS.active}>小伙伴</NavLink>
         </li>
         <li>
-          <Link to="/topics">English</Link>
+          <NavLink to="/topics" activeClassName={CSS.active}>English</NavLink>
         </li>
         <li>
-          <Link to="/rss">RSS</Link>
+          <NavLink to="/rss" activeClassName={CSS.active}>RSS</NavLink>
         </li>
       </ul>
     </div>

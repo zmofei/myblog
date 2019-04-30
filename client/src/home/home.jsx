@@ -4,6 +4,9 @@ import logo from '../static/img/index/logo.png';
 import world from '../static/js/world.js';
 import axios from 'axios';
 
+import Copyright from '../commons/copyright';
+
+
 function Home() {
   const [msgState, setMsgState] = useState(0); // 0: ready 1: sending 2: sended 3: faild
   // for scroll
@@ -234,6 +237,7 @@ function Home() {
         </div>
         <div className={CSS['index-copyright-bottom']}></div>
       </section>
+      <Copyright className={CSS.copyright}/>
     </div>
   )
 }

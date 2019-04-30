@@ -222,7 +222,7 @@ function Message(props) {
                                                 <Link
                                                     to={{
                                                         pathname: `/api/jump`,
-                                                        search: `?url=${l.blog}`,
+                                                        search: `?url=${l.blog.indexOf('http') !== -1 ? l.blog : `http://${l.blog}`}`,
                                                     }}
                                                     target="_blank"
                                                 >

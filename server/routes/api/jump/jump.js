@@ -2,13 +2,14 @@ const mongodb = require('mongodb');
 const mongoConnect = require('../../../server/mongo');
 const url = require('url');
 
-const allowModules = ['lab'];
+const allowModules = { 'lab': { type: 'visited' } };
 
 async function jump(req, res) {
   const url_parts = url.parse(req.url, true);
   const query = url_parts.query;
+  const isSameHost = req.header('Referer') && req.header('Referer').indexOf(req.host) !== -1;
   if (query.url) {
-    if (query.module && allowModules.indexOf(query.module) !== -1 && query.id && query.type) {
+    if (query.module && query.id && query.type && allowModules[uery.module] && allowModules[uery.module][query.type] && isSameHost) {
       const DB = await mongoConnect();
       const collection = DB.collection(query.module);
       const inc = { $inc: {} };
