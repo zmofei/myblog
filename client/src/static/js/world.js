@@ -129,7 +129,6 @@ let wave = (function () {
 })();
 
 function showInfo(x, y) {
-  console.log(111)
   let index = x + '_' + y;
   let data = eventPoints[index];
   if (data) {
@@ -216,7 +215,6 @@ function app(dom, config) {
     let y = e.offsetY;
     activeX = Math.floor(x / width);
     activeY = Math.floor(y / height);
-    console.log(activeX, activeY);
   });
 
   drawMap();
@@ -300,7 +298,6 @@ function drawEventPoint() {
     ctxPoint.arc(x, y, 5, 0, Math.PI * 2)
     ctxPoint.fill();
   }
-  console.log(hover)
   if (hover) {
     showInfo(hover[0], hover[1]);
   } else {

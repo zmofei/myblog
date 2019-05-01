@@ -199,7 +199,7 @@ function Message(props) {
                     </div>
                     {messageList.map(l => {
                         return (
-                            <div
+                            <div key={`comment_${l._id}`}
                                 className={`${CSS["commend-pub"]} ${l._id === activeMessage ? CSS['commend-active'] : ''}`}
                                 onMouseEnter={() => {
                                     setActiveMessage(() => {

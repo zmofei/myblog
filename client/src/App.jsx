@@ -26,9 +26,7 @@ function BasicExample() {
       <Route exact path="/message" component={Message} />
 
       <Route path="/" render={(props) => {
-        console.log(props)
         if (props.location.pathname !== '/') {
-          console.log('111')
           return <Copyright />
         }
       }} />
