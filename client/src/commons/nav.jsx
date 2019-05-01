@@ -37,7 +37,9 @@ function nav(props) {
           <NavLink to="/english" activeClassName={CSS.active}>English</NavLink>
         </li>
         <li>
-          <NavLink to="/rss" target="_blank" activeClassName={CSS.active}>RSS</NavLink>
+          <NavLink to="/rss" target="_blank" activeClassName={CSS.active}>
+            <img src="https://static.zhuwenlong.com/image/rss-square-d89b0a91c3.svg" />
+          </NavLink>
         </li>
       </ul>
     </div>
