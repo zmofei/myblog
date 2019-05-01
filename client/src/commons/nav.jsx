@@ -31,10 +31,10 @@ function nav(props) {
           <NavLink to="/message" activeClassName={CSS.active}>留言</NavLink>
         </li>
         <li>
-          <NavLink to="/NavLinks" activeClassName={CSS.active}>小伙伴</NavLink>
+          <NavLink to="/Links" activeClassName={CSS.active}>小伙伴</NavLink>
         </li>
         <li>
-          <NavLink to="/topics" activeClassName={CSS.active}>English</NavLink>
+          <NavLink to="/english" activeClassName={CSS.active}>English</NavLink>
         </li>
         <li>
           <NavLink to="/rss" activeClassName={CSS.active}>RSS</NavLink>
