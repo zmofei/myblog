@@ -18,6 +18,8 @@ router.get('/github/getinfo', require('./api/github/info'));
 
 router.get('/jump', require('./api/jump/jump'));
 
+router.get('/rss', require('./rss/rss'));
+
 
 
 

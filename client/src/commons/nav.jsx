@@ -1,4 +1,4 @@
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import React, { useRef } from "react";
 import logo from '../static/img/logo-ico.png'
 import CSS from './nav.module.scss'
@@ -31,13 +31,13 @@ function nav(props) {
           <NavLink to="/message" activeClassName={CSS.active}>留言</NavLink>
         </li>
         <li>
-          <NavLink to="/Links" activeClassName={CSS.active}>小伙伴</NavLink>
+          <NavLink to="/links" activeClassName={CSS.active}>小伙伴</NavLink>
         </li>
         <li>
           <NavLink to="/english" activeClassName={CSS.active}>English</NavLink>
         </li>
         <li>
-          <NavLink to="/rss" activeClassName={CSS.active}>RSS</NavLink>
+          <NavLink to="/rss" target="_blank" activeClassName={CSS.active}>RSS</NavLink>
         </li>
       </ul>
     </div>
