@@ -7,6 +7,7 @@ import Article from './blog/article';
 import Lab from './lab/lab';
 import Links from './links/links';
 import Message from './message/message';
+import Copyright from './commons/copyright';
 
 
 function BasicExample() {
@@ -23,6 +24,14 @@ function BasicExample() {
       <Route exact path="/lab" component={Lab} />
       <Route exact path="/links" component={Links} />
       <Route exact path="/message" component={Message} />
+
+      <Route path="/" render={(props) => {
+        console.log(props)
+        if (props.location.pathname !== '/') {
+          console.log('111')
+          return <Copyright />
+        }
+      }} />
     </Router>
   );
 }
