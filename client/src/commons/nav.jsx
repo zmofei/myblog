@@ -11,7 +11,7 @@ function nav(props) {
   }
 
   return (
-    <div className={`${CSS.head} ${(props.path === '/' ? '' : CSS.dark)}`}>
+    <div className={`${CSS.head} ${(props.path === '/' ? CSS.index : CSS.dark)}`}>
       <div className={CSS.logo}>
         <img src={logo} alt="logo"></img>
         <span>Hi! I'm Mofei!</span>

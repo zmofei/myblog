@@ -6,7 +6,6 @@ import axios from 'axios';
 
 import Copyright from '../commons/copyright';
 
-
 function Home() {
   const [msgState, setMsgState] = useState(0); // 0: ready 1: sending 2: sended 3: faild
   // for scroll
@@ -87,7 +86,7 @@ function Home() {
       [96, 24, '古格王朝'],
       [100, 26, '拉萨'],
       [104, 21, '西宁'],
-      [114, 37, 'Semporna [2018/03/02 - 2018/03/07]'],
+      [114, 37, 'Semporna [18/03/02 6-days]'],
       [135, 60, 'Auckland'],
       [135, 60, 'Waitomo'],
       [135, 60, 'Matamata'],
@@ -97,8 +96,8 @@ function Home() {
       [131, 63, 'Queenstown'],
       [131, 63, 'Dunedin'],
       [130, 63, 'Te Anau'],
-      [28, 19, 'Washington, DC [2018/03/24 - 2018/03/31]'],
-      [8, 21, 'San Francisco [2018/04/01 - 2018/04/08]'],
+      [28, 19, 'Washington, DC [18/03/24 8-days]'],
+      [8, 21, 'San Francisco [18/04/01]'],
       [106, 33, 'Bangkok'],
       [10, 24, 'Los Angeles']
     ]
@@ -142,12 +141,13 @@ function Home() {
               <path d="M881.9,155.7V51.1h7.1v104.6H881.9z"></path>
             </g>
           </svg>
-          <h2>Open a coffee shop, travel around the world, that should be my life. </h2>
+          <h2>开一家有故事的咖啡店, 讲述着我环游世界的故事, 这才应该是我的生活。 </h2>
         </div>
         <button className={`${CSS.btn} ${CSS['cover-more']}`} id="More" onClick={onClickMore}>More</button>
       </section>
       <section className={CSS['index-about']}>
-        <h2>WHO AM I.</h2>
+        <h2>我是谁</h2>
+        <h3>成为一个有趣的人</h3>
         <div className={CSS['index-about-who']}>
           <div className={`${CSS['index-about-block']} ${CSS['index-about-identity']}`}>
             <div className={CSS.img}></div>
@@ -170,13 +170,13 @@ function Home() {
         </div>
       </section>
       <section className={CSS['index-travel']}>
-        <h2>Travel around the world.</h2>
-        <h3>That's one of my LIFE GOAL</h3>
+        <h2>环游世界</h2>
+        <h3>这是我的人生目标之一</h3>
         <div className={CSS['index-travel-world']} id="map"></div>
       </section>
       <section className={CSS['index-coffee']}>
-        <h2>A Dream follower.</h2>
-        <h3>This world , should a coffee shop called mofei</h3>
+        <h2>一个追梦者</h2>
+        <h3>在这个世界上，应该有一家叫莫非的咖啡店</h3>
         <p>我想有家咖啡馆。</p>
         <p>不用很大，慵懒的午后，刚好能容下一群怀揣着梦想的追梦者。</p>
         <p>要有相片，散步在屋里的各个角落，总能吸引眼球，细细品味，这才是人生。</p>
@@ -237,7 +237,7 @@ function Home() {
         </div>
         <div className={CSS['index-copyright-bottom']}></div>
       </section>
-      <Copyright className={CSS.copyright}/>
+      <Copyright className={CSS.copyright} />
     </div>
   )
 }
