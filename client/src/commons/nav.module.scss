@@ -6,6 +6,14 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: "icomoon";
+    src: url("../static/font/icomoon.eot?eyv41e");
+    src: url("../static/font/icomoon.eot?eyv41e#iefix") format("embedded-opentype"), url("../static/font/icomoon.ttf?eyv41e") format("truetype"), url("../static/font/icomoon.woff?eyv41e") format("woff"), url("../static/font/icomoon.svg?eyv41e#icomoon") format("svg");
+    font-weight: normal;
+    font-style: normal;
+}
+
 body,
 h1,
 h2 {
@@ -53,6 +61,7 @@ h2 {
             list-style: none;
 
             a {
+                font-family: "icomoon";
                 text-decoration: none;
                 color: #fff;
                 margin: 0 8px;
@@ -62,9 +71,7 @@ h2 {
                 vertical-align: middle;
 
                 &.active {
-
                     font-weight: bolder;
-                    // text-decoration: ;
                 }
 
                 img {
@@ -126,6 +133,20 @@ h2 {
                     text-align: center;
                     border-bottom: 1px solid #F1F1F1;
                     font-size: 18px;
+                }
+            }
+        }
+
+        &.dark {
+            .nav {
+                li a {
+                    color: #fff;
+                    background: rgba(51, 51, 51, 0.95);
+                    border-bottom: 1px solid #484848;
+
+                    img {
+                        fill: red;
+                    }
                 }
             }
         }

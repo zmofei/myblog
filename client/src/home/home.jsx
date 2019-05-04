@@ -8,17 +8,23 @@ import Copyright from '../commons/copyright';
 
 
 function Home() {
+  const screenHeight = document.body.clientHeight || document.documentElement.clientHeight;
   const [msgState, setMsgState] = useState(0); // 0: ready 1: sending 2: sended 3: faild
   // for scroll
-  const scrollbody = useRef(null);
+  const secondPage = useRef(null);
   const onClickMore = () => {
-    var toTop = document.body.clientHeight || document.documentElement.clientHeight;
-    var fromTop = scrollbody.current.scrollTop;
+    // secondPage.current.scrollIntoView();
+    // console.log(secondPage.current)
+    var fromTop = window.scrollY;
     var loop = setInterval(function () {
-      if ((fromTop += 40) >= toTop) {
-        clearInterval(loop)
+      if ((fromTop += screenHeight / 10) >= screenHeight) {
+        clearInterval(loop);
+        window.scrollTo(0, screenHeight);
+      } else {
+        window.scrollTo(0, fromTop);
       }
-      scrollbody.current.scrollTo(0, fromTop);
+      // console.log(fromTop)
+
     }, 16);
   }
 
@@ -108,10 +114,13 @@ function Home() {
       })
     });
 
+    return () => {
+      _map.destory();
+    }
   }, [])
 
   return (
-    <div className={CSS.homeBody} ref={scrollbody}>
+    <div className={CSS.homeBody} >
       <video className={CSS.videoBg} id="bgvid" autoPlay loop muted poster="//static.zhuwenlong.com/image/index/cover-820e030cca.jpg">
         <source src="//static.zhuwenlong.com/video/bgvideo-0c73e2c57a.mp4" type="video/mp4" />
         <source src="//static.zhuwenlong.com/video/bgvideo-513397179e.webm" type="video/webm" />
@@ -119,7 +128,7 @@ function Home() {
       </video>
       <div className={CSS.videobg}></div>
 
-      <section className={`${CSS.index} ${CSS.indexCover}`}>
+      <section className={`${CSS.index} ${CSS.indexCover}`} style={{ height: `${screenHeight}px` }} >
         <div className={CSS.title}>
           <svg
             id="title"
@@ -142,11 +151,11 @@ function Home() {
               <path d="M881.9,155.7V51.1h7.1v104.6H881.9z"></path>
             </g>
           </svg>
-          <h2>Open a coffee shop, travel around the world, that should be my life. </h2>
+          <h2><span>Open a coffee shop,</span><span> travel around the world,</span><span> that should be my life. </span></h2>
         </div>
         <button className={`${CSS.btn} ${CSS['cover-more']}`} id="More" onClick={onClickMore}>More</button>
       </section>
-      <section className={CSS['index-about']}>
+      <section className={CSS['index-about']} ref={secondPage}>
         <h2>WHO AM I.</h2>
         <div className={CSS['index-about-who']}>
           <div className={`${CSS['index-about-block']} ${CSS['index-about-identity']}`}>
@@ -220,14 +229,14 @@ function Home() {
           </div><span className={CSS['index-content-tips']} id="tips" ref={tips}>Message Sended</span>
         </div>
       </section>
-      <section className={CSS['index-media']}>
+      {/* <section className={CSS['index-media']}>
         <a className={CSS['btn']} href="http://weibo.com/zwl1027" target="_blank" rel="noopener noreferrer">微博</a>
         <a className={CSS['btn']} href="https://github.com/zmofei" target="_blank" rel="noopener noreferrer">Github</a>
         <span className={CSS['btn']} id="wechat">Wechat</span>
         <span className={CSS['btn']} id="qq">QQ</span>
         <a className={CSS['btn']} href="https://www.facebook.com/zhuwenlong" target="_blank" rel="noopener noreferrer">Facebook</a>
         <a className={CSS['btn']} href="https://www.linkedin.com/in/mofei-zhu-0a391476" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-      </section>
+      </section> */}
       <section className={CSS['index-copyright']}>
         <div className={CSS['index-copyright-top']}></div>
         <div className={CSS['index-copyright-mid']}>
@@ -237,7 +246,7 @@ function Home() {
         </div>
         <div className={CSS['index-copyright-bottom']}></div>
       </section>
-      <Copyright className={CSS.copyright}/>
+      <Copyright className={CSS.copyright} />
     </div>
   )
 }
