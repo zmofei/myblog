@@ -1,8 +1,12 @@
 .box {
-    padding: 50px 10px 0 10px;
-    max-width: 1200px;
-    margin: 0 auto;
     background: #f4f4f4;
+
+    .boxContent {
+        padding: 50px 10px 0 10px;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
 
     .messageBody {
         margin-right: 370px;
