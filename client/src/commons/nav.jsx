@@ -2,11 +2,16 @@ import { NavLink } from "react-router-dom";
 import React, { useRef } from "react";
 import logo from '../static/img/logo-ico.png'
 import CSS from './nav.module.scss'
+import Lan from '../i18n/languageMap.jsx';
+import { connect } from 'react-redux';
 
 function nav(props) {
   const navDom = useRef(null);
+  const navBtn = useRef(null);
   const onClickMenu = () => {
-    navDom.current.style.display = getComputedStyle(navDom.current).display === 'none' ? 'block' : 'none';
+    if (getComputedStyle(navBtn.current).display === 'block') {
+      navDom.current.style.display = getComputedStyle(navDom.current).display === 'none' ? 'block' : 'none';
+    }
   }
 
   return (
@@ -15,35 +20,62 @@ function nav(props) {
         <img src={logo} alt="logo"></img>
         <span>Hi! I'm Mofei!</span>
       </div>
-      <button className={CSS['global-nav-btn']} id="navTar" onClick={onClickMenu} />
+      <button className={CSS['global-nav-btn']} id="navTar" onClick={onClickMenu} ref={navBtn} />
       <ul className={CSS.nav} ref={navDom} >
         <li>
-          <NavLink to="/" exact={true} activeClassName={CSS.active} onClick={onClickMenu}>首页</NavLink>
+          <NavLink to="/" exact={true} activeClassName={CSS.active} onClick={onClickMenu}>
+            <Lan mouduleName="nav.index" />
+          </NavLink>
         </li>
         <li>
-          <NavLink to="/blog" activeClassName={CSS.active} onClick={onClickMenu}>博客</NavLink>
+          <NavLink to="/blog" activeClassName={CSS.active} onClick={onClickMenu}>
+            <Lan mouduleName="nav.blog" />
+          </NavLink>
         </li>
         <li>
-          <NavLink to="/lab" activeClassName={CSS.active} onClick={onClickMenu}>实验室</NavLink>
+          <NavLink to="/lab" activeClassName={CSS.active} onClick={onClickMenu}>
+            <Lan mouduleName="nav.lab" />
+          </NavLink>
         </li>
         <li>
-          <NavLink to="/message" activeClassName={CSS.active} onClick={onClickMenu}>留言</NavLink>
+          <NavLink to="/message" activeClassName={CSS.active} onClick={onClickMenu}>
+            <Lan mouduleName="nav.message" />
+          </NavLink>
         </li>
         <li>
-          <NavLink to="/links" activeClassName={CSS.active} onClick={onClickMenu}>小伙伴</NavLink>
+          <NavLink to="/links" activeClassName={CSS.active} onClick={onClickMenu}>
+            <Lan mouduleName="nav.links" />
+          </NavLink>
         </li>
         <li>
-          <NavLink to="/english" activeClassName={CSS.active} onClick={onClickMenu}>English</NavLink>
+          <NavLink to="/english" activeClassName={CSS.active} onClick={() => {
+            props.changeLan(props.lan === 'en' ? 'zh' : 'en');
+          }}>
+            <Lan mouduleName="nav.lan" />
+          </NavLink>
         </li>
         <li>
-          <NavLink to="/rss" target="_blank" activeClassName={CSS.active} onClick={onClickMenu}>
+          <NavLink to={`/rss?lan=${props.lan}`} target="_blank" activeClassName={CSS.active} onClick={onClickMenu}>
             &#xe905;
           </NavLink>
         </li>
       </ul>
     </div>
-
   )
 }
 
-export default nav;
+const mapStateToProps = ({ lan }) => ({
+  lan
+});
+
+const mapDispatchToProps = dispatch => ({
+  changeLan: lan => dispatch({
+    type: 'SET_LANGUAGE',
+    lan
+  })
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(nav);

@@ -8,28 +8,35 @@ import Lab from './lab/lab';
 import Links from './links/links';
 import Message from './message/message';
 import Copyright from './commons/copyright';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
 
+import lan from './reducers/lan.js';
+
+const store = createStore(lan);
 
 function BasicExample() {
   return (
-    <Router>
-      <Route children={({ location }) => (
-        <Nav path={location.pathname} />
-      )} />
+    <Router >
+      <Provider store={store}>
+        <Route children={({ location }) => (
+          <Nav path={location.pathname} />
+        )} />
 
-      <Route exact path="/" component={Home} />
-      <Route exact path="/blog" component={Blog} />
-      <Route exact path="/blog/:page" component={Blog} />
-      <Route exact path="/blog/article/:id" component={Article} />
-      <Route exact path="/lab" component={Lab} />
-      <Route exact path="/links" component={Links} />
-      <Route exact path="/message" component={Message} />
+        <Route exact path="/" component={Home} />
+        <Route exact path="/blog" component={Blog} />
+        <Route exact path="/blog/:page" component={Blog} />
+        <Route exact path="/blog/article/:id" component={Article} />
+        <Route exact path="/lab" component={Lab} />
+        <Route exact path="/links" component={Links} />
+        <Route exact path="/message" component={Message} />
 
-      <Route path="/" render={(props) => {
-        if (props.location.pathname !== '/') {
-          return <Copyright />
-        }
-      }} />
+        <Route path="/" render={(props) => {
+          if (props.location.pathname !== '/') {
+            return <Copyright />
+          }
+        }} />
+      </Provider>
     </Router>
   );
 }

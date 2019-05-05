@@ -3,17 +3,16 @@ import CSS from './home.module.scss';
 import logo from '../static/img/index/logo.png';
 import world from '../static/js/world.js';
 import axios from 'axios';
+import { connect } from 'react-redux';
+import Lan from '../i18n/languageMap.jsx';
 
 import Copyright from '../commons/copyright';
 
 function Home() {
-  const screenHeight = document.body.clientHeight || document.documentElement.clientHeight;
+  const screenHeight = window.screen.height || document.body.clientHeight || document.documentElement.clientHeight;
   const [msgState, setMsgState] = useState(0); // 0: ready 1: sending 2: sended 3: faild
   // for scroll
-  const secondPage = useRef(null);
   const onClickMore = () => {
-    // secondPage.current.scrollIntoView();
-    // console.log(secondPage.current)
     var fromTop = window.scrollY;
     var loop = setInterval(function () {
       if ((fromTop += screenHeight / 10) >= screenHeight) {
@@ -22,8 +21,6 @@ function Home() {
       } else {
         window.scrollTo(0, fromTop);
       }
-      // console.log(fromTop)
-
     }, 16);
   }
 
@@ -150,13 +147,15 @@ function Home() {
               <path d="M881.9,155.7V51.1h7.1v104.6H881.9z"></path>
             </g>
           </svg>
-          <h2>开一家有故事的咖啡店, 讲述着我环游世界的故事, 这才应该是我的生活。 </h2>
+          <h2>
+
+            <span><Lan mouduleName="home.page1.1" /></span><span>讲述着我环游世界的故事，</span><span>这才应该是我的生活。</span> </h2>
         </div>
-        <button className={`${CSS.btn} ${CSS['cover-more']}`} id="More" onClick={onClickMore}>More</button>
+        <button className={`${CSS.btn} ${CSS['cover-more']}`} id="More" onClick={onClickMore}>更多</button>
       </section>
       <section className={CSS['index-about']}>
         <h2>我是谁</h2>
-        <h3>成为一个有趣的人</h3>
+        <h3>我希望自己是一个有趣的人</h3>
         <div className={CSS['index-about-who']}>
           <div className={`${CSS['index-about-block']} ${CSS['index-about-identity']}`}>
             <div className={CSS.img}></div>
@@ -180,12 +179,12 @@ function Home() {
       </section>
       <section className={CSS['index-travel']}>
         <h2>环游世界</h2>
-        <h3>这是我的人生目标之一</h3>
+        <h3>探索，是我的人生目标之一，也是我的信仰</h3>
         <div className={CSS['index-travel-world']} id="map"></div>
       </section>
       <section className={CSS['index-coffee']}>
         <h2>一个追梦者</h2>
-        <h3>在这个世界上，应该有一家叫莫非的咖啡店</h3>
+        <h3>在这个世界上应该有一家叫莫非的咖啡店</h3>
         <p>我想有家咖啡馆。</p>
         <p>不用很大，慵懒的午后，刚好能容下一群怀揣着梦想的追梦者。</p>
         <p>要有相片，散步在屋里的各个角落，总能吸引眼球，细细品味，这才是人生。</p>
@@ -251,4 +250,10 @@ function Home() {
   )
 }
 
-export default Home;
+const mapStateToProps = ({ lan }) => ({
+  lan
+});
+
+export default connect(
+  mapStateToProps
+)(Home);

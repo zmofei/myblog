@@ -17,5 +17,5 @@ The server is using Express located in the `/server` folder.
 To start server, you need to `cd server` and run `npm start`, before you run the sever you may need to set the ENV for the server, here is a example:
 
 ```
-MongoURL='' MongoUser='' MongoPwd='' EmailUser='' EmailPwd='' npm start
+DBURL='***' DBUser='***' DBPwd='***' DBUser='***' DBName='***' EmailUser='***' EmailPwd='***' npm start
 ```
