@@ -24,34 +24,34 @@ function nav(props) {
       <ul className={CSS.nav} ref={navDom} >
         <li>
           <NavLink to="/" exact={true} activeClassName={CSS.active} onClick={onClickMenu}>
-            <Lan mouduleName="nav.index" />
+            <Lan en="Index" zh="首页" />
           </NavLink>
         </li>
         <li>
           <NavLink to="/blog" activeClassName={CSS.active} onClick={onClickMenu}>
-            <Lan mouduleName="nav.blog" />
+            <Lan en="Blog" zh="博客" />
           </NavLink>
         </li>
         <li>
           <NavLink to="/lab" activeClassName={CSS.active} onClick={onClickMenu}>
-            <Lan mouduleName="nav.lab" />
+            <Lan en="Lab" zh="实验室" />
           </NavLink>
         </li>
         <li>
           <NavLink to="/message" activeClassName={CSS.active} onClick={onClickMenu}>
-            <Lan mouduleName="nav.message" />
+            <Lan en="Message" zh="留言" />
           </NavLink>
         </li>
         <li>
           <NavLink to="/links" activeClassName={CSS.active} onClick={onClickMenu}>
-            <Lan mouduleName="nav.links" />
+            <Lan en="Friends" zh="小伙伴" />
           </NavLink>
         </li>
         <li>
-          <NavLink to="/english" activeClassName={CSS.active} onClick={() => {
+          <NavLink to="#" activeClassName={CSS.active} onClick={() => {
             props.changeLan(props.lan === 'en' ? 'zh' : 'en');
           }}>
-            <Lan mouduleName="nav.lan" />
+            <Lan en="中文" zh="English" />
           </NavLink>
         </li>
         <li>
