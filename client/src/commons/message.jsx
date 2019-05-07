@@ -5,6 +5,8 @@ import Cookie from 'js-cookie';
 import axios from 'axios';
 import md5 from 'spark-md5';
 import moment from 'moment';
+import { connect } from 'react-redux';
+
 
 let avatarInvertId = 0;
 
@@ -15,10 +17,14 @@ function getListByID(id, callback) {
         })
 }
 
+function lanSwitch(obj, lan) {
+    return obj[lan];
+}
+
 function Message(props) {
     if (!Cookie.get('userinfo')) {
         Cookie.set('userinfo', {
-            name: `游客_` + Math.round(Math.random('1') * 10e3),
+            name: `${lanSwitch({ en: 'Guest', zh: '游客' }, props.lan)}_` + Math.round(Math.random('1') * 10e3),
             isInit: true
         }, { expires: 999999 })
     }
@@ -48,7 +54,7 @@ function Message(props) {
         if (key === 'reset') {
             setUserinfo(info => {
                 const userinfo = {
-                    name: `游客_` + Math.round(Math.random('1') * 10e3),
+                    name: `${lanSwitch({ en: 'Guest', zh: '游客' }, props.lan)}_` + Math.round(Math.random('1') * 10e3),
                     isInit: true
                 };
                 Cookie.set('userinfo', userinfo, { expires: 999999 })
@@ -67,7 +73,7 @@ function Message(props) {
 
     function repPbulish() {
         if (!repMessage) {
-            alert('没写东西，不许你回复！！');
+            alert(lanSwitch({ en: 'No writing, no reply!!', zh: "没写东西，不许你回复！！" }, props.lan));
         } else {
             axios
                 .post('/api/blog/message', { message: repMessage, id: props.id, avatar, replyID })
@@ -78,7 +84,7 @@ function Message(props) {
                     setRepMessage(() => '');
                     setActiveMessage(() => '');
                     setReplyID(() => '');
-                    alert('发布成功啦！');
+                    alert(lanSwitch({ en: 'Send Succesfully', zh: "发布成功啦！" }, props.lan));
                 })
                 .catch(e => {
                     alert(e.response.data.err);
@@ -88,7 +94,7 @@ function Message(props) {
 
     function usePbulish() {
         if (!message) {
-            alert('你啥都就没写呐');
+            alert(lanSwitch({ en: 'You didn\'t write anything', zh: "你啥都就没写呐" }, props.lan));
         } else {
             axios
                 .post('/api/blog/message', { message, id: props.id, avatar })
@@ -97,7 +103,7 @@ function Message(props) {
                         setmessageList(() => rst);
                     });
                     setMessage(() => '');
-                    alert('发布成功啦！');
+                    alert(lanSwitch({ en: 'Send Succesfully', zh: "发布成功啦！" }, props.lan));
                 })
                 .catch(e => {
                     alert(e.response.data.err);
@@ -122,7 +128,7 @@ function Message(props) {
                 }}>
                     <input
                         type="text"
-                        placeholder="昵称"
+                        placeholder={lanSwitch({ en: 'Name', zh: "昵称" }, props.lan)}
                         value={userinfo.name}
                         onChange={e => {
                             updateUserinfo('name', e.target.value)
@@ -135,7 +141,7 @@ function Message(props) {
                         } />
                     <input
                         type="text"
-                        placeholder="邮箱（选填，用以展示头像和接收回复信息）"
+                        placeholder={lanSwitch({ en: 'Email [optional]', zh: "邮箱（选填，用以展示头像和接收回复信息）" }, props.lan)}
                         value={userinfo.email}
                         onChange={e => {
                             const emailVal = e.target.value;
@@ -157,7 +163,7 @@ function Message(props) {
                         }} />
                     <input
                         type="text"
-                        placeholder="网站（选填，友情链接）"
+                        placeholder={lanSwitch({ en: 'Website [optional]', zh: "网站（选填，友情链接）" }, props.lan)}
                         value={userinfo.blog} onChange={e => {
                             updateUserinfo('blog', e.target.value)
                         }} />
@@ -184,16 +190,22 @@ function Message(props) {
                                     <div className={CSS["commend-input-box"]}>
                                         <textarea
                                             className={CSS.textarea}
-                                            placeholder="写点什么吧（ 👻支持MarkDown哦 )"
+                                            placeholder={
+                                                lanSwitch({ en: 'Let\'s write something (👻 we are support MarkDown)', zh: '写点什么吧（ 👻支持MarkDown哦 )' }, props.lan)
+                                            }
                                             onChange={e => {
                                                 const value = e.target.value;
                                                 localStorage.setItem('message', value);
                                                 setMessage(() => value)
                                             }} value={message} />
-                                        <button className={CSS['commend-pub-btn']} onClick={usePbulish}>发布</button>
+                                        <button className={CSS['commend-pub-btn']} onClick={usePbulish}>
+                                            {lanSwitch({ en: 'Send', zh: '发布' }, props.lan)}
+                                        </button>
                                     </div>
                                 </div>
-                                <div style={{ display: active ? 'none' : '' }} className={CSS["commend-pub-text"]} id="commendTips">留言...</div>
+                                <div style={{ display: active ? 'none' : '' }} className={CSS["commend-pub-text"]} id="commendTips">
+                                    {lanSwitch({ en: 'Leave a message', zh: '留言...' }, props.lan)}
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -238,7 +250,7 @@ function Message(props) {
                                                     setReplyID(() => l._id)
                                                 }}
                                             >
-                                                &#xe8af; 回复
+                                                &#xe8af; {lanSwitch({ en: 'Reply', zh: "回复" }, props.lan)}
                                             </div>
                                         </div>
                                     </div>
@@ -249,7 +261,7 @@ function Message(props) {
                                         {setUserInfo()}
                                         <textarea
                                             className={CSS.textarea}
-                                            placeholder="写点什么吧（ 👻支持MarkDown哦 )"
+                                            placeholder={lanSwitch({ en: 'Let\'s write something (👻 we are support MarkDown)', zh: '写点什么吧（ 👻支持MarkDown哦 )' }, props.lan)}
                                             onChange={e => {
                                                 const value = e.target.value;
                                                 localStorage.setItem('repMessage', value);
@@ -260,7 +272,9 @@ function Message(props) {
                                         <button
                                             className={CSS['commend-pub-btn']}
                                             onClick={() => { repPbulish() }}
-                                        >发布</button>
+                                        >
+                                            {lanSwitch({ en: 'Send ', zh: "发布" }, props.lan)}
+                                        </button>
                                     </div>
                                 </div>
                             </div>
@@ -272,4 +286,10 @@ function Message(props) {
     )
 }
 
-export default Message;
+const mapStateToProps = state => {
+    return { lan: state.lan };
+};
+
+export default connect(
+    mapStateToProps
+)(Message);

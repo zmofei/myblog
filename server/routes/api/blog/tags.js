@@ -13,6 +13,7 @@ module.exports = async function(req, res, next) {
   list.unshift({
     classname: '全部',
     classcount: all[1],
+    "classname-en": 'ALL'
   });
 
   res.json({

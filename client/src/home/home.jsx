@@ -8,6 +8,7 @@ import Lan from '../i18n/languageMap.jsx';
 import Copyright from '../commons/copyright';
 
 function Home() {
+  const isMobile = !!(document.body.clientWidth || document.documentElement.clientWidth) < 800
   const screenHeight = document.documentElement.clientHeight || document.body.clientHeight;
   const [msgState, setMsgState] = useState(0); // 0: ready 1: sending 2: sended 3: faild
   // for scroll
@@ -116,12 +117,16 @@ function Home() {
 
   return (
     <div className={CSS.homeBody} >
-      <video className={CSS.videoBg} id="bgvid" autoPlay loop muted poster="//static.zhuwenlong.com/image/index/cover-820e030cca.jpg">
-        <source src="//static.zhuwenlong.com/video/bgvideo-0c73e2c57a.mp4" type="video/mp4" />
-        <source src="//static.zhuwenlong.com/video/bgvideo-513397179e.webm" type="video/webm" />
-        <source src="//static.zhuwenlong.com/video/bgvideo-5428b1617d.ogv" type="video/ogg" />
-      </video>
-      <div className={CSS.videobg}></div>
+      <div className={CSS.videoBgMobile} style={{ height: `${screenHeight}px` }} ></div>
+      {!isMobile && (
+        <video className={CSS.videoBg} id="bgvid" autoPlay loop muted playsinline poster="//static.zhuwenlong.com/image/index/cover-820e030cca.jpg">
+          <source src="//static.zhuwenlong.com/video/bgvideo-0c73e2c57a.mp4" type="video/mp4" />
+          <source src="//static.zhuwenlong.com/video/bgvideo-513397179e.webm" type="video/webm" />
+          <source src="//static.zhuwenlong.com/video/bgvideo-5428b1617d.ogv" type="video/ogg" />
+        </video>
+      )}
+
+      <div className={CSS.videobg} style={{ height: `${screenHeight}px` }}></div>
 
       <section className={`${CSS.index} ${CSS.indexCover}`} style={{ height: `${screenHeight}px` }} >
         <div className={CSS.title}>
@@ -132,8 +137,8 @@ function Home() {
             xmlnsXlink='http://www.w3.org/1999/xlink'
             x="0px"
             y="0px"
-            viewBox="0 0 1000 200"
-            enableBackground="new 0 0 1000 200"
+            viewBox="50 40 950 160"
+            enableBackground="new 50 40 950 160"
             xmlSpace="preserve" >
             <g>
               <path d="M139.8,155.7V51.1h7.1v104.6H139.8z"></path>

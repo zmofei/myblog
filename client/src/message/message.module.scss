@@ -1,18 +1,14 @@
 .box {
     background: #f4f4f4;
-
     .boxContent {
         padding: 50px 10px 0 10px;
         max-width: 1200px;
         margin: 0 auto;
     }
-
-
     .messageBody {
         margin-right: 370px;
     }
 }
-
 
 .innderBox {
     position: relative;
@@ -39,19 +35,16 @@
         padding: 0 10px;
         vertical-align: middle;
         fill: rgba(255, 255, 255, 0.75);
-
         svg {
             vertical-align: middle;
             width: 22px;
             height: 22px;
         }
-
         span {
             vertical-align: middle;
             padding-left: 10px;
             display: inline-block;
         }
-
         a {
             float: right;
             padding: 5px 10px;
@@ -64,32 +57,43 @@
             margin-top: 7px;
         }
     }
-
     .content {
         overflow: hidden;
         background: white;
         font-size: 14px;
-
         a {
             display: inline-block;
             width: 33.3%;
             box-sizing: border-box;
             padding: 5px 0;
             border-right: 1px solid #eee;
-
             span {
                 line-height: 1.46em;
                 display: block;
                 text-align: center;
-
                 &.number {
                     font-weight: bolder;
                 }
             }
-
             &:last-child {
                 border: none;
             }
+        }
+    }
+}
+
+@media (max-width: 800px) {
+    .message-info {
+        position: relative;
+        width: auto;
+        margin: 0 auto;
+        right: auto;
+        top: auto;
+        margin-bottom: 20px;
+    }
+    .box {
+        .messageBody {
+            margin-right: 0px;
         }
     }
 }

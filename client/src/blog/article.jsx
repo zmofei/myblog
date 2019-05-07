@@ -7,6 +7,8 @@ import moment from 'moment';
 import avatra from '../static/img/avatar.jpg';
 import blogMoney from '../static/img/blog/money.png';
 import Message from '../commons/message.jsx';
+import Lan from '../i18n/languageMap.jsx';
+
 
 function Article(props) {
   const id = props.match.params.id;
@@ -45,7 +47,9 @@ function Article(props) {
             <section className={CSS.blog}>
               <section className={CSS.article}>
                 <section className={CSS["article-content"]}>
-                  <h1>{blog.title}</h1>
+                  <h1>
+                    <Lan en={blog['title-en'] || blog['title']} zh={blog.title} />
+                  </h1>
                   <div className={`${CSS["commend-user"]} ${CSS["article-pubinfo"]}`}>
                     <div className={CSS["commend-avatar"]}><img src={avatra} alt="avatar" /></div>
                     <div className={CSS["commend-info"]}>
@@ -58,7 +62,9 @@ function Article(props) {
                     </div>
                   </div>
                   <div className={CSS["blog-content"]}>
-                    <div dangerouslySetInnerHTML={{ __html: blog.html }} />
+                    <Lan
+                      en={<div dangerouslySetInnerHTML={{ __html: blog['html-en'] || blog.html }} />}
+                      zh={<div dangerouslySetInnerHTML={{ __html: blog.html }} />} />
                     <div className={CSS["blog-money"]}><img src={blogMoney} alt="sponsorship" /></div>
                   </div>
                 </section>
@@ -68,21 +74,22 @@ function Article(props) {
                     search: `?tags=${klass.classid}`
                   }}
                   >
-                    {klass.classname}
+                    <Lan en={klass['classname-en'] || klass['classname']} zh={klass.classname} />
                   </Link>)}
-                  <section className={CSS["article-info"]}>
-                    <div className={CSS["article-fns"]}>
-                      <div
-                        className={`${CSS["article-info-makegood"]} ${CSS["article-fns-block"]} ${isLike ? CSS.active : ''}`}
-                        onClick={() => { likeArticle(blog._id) }}>&#xe903;</div>
-                    </div>
-                    <span className={CSS["article-info-icon"]}>&#xe900;</span>
-                    <span>{blog.visited}</span>
-                    <span className={CSS["article-info-icon"]}>&nbsp;&#xe903;</span>
-                    <span className={CSS["count"]} id="goodCount">{like}</span>
-                    <span className={CSS["article-info-icon"]}>&nbsp;&#xe902;</span>
-                    <span>{blog.comment}</span>
-                  </section>
+                </section>
+                <section className={CSS["article-info"]}>
+                  <div className={CSS["article-fns"]}>
+                    <div
+                      className={`${CSS["article-info-makegood"]} ${CSS["article-fns-block"]} ${isLike ? CSS.active : ''}`}
+                      onClick={() => { likeArticle(blog._id) }}>&#xe903;</div>
+                  </div>
+                  <span className={CSS["article-info-icon"]}>&#xe900;</span>
+                  <span>{blog.visited}</span>
+                  <span className={CSS["article-info-icon"]}>&nbsp;&#xe903;</span>
+                  <span className={CSS["count"]} id="goodCount">{like}</span>
+                  <span className={CSS["article-info-icon"]}>&nbsp;&#xe902;</span>
+                  <span>{blog.comment}</span>
+
                 </section>
               </section>
             </section>

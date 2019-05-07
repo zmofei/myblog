@@ -80,3 +80,41 @@ body a {
     line-height: 24px;
     color: #777;
 }
+
+@media (max-width: 800px) {
+    .labBody {
+        padding-left: 0;
+        padding-right: 0;
+    }
+    // .lab {
+    //     padding: 10px;
+    // }
+    .lab-block-addone {
+        padding: 0 10px;
+    }
+    .global-nav-text-link li a {
+        color: #fff;
+        background: rgba(51, 51, 51, 0.95);
+        border-bottom: 1px solid #484848;
+    }
+    .lab {
+        min-width: 0;
+        margin: 0;
+        padding: 10px 0;
+        width: 100%;
+        box-sizing: border-box;
+        overflow: hidden;
+    }
+    .lab-block {
+        float: inherit;
+        width: auto;
+        padding: 0;
+        width: 100%;
+        height: auto;
+        margin: 0;
+        margin-bottom: 20px;
+    }
+    .lab-block img {
+        max-width: 100%;
+    }
+}

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import CSS from './lab.module.scss';
 import axios from 'axios';
+import Lan from '../i18n/languageMap.jsx';
 // import moment from 'moment';
 
 
@@ -60,12 +61,14 @@ function Lab(props) {
             }}
               target="_blank"
             >
-              {info.title}
+              <Lan en={info['title-en'] || info['title']} zh={info.title} />
             </Link>
           </div>
-          <div className={`${CSS["lab-block-intro"]}`}>{info.intro}</div>
+          <div className={`${CSS["lab-block-intro"]}`}>
+            <Lan en={info['intro-en'] || info['intro']} zh={info.intro} />
+          </div>
           <div className={`${CSS["lab-block-author"]}`}>
-            Author By: {info.author.map(a => (
+            <Lan en="Author By:" zh="作者：" /> {info.author.map(a => (
               <Link key={a.url} to={{
                 pathname: `/api/jump`,
                 search: `?url=${a.url}`

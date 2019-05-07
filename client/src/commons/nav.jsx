@@ -50,6 +50,7 @@ function nav(props) {
         <li>
           <NavLink to="#" activeClassName={CSS.active} onClick={() => {
             props.changeLan(props.lan === 'en' ? 'zh' : 'en');
+            onClickMenu();
           }}>
             <Lan en="中文" zh="English" />
           </NavLink>

@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 import CSS from './blog.module.scss';
 import axios from 'axios';
 import moment from 'moment';
+import Lan from '../i18n/languageMap.jsx';
 
 
-// console.log()
 let blogReqSource;
 
 function Blog(props) {
@@ -83,7 +83,7 @@ function Blog(props) {
             search: t.classid ? `?tags=${t.classid}` : ''
           }} >
           <span className={CSS.subNavIcon}>&#xe901;</span>
-          <span>{t.classname}</span>
+          <span><Lan en={t['classname-en'] || t['classname']} zh={t.classname} /></span>
           <span className={CSS.subNavCount}>{t.classcount}</span>
         </Link>
       ))
@@ -106,7 +106,7 @@ function Blog(props) {
                   }}
                   className={tags.indexOf(info.classid) !== -1 ? CSS.active : ''}
                 >
-                  {info.classname}
+                  <Lan en={info['classname-en'] || info['classname']} zh={info.classname} />
                 </Link>
               )
             ))
@@ -128,7 +128,7 @@ function Blog(props) {
                 pathname: `/blog/article/${blog._id}`,
               }}
             >
-              <h2>{blog.title}</h2>
+              <h2><Lan en={blog['title-en'] || blog['title']} zh={blog.title} /></h2>
             </Link>
             {getBlogClass(blog.classid)}
             <Link
@@ -137,7 +137,7 @@ function Blog(props) {
               }}
             >
               <div className={CSS["blog-review"]}>
-                {blog.content}...
+                <Lan en={blog['contentEn'] || blog['content']} zh={blog.content} />...
               </div>
             </Link>
             <div className={CSS["blog-info"]}>
@@ -187,8 +187,8 @@ function Blog(props) {
               search: (search ? `?tags=${search}` : '')
             }}
             className={`/blog/${page.current - 1}`}>
-            Previous
-            </Link>) : ''}
+            <Lan en="Previous" zh="上一页" />
+          </Link>) : ''}
         {page.current > 3 ? (
           <>
             <Link
@@ -214,7 +214,7 @@ function Blog(props) {
           <Link to={{
             pathname: `/blog/${page.current + 1}`,
             search: (search ? `?tags=${search}` : '')
-          }} className={`/blog/${page.current + 1}`}  >Next</Link>
+          }} className={`/blog/${page.current + 1}`}  ><Lan en="Next" zh="下一页" /></Link>
         ) : ''}
 
       </>
