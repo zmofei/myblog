@@ -1,3 +1,5 @@
+/* global gtag */
+
 import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Nav from './commons/nav';
@@ -31,7 +33,12 @@ function BasicExample() {
         <Route exact path="/links" component={Links} />
         <Route exact path="/message" component={Message} />
 
-        <Route path="/" render={(props) => {
+        <Route path="/" render={props => {
+          // google analystics
+          gtag('config', 'UA-109405512-1', {
+            'page_path': `${props.location.pathname}${props.location.search}`
+          });
+          // for copy right 
           if (props.location.pathname !== '/') {
             return <Copyright />
           }

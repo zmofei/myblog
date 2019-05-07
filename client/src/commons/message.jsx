@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import CSS from './message.module.scss';
 import Cookie from 'js-cookie';
@@ -6,14 +6,15 @@ import axios from 'axios';
 import md5 from 'spark-md5';
 import moment from 'moment';
 import { connect } from 'react-redux';
-
+import Page from '../commons/pageNumber';
 
 let avatarInvertId = 0;
 
-function getListByID(id, callback) {
-    axios.get(`/api/blog/messagelist?id=${id}`)
+function getListByID(id, page, callback) {
+    axios.get(`/api/blog/messagelist?id=${id}&pageNumber=20&page=${page.current}`)
         .then(res => {
-            callback(res.data.list || [])
+            // console.log(res.data.page)
+            callback(res.data || [])
         })
 }
 
@@ -29,6 +30,8 @@ function Message(props) {
         }, { expires: 999999 })
     }
 
+    const messageBox = useRef(null);
+    const [page, setPage] = useState({ current: 1, total: 1 });
     const [userinfo, setUserinfo] = useState(Cookie.getJSON('userinfo'));
     const [changingUserinfo, setChangingUserinfo] = useState(false);
     const [active, setActive] = useState(false);
@@ -44,10 +47,13 @@ function Message(props) {
     const [repMessage, setRepMessage] = useState(localStorage.getItem('repMessage') || '');
 
     useEffect(() => {
-        getListByID(props.id, rst => {
-            setmessageList(() => rst);
+        getListByID(props.id, page, rst => {
+            setmessageList(() => rst.list);
+            setPage(page => {
+                return Object.assign({}, page, { total: Math.ceil(rst.page.total / 20) });
+            });
         })
-    }, [])
+    }, [page.current])
 
 
     function updateUserinfo(key, value) {
@@ -78,8 +84,8 @@ function Message(props) {
             axios
                 .post('/api/blog/message', { message: repMessage, id: props.id, avatar, replyID })
                 .then(data => {
-                    getListByID(props.id, rst => {
-                        setmessageList(() => rst);
+                    getListByID(props.id, page, rst => {
+                        setmessageList(() => rst.list);
                     });
                     setRepMessage(() => '');
                     setActiveMessage(() => '');
@@ -99,8 +105,8 @@ function Message(props) {
             axios
                 .post('/api/blog/message', { message, id: props.id, avatar })
                 .then(data => {
-                    getListByID(props.id, rst => {
-                        setmessageList(() => rst);
+                    getListByID(props.id, page, rst => {
+                        setmessageList(() => rst.list);
                     });
                     setMessage(() => '');
                     alert(lanSwitch({ en: 'Send Succesfully', zh: "发布成功啦！" }, props.lan));
@@ -174,7 +180,7 @@ function Message(props) {
 
     return (
         <>
-            <section className={CSS["commend-box"]}>
+            <section className={CSS["commend-box"]} ref={messageBox}>
                 <section className={CSS["commend"]}>
                     <div className={CSS["commend-pub"]} onClick={() => { setActive(() => true) }}>
                         <div className={CSS["commend-pub-info"]}>
@@ -280,6 +286,18 @@ function Message(props) {
                             </div>
                         )
                     })}
+                    <Page
+                        type="search"
+                        total={page.total}
+                        current={page.current}
+                        pageChange={_page => {
+                            messageBox.current.scrollIntoView()
+                            setPage(page => {
+                                return Object.assign({}, page, { current: _page });
+                            });
+                        }}
+                        bacicPath='/message'
+                    />
                 </section>
             </section>
         </>

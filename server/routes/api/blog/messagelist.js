@@ -8,8 +8,8 @@ module.exports = async function(req, res, next) {
   const url_parts = url.parse(req.url, true);
   const query = url_parts.query || {};
 
-  const page = query.page || 1;
-  const pageNumber = query.pageNumber || 20;
+  const page = Number(query.page || 1);
+  const pageNumber = Number(query.pageNumber || 20);
 
   if (!query.id) {
     res.status(403).json({
@@ -31,12 +31,17 @@ module.exports = async function(req, res, next) {
     })
     .toArray();
 
+  const total = await blogCommentC
+    .countDocuments({
+      blogid: mongodb.ObjectID(query.id)
+    })
+
   res.json({
     state: 'ok',
     list,
     page: {
       page,
-      pageNumber
+      total
     }
   });
 }

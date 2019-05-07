@@ -4,7 +4,8 @@ import Message from '../commons/message.jsx';
 import axios from 'axios';
 import Lan from '../i18n/languageMap.jsx';
 
-function Article(props) {
+function MessagePage(props) {
+
   const id = '000000000000000000000000';
 
   const [github, setGithub] = useState({})
@@ -18,8 +19,8 @@ function Article(props) {
         })
       })
   }, []);
-  
-  function getBlog() {
+
+  function getMessage() {
     return (
       <div className={CSS.box}>
         <div className={CSS.boxContent}>
@@ -63,7 +64,7 @@ function Article(props) {
       </div>
     )
   }
-  return getBlog();
+  return getMessage();
 }
 
-export default Article;
+export default MessagePage;

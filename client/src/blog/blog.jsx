@@ -4,6 +4,7 @@ import CSS from './blog.module.scss';
 import axios from 'axios';
 import moment from 'moment';
 import Lan from '../i18n/languageMap.jsx';
+import Page from '../commons/pageNumber';
 
 
 let blogReqSource;
@@ -160,67 +161,6 @@ function Blog(props) {
     }
   }
 
-  function getPageNav() {
-    if (!(blogLists && blogLists.length > 0)) return false;
-    const start = Math.max(1, page.current - 2);
-    const end = Math.min(page.total, page.current + 2);
-    const pageArr = [];
-
-    const search = getSearchObj().tags
-
-    for (let i = start; i <= end; i++) {
-      pageArr.push(
-        <Link key={`page_${i}`} to={{
-          pathname: `/blog/${i}`,
-          search: (search ? `?tags=${search}` : '')
-        }}
-          className={i === page.current ? CSS.active : ''}  >{i}</Link>
-      )
-    }
-
-    return (
-      <>
-        {page.current > 1 ?
-          (<Link
-            to={{
-              pathname: `/blog/${page.current - 1}`,
-              search: (search ? `?tags=${search}` : '')
-            }}
-            className={`/blog/${page.current - 1}`}>
-            <Lan en="Previous" zh="上一页" />
-          </Link>) : ''}
-        {page.current > 3 ? (
-          <>
-            <Link
-              to={{
-                pathname: `/blog/1`,
-                search: (search ? `?tags=${search}` : '')
-              }}
-              className={`/blog/1`}>
-              1
-          </Link>
-            <span>...</span>
-          </>
-        ) : ''}
-        {pageArr}
-        {page.total - page.current > 3 ? <span>...</span> : ''}
-        {page.current < page.total - 3 ? (
-          <Link to={{
-            pathname: `/blog/${page.total}`,
-            search: (search ? `?tags=${search}` : '')
-          }} className={`/blog/${page.total}`}  >{page.total}</Link>
-        ) : ''}
-        {page.current < page.total ? (
-          <Link to={{
-            pathname: `/blog/${page.current + 1}`,
-            search: (search ? `?tags=${search}` : '')
-          }} className={`/blog/${page.current + 1}`}  ><Lan en="Next" zh="下一页" /></Link>
-        ) : ''}
-
-      </>
-    )
-  }
-
   return (
     <div className={CSS.blogBody}>
       <div className={CSS.blogContent}>
@@ -231,7 +171,12 @@ function Blog(props) {
           {getBlogLists()}
         </div>
         <div className={CSS['blog-pages']}>
-          {getPageNav()}
+          <Page
+            total={page.total}
+            current={page.current}
+            bacicPath='/blog'
+            search={(getSearchObj().tags ? `?tags=${getSearchObj().tags}` : '')}
+          />
         </div>
       </div>
     </div>
