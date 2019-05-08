@@ -1,3 +1,5 @@
+!! This repo archive is move to https://github.com/zmofei/zhuwenlong.com-frontend and https://github.com/zmofei/zhuwenlong.com-server !!
+
 # myblog
 
 This is the source code of my blog https://zhuwenlong.com aka https://himofei.com
