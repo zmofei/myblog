@@ -1,4 +1,4 @@
-!! This repo archive is move to https://github.com/zmofei/zhuwenlong.com-frontend and https://github.com/zmofei/zhuwenlong.com-server !!
+!! This repo has been archived and moved to https://github.com/zmofei/zhuwenlong.com-frontend and https://github.com/zmofei/zhuwenlong.com-server !!
 
 # myblog
 
